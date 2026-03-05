@@ -8,7 +8,7 @@ This track captures the project-level tasks required to align the Data Hub with 
 - **Target Environment**: Power Pages (https://datahub-austroads.crm6.dynamics.com/)
 - **GitHub Project**: [dataHub-agentic-agents](https://github.com/users/Aust-aa-36/projects/14)
 
-## Tasks List (Standardized)
+## Tasks List (ServiceNow Standard)
 
 ### Historical Iterations (Completed)
 - [x] **Iteration 1**: Initial Site Build ([#1](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/1))
@@ -28,9 +28,12 @@ This track captures the project-level tasks required to align the Data Hub with 
 - [x] **Iteration 15**: Catalog Card Unification & Tags ([#15](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/15))
 - [x] **Iteration 16**: AI Chatbot Enhancements ([#16](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/16))
 
-### Current Platform Work
-- [x] **AI CI/CD Integration**: Conductor, Jules, Gemini ([#17](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/17))
-- [x] **Platform Standardization**: Issue Templates, Orchestration Assets ([#18](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/18))
+### Platform Setup (To Do)
+- [ ] **Configure GitHub Secrets**: Power Pages credentials ([#19](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/19))
+- [ ] **Initialize GitHub Labels**: Setup AI toolchain labels ([#24](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/24))
+- [ ] **Install Jules App**: Autonomous coding activation ([#21](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/21))
+- [ ] **Install Gemini App**: Automated code reviews ([#22](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/22))
+- [ ] **Verify Sync Workflow**: Test sync.js in CI/CD ([#23](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/23))
 
 ## Key Files
 - `austroads-power-pages/ARCHITECTURE.md`
