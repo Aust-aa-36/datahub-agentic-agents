@@ -139,6 +139,13 @@ function syncPages() {
   }
 }
 
-syncSharedCss();
-syncPages();
-console.log('\n--- Sync Complete ---');
+if (require.main === module) {
+  syncSharedCss();
+  syncPages();
+  console.log('\n--- Sync Complete ---');
+}
+
+module.exports = {
+  syncSharedCss,
+  syncPages
+};
