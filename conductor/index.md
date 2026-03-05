@@ -1,4 +1,4 @@
-# Conductor Project Index
+# Conductor Project Index — Austroads Data Info Hub
 
 Welcome to the **Austroads Data Info Hub** project orchestration center. This index serves as the entry point for all project documentation and strategic planning.
 
@@ -12,9 +12,3 @@ Welcome to the **Austroads Data Info Hub** project orchestration center. This in
 ## Project Execution
 
 - **[Tracks Registry](./tracks.md)**: The central registry for all workstreams and feature implementations.
-
-## How to use Conductor
-
-1.  **Define**: Update the strategic assets as the project evolves.
-2.  **Plan**: Create a new "Track" in the `tracks.md` registry for major features.
-3.  **Execute**: Follow the workflow defined in `workflow.md` to move tracks from `Proposed` to `Completed`.
