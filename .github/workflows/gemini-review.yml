@@ -1,0 +1,56 @@
+name: Gemini Code Assist Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  gemini-label:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Label PR for Gemini review tracking
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const isJules = context.payload.pull_request.user.login.includes('jules');
+            const labels = ['ai-review:pending'];
+            if (isJules) labels.push('jules:authored');
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: labels
+            }).catch(() => console.log('Labels may already exist'));
+
+            // Clear any stale ai-review:violations or ai-review:resolved labels on resync
+            if (context.payload.action === 'synchronize') {
+              for (const stale of ['ai-review:violations', 'ai-review:resolved']) {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  name: stale
+                }).catch(() => {});
+              }
+              // Re-add ai-review:pending so Gemini re-reviews the updated commit
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['ai-review:pending']
+              }).catch(() => {});
+            }
+
+            // Note: Gemini Code Assist GitHub App reviews PRs automatically.
+            // No action invocation needed — the App posts inline comments directly.
+            // When Gemini finds violations on a Jules-authored PR, gemini-jules-bridge.yml
+            // forwards them as a structured @jules comment so Jules acts on them.
+            console.log('Gemini Code Assist (GitHub App) will review this PR automatically.');
+            console.log('Review rules are defined in .gemini/styleguide.md');
+            console.log('Violations on Jules PRs will be bridged by gemini-jules-bridge.yml');

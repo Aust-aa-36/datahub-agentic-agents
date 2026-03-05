@@ -1,0 +1,93 @@
+name: Jules AI Autonomous Fix
+
+# How Jules is actually triggered:
+#   1. workflow_dispatch — creates a GitHub issue that Jules' GitHub App picks up
+#   2. issues: labeled   — same issue creation path, triggered by jules:fix label
+#
+# Note: Jules is invoked via its GitHub App integration.
+# This workflow creates a well-structured issue that Jules reads and acts on.
+
+on:
+  workflow_dispatch:
+    inputs:
+      reference_url:
+        description: 'Reference URL (e.g., GitHub Issue, PR, or Incident Link)'
+        required: true
+        type: string
+      task_description:
+        description: 'Description of the task or bug to fix'
+        required: true
+        type: string
+      scope:
+        description: 'Scope of the fix (e.g., module, directory, or "global")'
+        required: false
+        default: 'auto-detect'
+        type: string
+
+jobs:
+  create-jules-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Create Jules task issue
+        id: create-issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const referenceUrl = `${{ github.event.inputs.reference_url }}`;
+            const taskDesc     = `${{ github.event.inputs.task_description }}`;
+            const scope        = `${{ github.event.inputs.scope }}`;
+
+            const body = [
+              '## Task for Jules',
+              '',
+              '> This issue was auto-created by `jules-autonomous.yml` for Jules to action.',
+              '> Jules will read this, apply the fix, and open a Pull Request.',
+              '',
+              '### Reference',
+              `**Link:** ${referenceUrl}`,
+              `**Scope:** ${scope}`,
+              '',
+              '### Task Description',
+              taskDesc,
+              '',
+              '---',
+              '### Standards Reminder',
+              'All fixes must follow the repository standards defined in:',
+              '- `.gemini/styleguide.md`',
+              '- `.gemini/skills/coding-standards.md` (if applicable)',
+              '',
+              'Please ensure all tests pass before opening a Pull Request.',
+            ].join('\n');
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              title: `[Jules Fix] ${scope} — ${taskDesc.substring(0, 50)}...`,
+              body,
+              labels: ['jules:fix', 'task']
+            });
+
+            console.log(`Created issue #${issue.data.number}: ${issue.data.html_url}`);
+            return issue.data.number;
+
+      - name: Post dispatch summary
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = ${{ steps.create-issue.outputs.result }};
+            const url   = `https://github.com/${{ github.repository }}/issues/${issue}`;
+            core.summary
+              .addHeading('Jules task issue created')
+              .addRaw(`Issue **#${issue}** has been created with the \`jules:fix\` label.\n\n`)
+              .addRaw(`➡️ **[View issue](${url})**\n\n`)
+              .addRaw('Jules\' GitHub App will pick this up automatically.\n')
+              .addRaw('If Jules does not respond within a few minutes, trigger the task\n')
+              .addRaw('manually at **[jules.google.com](https://jules.google.com)** and\n')
+              .addRaw(`point it at issue **#${issue}**.`)
+              .write();

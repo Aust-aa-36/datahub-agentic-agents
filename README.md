@@ -1,46 +1,39 @@
-# Austroads Data Info Hub — Power Pages POC
+# AI CI/CD Template Repository
 
-This repository contains the source code and deployment configuration for the Austroads Data Info Hub Power Pages POC.
+This repository serves as the "Gold Standard" template for initializing new projects with a fully integrated, autonomous AI development toolchain.
 
-## Project Structure
+## 🚀 Integrated Toolchain
 
-- `austroads-power-pages/`: **Source of Truth** for all HTML, CSS, and JS.
-- `austroads-power-pages-verify2/`: The deployment-ready structure for Microsoft Power Pages CLI (`pac pages`).
-- `sync.js`: A script that automates syncing changes from the source folder to the deployment folder.
-- `.github/workflows/deploy.yml`: GitHub Actions workflow for CI/CD.
+This repository is pre-configured with the following:
 
-## Getting Started
+### 1. Autonomous Coding (Jules)
+- **Workflow**: `.github/workflows/jules-autonomous.yml`
+- **Trigger**: Creating a GitHub issue with the `jules:fix` label.
+- **Outcome**: Jules analyzes the issue, implements a fix, runs tests, and opens a Pull Request.
 
-### Prerequisites
+### 2. AI Code Review (Gemini Code Assist)
+- **Workflow**: `.github/workflows/gemini-review.yml`
+- **Reviewer**: Gemini Code Assist (GitHub SCM App).
+- **Trigger**: Any Pull Request opened or synchronized.
+- **Outcome**: Automated, inline code reviews based on the `.gemini/styleguide.md`.
 
-- Node.js (>=18.0.0)
-- Microsoft Power Platform CLI (`pac`)
+### 3. The Bridge (Gemini → Jules)
+- **Workflow**: `.github/workflows/gemini-jules-bridge.yml`
+- **Feedback Loop**: Automatically forwards Gemini's review violations to Jules as a structured comment.
+- **Outcome**: Jules acts on the feedback and pushes a follow-up commit autonomously.
 
-### Development Workflow
+### 4. Conductor Orchestration
+- **Folder**: `conductor/`
+- **Guideline**: Defines the expert skill orchestration for Planning, Design, Implementation, and Review phases.
 
-1.  Make your changes in the `austroads-power-pages/` directory.
-2.  Run the sync script to update the deployment folder:
-    ```bash
-    npm run sync
-    ```
-3.  Verify the changes in `austroads-power-pages-verify2/datahub---datahub/`.
-4.  Commit and push your changes to GitHub.
+## 🛠️ Usage
 
-## CI/CD Deployment
+To initialize a new repository using this template:
 
-The project is set up with GitHub Actions to automatically deploy to Power Pages on every push to the `master` branch.
+1.  Clone this repository or use it as a GitHub Template.
+2.  Use the **`ai-cicd-setup`** skill from the [Global Skills](https://github.com/Aust-aa-36/global-skills) repository to automate the setup of labels and orchestration.
+3.  Ensure the **Jules** and **Gemini Code Assist** GitHub Apps are installed on the new repo.
 
-### Required GitHub Secrets
-
-To enable deployment, you must add the following secrets to your GitHub repository (`Settings > Secrets and variables > Actions`):
-
-| Secret | Description |
-|--------|-------------|
-| `CLIENT_ID` | Microsoft Entra ID (Azure AD) Application ID |
-| `CLIENT_SECRET` | Microsoft Entra ID (Azure AD) Application Secret |
-| `TENANT_ID` | Microsoft Entra ID (Azure AD) Tenant ID |
-| `ENVIRONMENT_URL` | Dataverse environment URL (e.g., `https://datahub-austroads.crm6.dynamics.com/`) |
-
-## License
-
-Internal POC — Austroads · NEVDIS · TCA · For Authorised Users Only
+## ⚖️ Standards
+- **Styleguide**: `.gemini/styleguide.md`
+- **CI/CD Standards**: `.gemini/skills/cicd-standards.md`
