@@ -30,10 +30,10 @@ This track captures the project-level tasks required to align the Data Hub with 
 
 ### Platform Setup (To Do)
 - [ ] **Configure GitHub Secrets**: Power Pages credentials ([#19](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/19))
-- [ ] **Initialize GitHub Labels**: Setup AI toolchain labels ([#24](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/24))
+- [x] **Initialize GitHub Labels**: Setup AI toolchain labels ([#24](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/24))
 - [ ] **Install Jules App**: Autonomous coding activation ([#21](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/21))
 - [ ] **Install Gemini App**: Automated code reviews ([#22](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/22))
-- [ ] **Verify Sync Workflow**: Test sync.js in CI/CD ([#23](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/23))
+- [x] **Verify Sync Workflow**: Test sync.js in CI/CD ([#23](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/23))
 
 ## Key Files
 - `austroads-power-pages/ARCHITECTURE.md`
