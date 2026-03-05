@@ -1,41 +1,30 @@
-# Track Plan — ServiceNow Platform Implementation
+# Track Plan — ServiceNow Platform Integration
 
-This track serves as the master project record for the Austroads Data Info Hub, capturing all iterations and architectural milestones in a standardized task structure.
+This track captures the project-level tasks required to align the Data Hub with the ServiceNow Platform standards.
 
-## Objectives
+## Project Summary
+- **Owner**: Aaron
+- **Framework**: Conductor / ServiceNow-aligned
+- **Target Environment**: Power Pages (https://datahub-austroads.crm6.dynamics.com/)
 
--   Document all 16 historical iterations from `ARCHITECTURE.md`.
--   Align platform work with the ServiceNow project management structure.
--   Track ongoing enhancements and feature implementations.
+## Tasks List
 
-## Milestones & Tasks
+### Initial Setup & Configuration
+- [x] **TASK-001**: Initialize Conductor strategic assets (`product.md`, `tech-stack.md`, etc.).
+- [x] **TASK-002**: Initialize GitHub labels and standard issue templates.
+- [x] **TASK-003**: Deploy "Gold Standard" AI CI/CD pipeline (Jules + Gemini).
 
-### Completed Iterations
+### Platform Architecture & Documentation
+- [x] **TASK-004**: Audit 16 historical iterations from `ARCHITECTURE.md`.
+- [x] **TASK-005**: Map existing page structure to ServiceNow-style catalog management.
+- [ ] **TASK-006**: Finalize design system documentation in `product-guidelines.md`.
 
--   [x] **Iteration 1**: Initial Site Build (20-page portal, design system, Web templates).
--   [x] **Iteration 2**: Theme Overhaul (Warm cream/beige palette, Slate blue-grey navy).
--   [x] **Iteration 3**: Logo & Branding (Transparent PNG logo, base64 encoding).
--   [x] **Iteration 4**: Domain Brand Sections (NEVDIS orange, TCA teal sections).
--   [x] **Iteration 5**: AI Agent v1 (Monolithic prompt, JS-injected panel).
--   [x] **Iteration 6**: AI Agent v2 (Multi-agent router, Dataverse knowledge injection).
--   [x] **Iteration 7**: Knowledge Enrichment (Metadata columns, Field-level Dataverse table).
--   [x] **Iteration 8**: Rich Response Rendering (Markdown-to-HTML in chat).
--   [x] **Iteration 9**: Style Guide 2021 Alignment (Colors, Roboto Slab/Arial fonts).
--   [x] **Iteration 10**: TCA Colour Palette Update (Official teal palette alignment).
--   [x] **Iteration 11**: General Knowledge Badge (Charcoal "AUSTROADS" badge).
--   [x] **Iteration 12**: AI-First Hero Redesign (Pill search bar entry point).
--   [x] **Iteration 13**: Catalog & Search Cleanup (Body-only HTML pattern).
--   [x] **Iteration 14**: Home Page Layout Polish (Unified service card grid).
--   [x] **Iteration 15**: Catalog Card Unification & Tags (Compact cards with tags).
--   [x] **Iteration 16**: AI Chatbot Enhancements (User context, feedback, export, etc.).
-
-### Current Work
-
--   [x] **AI CI/CD Integration**: Initialization of Conductor, Jules, and Gemini workflows.
--   [x] **ServiceNow Platform Structure**: Implementation of GitHub Issue templates and standardized Conductor assets.
+### Verification & Handover
+- [ ] **TASK-007**: Verify end-to-end sync workflow (`node sync.js`) in CI/CD environment.
+- [ ] **TASK-008**: document secret management for `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID`.
 
 ## Key Files
-
--   `austroads-power-pages/ARCHITECTURE.md`
--   `conductor/`
--   `.github/ISSUE_TEMPLATE/`
+- `conductor/index.md`
+- `conductor/tracks.md`
+- `.github/workflows/deploy.yml`
+- `austroads-power-pages/ARCHITECTURE.md`
