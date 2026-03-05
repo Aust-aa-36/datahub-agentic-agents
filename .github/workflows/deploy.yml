@@ -1,0 +1,37 @@
+name: Deploy to Power Pages
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync Source to Deploy Folder
+        run: node sync.js
+
+      - name: install-pac-cli
+        uses: microsoft/powerplatform-actions/install-pac@v1
+
+      - name: Upload to Power Pages
+        shell: pwsh
+        run: |
+          pac auth create --name "GitHubAction" \
+            --url "${{ secrets.ENVIRONMENT_URL || 'https://datahub-austroads.crm6.dynamics.com/' }}" \
+            --applicationId "${{ secrets.CLIENT_ID }}" \
+            --clientSecret "${{ secrets.CLIENT_SECRET }}" \
+            --tenant "${{ secrets.TENANT_ID }}"
+
+          pac pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
+            --environment "${{ secrets.ENVIRONMENT_URL || 'https://datahub-austroads.crm6.dynamics.com/' }}" \
+            --modelVersion 2

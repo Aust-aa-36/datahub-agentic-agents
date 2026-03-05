@@ -1,0 +1,15 @@
+{
+  "name": "aa-datahub",
+  "version": "1.0.0",
+  "description": "Austroads Data Info Hub Power Pages POC",
+  "main": "sync.js",
+  "scripts": {
+    "sync": "node sync.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aaron",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
