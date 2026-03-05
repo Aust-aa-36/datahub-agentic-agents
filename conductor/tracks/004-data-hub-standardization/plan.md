@@ -8,7 +8,7 @@ This track captures the project-level tasks required to align the Data Hub with 
 - **Target Environment**: Power Pages (https://datahub-austroads.crm6.dynamics.com/)
 - **GitHub Project**: [dataHub-agentic-agents](https://github.com/users/Aust-aa-36/projects/14)
 
-## Tasks List (ServiceNow Standard)
+## Tasks List (Platform Standards)
 
 ### Historical Iterations (Completed)
 - [x] **Iteration 1**: Initial Site Build ([#1](https://github.com/Aust-aa-36/datahub-agentic-agents/issues/1))
