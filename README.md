@@ -1,39 +1,78 @@
-# AI CI/CD Template Repository
+# Austroads Data Info Hub — AI Agent Technical Manual
 
-This repository serves as the "Gold Standard" template for initializing new projects with a fully integrated, autonomous AI development toolchain.
+Welcome, Agent. This repository is a Microsoft Power Pages POC integrated with a multi-agent AI router. This manual defines the system architecture, deployment protocols, and CI/CD workflows.
 
-## 🚀 Integrated Toolchain
+---
 
-This repository is pre-configured with the following:
+## 🤖 AI Agent Onboarding
 
-### 1. Autonomous Coding (Jules)
-- **Workflow**: `.github/workflows/jules-autonomous.yml`
-- **Trigger**: Creating a GitHub issue with the `jules:fix` label.
-- **Outcome**: Jules analyzes the issue, implements a fix, runs tests, and opens a Pull Request.
+### 1. Essential Skills
+To work effectively in this repository, ensure you have the following skills active:
+- `universal-coding-rules`: Standard engineering principles.
+- `coding-standards`: TypeScript/JavaScript best practices.
+- `ai-cicd-setup`: Understanding of the Jules/Gemini pipeline.
 
-### 2. AI Code Review (Gemini Code Assist)
-- **Workflow**: `.github/workflows/gemini-review.yml`
-- **Reviewer**: Gemini Code Assist (GitHub SCM App).
-- **Trigger**: Any Pull Request opened or synchronized.
-- **Outcome**: Automated, inline code reviews based on the `.gemini/styleguide.md`.
+### 2. Environmental Constraints (The "Power Pages" Gotchas)
+- **Positioning**: `position:fixed` is broken inside page content due to a CSS-transformed ancestor. **Always** build fixed-UI components (drawers, modals) in JS and append to `document.body`.
+- **Event Listeners**: Standard listeners disappear on DOM re-renders. **Always** use inline `onclick` or document-level delegation.
+- **CSS Delivery**: Browser caching for `.css` web files is unreliable. **Always** inline shared CSS in the web template (`Austroads-Layout`).
 
-### 3. The Bridge (Gemini → Jules)
-- **Workflow**: `.github/workflows/gemini-jules-bridge.yml`
-- **Feedback Loop**: Automatically forwards Gemini's review violations to Jules as a structured comment.
-- **Outcome**: Jules acts on the feedback and pushes a follow-up commit autonomously.
+---
 
-### 4. Conductor Orchestration
-- **Folder**: `conductor/`
-- **Guideline**: Defines the expert skill orchestration for Planning, Design, Implementation, and Review phases.
+## 📁 Repository Map
 
-## 🛠️ Usage
+- `austroads-power-pages/` : **Source of Truth**. Edit only here.
+  - `home/` : AI Chat panel logic (`home.js`) and styles (`home.css`).
+  - `shared/` : Shared design system (`austroads.css`).
+  - `agent-skill/` : AI Specialist prompts and Dataverse seed data.
+- `austroads-power-pages-verify2/` : **Deployment Folder**. Managed by `pac pages`.
+- `conductor/` : Project orchestration and track plans.
+- `.github/workflows/` : CI/CD pipelines (Power Pages Upload, Jules, Gemini).
+- `sync.js` : Automation for the "Dual-Copy" deployment pattern.
 
-To initialize a new repository using this template:
+---
 
-1.  Clone this repository or use it as a GitHub Template.
-2.  Use the **`ai-cicd-setup`** skill from the [Global Skills](https://github.com/Aust-aa-36/global-skills) repository to automate the setup of labels and orchestration.
-3.  Ensure the **Jules** and **Gemini Code Assist** GitHub Apps are installed on the new repo.
+## 🚀 Deployment Process
 
-## ⚖️ Standards
-- **Styleguide**: `.gemini/styleguide.md`
-- **CI/CD Standards**: `.gemini/skills/cicd-standards.md`
+### Step 1: Implementation
+Implement features in `austroads-power-pages/`. Follow the `.gemini/styleguide.md` strictly.
+
+### Step 2: Synchronization
+Run the sync script to propagate changes to the deployment-ready folder:
+```bash
+npm run sync
+```
+*Note: This script handles the dual-copy requirement and CSS inlining.*
+
+### Step 3: CI/CD Upload
+Pushes to `master` trigger the `.github/workflows/deploy.yml` which:
+1. Runs `sync.js`.
+2. Authenticates with Power Platform CLI (`pac`).
+3. Uploads `austroads-power-pages-verify2/datahub---datahub` to the live site.
+
+---
+
+## 🛠️ AI Toolchain (CI/CD)
+
+### Jules (Autonomous Coding)
+- **Trigger**: Create an issue with the `jules` label.
+- **Protocol**: Jules will read the issue, implement a fix, and open a PR.
+
+### Gemini (Automated Review)
+- **Trigger**: Any Pull Request.
+- **Protocol**: Gemini reviews changes against `.gemini/styleguide.md` and provides inline feedback.
+
+### Conductor (Planning)
+- **Entry Point**: `conductor/index.md`
+- **Mandate**: Every major feature must have a corresponding "Track" in `conductor/tracks.md` and a detailed plan.
+
+---
+
+## ⚖️ Standards Compliance
+- **Design System**: Align with `conductor/product-guidelines.md`.
+- **Coding Style**: Strictly follow `.gemini/styleguide.md`.
+- **Secrets**: NEVER commit credentials. Use GitHub Secrets for `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID`.
+
+---
+
+*Verified Agent Protocol · Austroads Data Info Hub · POC v2*

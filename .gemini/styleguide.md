@@ -1,83 +1,51 @@
-# Gemini Code Assist Style Guide — General Template
+# AI Agent Coding Styleguide — Austroads Data Info Hub
 
-## Overview
-This file configures Gemini Code Assist review rules for this repository.
-These rules are applied to all Pull Requests.
+Expert guidelines for AI agents (Jules, Gemini, etc.) working on this repository. Follow these mandates to ensure compatibility with the Microsoft Power Pages environment.
 
----
+## 1. Environment Constraints
 
-## CRITICAL Rules (block merge if violated)
+### The Transformed Ancestor
+- **Mandate**: Never use `position:fixed` inside HTML/CSS files intended for page content.
+- **Why**: Power Pages wraps content in a CSS-transformed ancestor that breaks fixed positioning.
+- **Rule**: If a fixed-position element is needed (modals, drawers), it must be built in JavaScript and appended to `document.body` (outside the wrapper).
 
-### SEC-001: No Hardcoded Credentials
-Never accept hardcoded passwords, API keys, tokens, secrets, or connection strings.
-```javascript
-// FAIL
-const token = 'eyJhbGciOiJSUzI1NiJ9...';
-const password = 'MyP@ssw0rd';
+### DOM Persistence
+- **Mandate**: Avoid binding persistent event listeners directly to elements inside the page content.
+- **Why**: Power Pages may re-render sections of the DOM, detaching standard listeners.
+- **Rule**: Prefer inline `onclick` attributes or document-level event delegation (`document.addEventListener('click', (e) => { ... })`).
 
-// PASS (Use Environment Variables or Secret Managers)
-const token = process.env.API_TOKEN;
-```
+## 2. Deployment Workflow
 
-### SEC-002: No PII in Logs
-Log statements must never include email addresses, full names, phone numbers, or other personally identifiable information (PII).
-```javascript
-// FAIL
-logger.info('Processing user email=' + userData.email);
+### Source of Truth
+- **Path**: Always edit files in `austroads-power-pages/`. This is the source of truth.
+- **Mandate**: Never edit files directly in `austroads-power-pages-verify2/`.
 
-// PASS
-logger.info('Processing user id=' + userData.id);
-```
+### The Dual-Copy Pattern
+- **Mandate**: When updating a page file (HTML, CSS, JS), you MUST copy it to TWO locations in the deployment folder:
+  1. `web-pages/[page-folder]/[File].webpage.[type].[ext]`
+  2. `web-pages/[page-folder]/content-pages/[File].en-US.webpage.[type].[ext]`
+- **Verification**: Ensure `node sync.js` is run after every source edit to automate this pattern.
 
-### SEC-003: Input Validation
-All external data (API responses, user input, webhook payloads) must be validated before use.
+### CSS Delivery
+- **Mandate**: Changes to `austroads-power-pages/shared/austroads.css` MUST be mirrored into the inline `<style>` block in `Austroads-Layout.webtemplate.source.html`.
+- **Why**: Power Pages does not reliably load `.css` web files; inlined styles are the only guaranteed method.
 
----
+## 3. JavaScript Standards
 
-## Code Quality Rules
+### Liquid Compatibility
+- **Rule**: When reading data-attributes rendered by Liquid, always check if they contain `{{` or `}}`.
+- **Snippet**:
+  ```javascript
+  const rawValue = element.dataset.firstName;
+  const renderedValue = (rawValue && !rawValue.includes('{{')) ? rawValue : 'Guest';
+  ```
 
-### CODE-001: Clear Naming Conventions
-Variables and functions should have descriptive names.
-- Avoid single-letter variables (except `i`, `j` in loops).
-- Use `camelCase` for variables/functions (or language-specific standard like `snake_case` for Python).
+### API Interaction
+- **History**: AI Agent requests must always include the `history` array, sliced to the last 8 entries (4 complete turns).
+- **Latency**: Use the `showSlowHint()` pattern (12s threshold) for all AI Builder calls to manage user expectations.
 
-### CODE-002: Error Handling
-Always handle errors gracefully. Avoid empty `catch` blocks.
-```javascript
-// FAIL
-try {
-  doSomething();
-} catch (e) {}
+## 4. HTML Standards
 
-// PASS
-try {
-  doSomething();
-} catch (e) {
-  logger.error('Failed to doSomething', e);
-}
-```
-
----
-
-## Testing Standards
-
-### TEST-001: Test Coverage
-Ensure new features include unit tests.
-- Aim for high coverage on critical paths.
-- Mock external dependencies (APIs, Databases).
-
----
-
-## Documentation Standards
-
-### DOC-001: Comments
-- Explain *why* complex logic exists, not *what* it does.
-- Public functions should have docstrings/JSDoc.
-
----
-
-## Jules AI Interaction
-When Gemini requests changes on a Jules-authored PR:
-1. Be specific: reference the rule code (e.g. `SEC-001`) in the review comment.
-2. Provide the corrected code pattern inline.
-3. Use "Request changes" for CRITICAL violations.
+### Main Content Only
+- **Rule**: Page-specific `.html` files in the source folder should only contain the content that belongs inside the `<main>` tag.
+- **Constraint**: Do not include `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`, `<header>`, or `<footer>`. These are provided by the `Austroads-Layout` web template.
