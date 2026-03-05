@@ -23,6 +23,10 @@ Active Site Settings*
 .DS_Store
 Thumbs.db
 
+# Genkit Agent
+genkit-agent/credentials/
+genkit-agent/.env
+
 # Deployment folder (if we want to keep it out and generate it)
 # For now, let's keep it in the repo as it's the target structure
 # unless we have a robust sync script.

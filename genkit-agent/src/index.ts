@@ -1,5 +1,10 @@
 import { genkit, z } from 'genkit';
 import { googleAI } from '@genkit-ai/google-genai';
+import axios from 'axios';
+import { getDataverseToken } from './auth';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 /**
  * GENKIT CONFIGURATION
@@ -62,32 +67,50 @@ const getKnowledgeTool = ai.defineTool(
     inputSchema: z.object({
       domain: z.enum(['NEVDIS', 'TCA', 'GENERAL']),
       product: z.string().optional().describe('Specific product slug like "p2v" or "ems"'),
-      userRole: z.string().optional(),
+      userRole: z.string().optional().describe('The Power Pages Web Role of the user'),
     }),
   },
   async (input) => {
-    // In production, this performs a FetchXML query:
-    // 1. Join cre52_knowledge_article + cre52_product_field
-    // 2. Filter by domain and product
-    // 3. SECURE: Only return if cre52_entitlement allows it for userRole
-    
+    const token = await getDataverseToken();
+    const domainValue = input.domain === 'NEVDIS' ? 1 : 2; // Mapping to Choice values
+
     console.log(`[RAG] Fetching knowledge for ${input.product || input.domain} for role ${input.userRole}`);
+
+    // OData Query with Filter and Expand
+    const url = `${process.env.DATAVERSE_URL}/api/data/v9.2/cre52_knowledge_articles` +
+                `?$filter=cre52_domain eq ${domainValue} and cre52_status eq 1` +
+                (input.product ? ` and cre52_product_slug eq '${input.product}'` : '') +
+                `&$expand=cre52_product_field_RelatedArticle($select=cre52_field_name,cre52_field_description)` +
+                `&$expand=cre52_entitlement_RelatedArticle($filter=cre52_web_role_name eq '${input.userRole}')`;
+
+    const response = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } });
     
-    // Example Grounding Data (Mocked from seed data)
-    return {
-      title: input.product === 'p2v' ? "Plate-to-VIN (P2V)" : `${input.domain} Overview`,
-      summary: "Detailed product summary from Dataverse...",
-      metadata: {
-        category: "Data Product",
-        update_frequency: "Real-time",
-        delivery: "API / Web Service",
-        contact: input.domain === 'NEVDIS' ? "nevdis@austroads.com.au" : "support@tca.gov.au"
-      },
-      fields: [
-        { name: "VIN", type: "String", direction: "Output" },
-        { name: "Plate", type: "String", direction: "Input" }
-      ]
-    };
+    // Logic: If entitlement expansion is empty, filter the article out (Security check)
+    const authorizedArticles = response.data.value.filter((article: any) => 
+        article.cre52_entitlement_RelatedArticle && article.cre52_entitlement_RelatedArticle.length > 0
+    );
+
+    if (authorizedArticles.length === 0) {
+        return { 
+            message: "No articles found or access denied for your role.",
+            contact: input.domain === 'NEVDIS' ? "nevdis@austroads.com.au" : "support@tca.gov.au"
+        };
+    }
+
+    return authorizedArticles.map((article: any) => ({
+        title: article.cre52_title,
+        summary: article.cre52_summary,
+        metadata: {
+          category: article.cre52_category,
+          update_frequency: article.cre52_update_frequency,
+          delivery: article.cre52_delivery_method,
+          contact: input.domain === 'NEVDIS' ? "nevdis@austroads.com.au" : "support@tca.gov.au"
+        },
+        fields: article.cre52_product_field_RelatedArticle.map((field: any) => ({
+            name: field.cre52_field_name,
+            description: field.cre52_field_description
+        }))
+    }));
   }
 );
 
