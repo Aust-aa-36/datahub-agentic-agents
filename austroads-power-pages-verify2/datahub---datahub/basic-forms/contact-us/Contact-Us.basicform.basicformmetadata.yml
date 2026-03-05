@@ -1,0 +1,18 @@
+- adx_adddescription: false
+  adx_entityform: e523675b-cf13-f111-8407-7ced8da15903
+  adx_entityformmetadataid: 0a688b5a-cf13-f111-8406-6045bde54932
+  adx_fieldisrequired: false
+  adx_ignoredefaultvalue: false
+  adx_label: >-
+    [
+      {
+        "LCID": 1033,
+        "Value": "Contact Us"
+      }
+    ]
+  adx_name: Contact Us general
+  adx_randomizeoptionsetvalues: false
+  adx_setvalueonsave: false
+  adx_tabname: general
+  adx_type: 100000002
+  adx_useattributedescriptionproperty: true

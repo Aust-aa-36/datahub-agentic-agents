@@ -1,0 +1,90 @@
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/tca">TCA</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Road Analytics Services</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--gold">TCA · Data Product</span>
+      </div>
+      <h1 class="au-page-hero__title">Road Analytics Services</h1>
+      <p class="au-page-hero__sub">Aggregated analysis of heavy vehicle road usage across different states — insight into how monitored vehicles use road corridors over time.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="ra-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="ra-how" aria-selected="false">How It Works</button>
+        <button class="au-tab " data-tab-target="ra-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="ra-overview" class="au-tab-content active au-prose">
+          <h3>What it does</h3>
+          <p>TCA's Road Analytics Services aggregate spatiotemporal telematics data from NTF-enrolled heavy vehicles to produce corridor-level road usage insights. These services reveal how, when, and how frequently monitored vehicles use specific road segments — supporting infrastructure planning, road management, and investment prioritisation.</p>
+          <h3>Who uses it</h3>
+          <p>Road authorities and infrastructure planners, state and territory government transport agencies, freight policy developers, and research organisations. Data is available for all states across the national road network.</p>
+        </div>
+        <div id="ra-how" class="au-tab-content  au-prose" hidden>
+          <h3>How it works</h3>
+          <ol class="au-steps">
+            <li><span>Spatiotemporal records from enrolled heavy vehicles are map-matched to the road network segments.</span></li>
+            <li><span>Matched records are aggregated by road segment, time period, and vehicle class.</span></li>
+            <li><span>Aggregated metrics (vehicle counts, speeds, usage frequencies) are computed per corridor.</span></li>
+            <li><span>Results are published to ArcGIS dashboards and available as bulk dataset extracts.</span></li>
+          </ol>
+          <h3>Available outputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Output</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Corridor usage counts</td><td>Number of vehicle passes per road segment per time period</td></tr>
+            <tr><td>Average speeds</td><td>Mean vehicle speeds per segment by time of day</td></tr>
+            <tr><td>State-level summaries</td><td>Aggregated metrics by state for network-level reporting</td></tr>
+            <tr><td>ArcGIS dashboard</td><td>Interactive map of road usage intensity across Australia</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="ra-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>All data aggregated and anonymised — no individual vehicle identification possible</li>
+            <li>Metrics derived from NTF-enrolled vehicles only — not representative of total freight task</li>
+            <li>Governed by TAP Terms and Conditions</li>
+          </ul>
+          <h3>Access process</h3>
+          <ol class="au-steps">
+            <li><span>Submit access request via <a href="https://urm.tca.gov.au/enrolment" target="_blank">TCA TAP User Enrolment</a>.</span></li>
+            <li><span>Eligibility and privacy checks completed.</span></li>
+            <li><span>Access provisioned to appropriate ArcGIS dashboards. Average approval: 2 business days.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>TCA · Data Product</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>National road network</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All Australian states</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>ArcGIS Enterprise dashboards</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Bulk datasets on request</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Monthly aggregated data</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 support@tca.gov.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>

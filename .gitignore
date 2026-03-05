@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backups and temporary files
+austroads-power-pages-backup-*/
+austroads-power-pages-download/
+austroads-power-pages-verify/
+datahub-postcache-check/
+*.xlsx
+*.pdf
+Active Site Settings*
+
+# Tools
+.claude/
+.obsidian/
+.vscode/
+
+# Local configuration
+.env
+.DS_Store
+Thumbs.db
+
+# Deployment folder (if we want to keep it out and generate it)
+# For now, let's keep it in the repo as it's the target structure
+# unless we have a robust sync script.
+# austroads-power-pages-verify2/

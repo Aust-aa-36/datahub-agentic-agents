@@ -1,0 +1,33 @@
+- adx_adddescription: false
+  adx_attributelogicalname: faq_topiciconfilename
+  adx_controlstyle: 756150001
+  adx_entityform: eab98360-cf13-f111-8406-6045bde54932
+  adx_entityformforcreate: eab98360-cf13-f111-8406-6045bde54932
+  adx_entityformmetadataid: 7af03761-cf13-f111-8407-6045bdc2f376
+  adx_fieldisrequired: false
+  adx_ignoredefaultvalue: false
+  adx_label: >-
+    [
+      {
+        "LCID": 1033,
+        "Value": "Upload Icon"
+      }
+    ]
+  adx_name: '[Admin] New Topic faq_topiciconfilename'
+  adx_randomizeoptionsetvalues: false
+  adx_setvalueonsave: false
+  adx_type: 100000000
+  adx_useattributedescriptionproperty: true
+- adx_adddescription: false
+  adx_attributelogicalname: faq_parenttopic
+  adx_controlstyle: 756150000
+  adx_entityform: eab98360-cf13-f111-8406-6045bde54932
+  adx_entityformforcreate: eab98360-cf13-f111-8406-6045bde54932
+  adx_entityformmetadataid: 89bc7261-cf13-f111-8407-7ced8da15903
+  adx_fieldisrequired: false
+  adx_ignoredefaultvalue: false
+  adx_name: '[Admin] New Topic faq_parenttopic'
+  adx_randomizeoptionsetvalues: false
+  adx_setvalueonsave: false
+  adx_type: 100000000
+  adx_useattributedescriptionproperty: true

@@ -1,0 +1,81 @@
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/tca">TCA</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Spatial Data Services</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--gold">TCA · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">Spatial Data Services (IAC / B2B)</h1>
+      <p class="au-page-hero__sub">Standardised spatial datasets derived from Geoscape layers — defining jurisdictional access rules and constraints for IAC and B2B systems for heavy vehicle operators.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="sp-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="sp-how" aria-selected="false">How It Works</button>
+        <button class="au-tab " data-tab-target="sp-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="sp-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>TCA's Spatial Data Services provide standardised geospatial datasets that underpin the Intelligent Access Certification (IAC) and Bridge-to-Bridge (B2B) systems. These spatial layers define road network access rules, bridge constraints, route approvals, and jurisdiction boundaries for heavy vehicle operators seeking access to restricted routes.</p>
+          <h3>Who uses it</h3>
+          <p>Road authorities and jurisdictions defining access rules, heavy vehicle operators and fleet managers planning routes, telematics service providers integrating route compliance into onboard systems, and researchers conducting road network analysis.</p>
+        </div>
+        <div id="sp-how" class="au-tab-content  au-prose" hidden>
+          <h3>Data sources</h3>
+          <p>Spatial layers are derived from Geoscape's PSMA road network data, augmented with jurisdiction-supplied access rules, bridge data, and road condition information. TCA standardises and validates these layers before distribution.</p>
+          <h3>Key datasets</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Dataset</th><th>Description</th></tr></thead><tbody>
+            <tr><td>IAC Road Network</td><td>Approved routes for Intelligent Access Certification — with access conditions per vehicle class</td></tr>
+            <tr><td>B2B Spatial Layer</td><td>Bridge-to-Bridge spatial constraints — bridge load limits and height restrictions</td></tr>
+            <tr><td>Jurisdiction Boundaries</td><td>State and territory boundary layers for route compliance and reporting</td></tr>
+            <tr><td>Road Segment Access Rules</td><td>Per-segment access conditions including time-of-day and vehicle class restrictions</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="sp-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Spatial data provided for authorised IAC and B2B purposes only</li>
+            <li>Geoscape base data subject to Geoscape licensing terms</li>
+            <li>Redistribution of spatial layers requires TCA authorisation</li>
+            <li>Route approvals derived from spatial data do not replace legal permit obligations</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>TCA · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>National road network</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All Australian jurisdictions</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Data source</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Geoscape PSMA road network</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Jurisdiction access rules</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Spatial API</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>GIS datasets on request</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 support@tca.gov.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>

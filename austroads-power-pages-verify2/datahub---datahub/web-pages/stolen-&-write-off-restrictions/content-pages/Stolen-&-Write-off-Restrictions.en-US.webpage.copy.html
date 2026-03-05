@@ -1,0 +1,90 @@
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Stolen &amp; Write-off Restrictions</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">Stolen &amp; Write-off Restrictions</h1>
+      <p class="au-page-hero__sub">National records of stolen vehicles and written-off vehicle restrictions (WOVR) — sourced from police and state registries to support fraud prevention and consumer protection.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="stolen-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="stolen-attributes" aria-selected="false">Attributes</button>
+        <button class="au-tab " data-tab-target="stolen-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="stolen-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>NEVDIS maintains national records of reported stolen vehicles and vehicles subject to write-off restrictions (WOVR — Written-Off Vehicle Register). Police agencies report stolen vehicles to NEVDIS, and state registries report statutory write-offs and repairable write-offs.</p>
+          <h3>What it contains</h3>
+          <p>Stolen vehicle records (VIN, plate, report date, reporting jurisdiction), written-off status (statutory write-off or repairable write-off), and restrictions on re-registration. Both active and historical records are held.</p>
+          <h3>Example uses</h3>
+          <p>Pre-purchase vehicle checks, dealer compliance, insurance assessment, fraud detection, roadside enforcement, and consumer protection.</p>
+        </div>
+        <div id="stolen-attributes" class="au-tab-content  au-prose" hidden>
+          <h3>Stolen Vehicle Record</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Description</th></tr></thead><tbody>
+            <tr><td>VIN / Chassis Number</td><td><span class="au-type-badge">String</span></td><td>Identifier of the stolen vehicle</td></tr>
+            <tr><td>Plate Number</td><td><span class="au-type-badge">String</span></td><td>Plate at time of theft report</td></tr>
+            <tr><td>Report Date</td><td><span class="au-type-badge">Date</span></td><td>Date the theft was reported to police</td></tr>
+            <tr><td>Reporting Jurisdiction</td><td><span class="au-type-badge">String</span></td><td>Police jurisdiction that reported the theft</td></tr>
+            <tr><td>Status</td><td><span class="au-type-badge">String</span></td><td>STOLEN or RECOVERED</td></tr>
+          </tbody></table></div>
+          <h3>Write-off Record</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Write-off Type</td><td><span class="au-type-badge">String</span></td><td>Statutory Write-off (SWO) or Repairable Write-off (RWO)</td></tr>
+            <tr><td>Write-off Date</td><td><span class="au-type-badge">Date</span></td><td>Date the write-off was recorded</td></tr>
+            <tr><td>Reporting Jurisdiction</td><td><span class="au-type-badge">String</span></td><td>Jurisdiction that recorded the write-off</td></tr>
+            <tr><td>Re-registration Restriction</td><td><span class="au-type-badge">Boolean</span></td><td>Whether re-registration is restricted</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="stolen-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Data sourced from police agencies and state vehicle registries</li>
+            <li>Absence of a stolen or write-off record does not mean the vehicle is clear</li>
+            <li>Data provided 'as is' — not a guarantee of vehicle history</li>
+            <li>Use limited to verification and compliance purposes</li>
+          </ul>
+          <h3>How data flows</h3>
+          <ol class="au-steps">
+            <li><span>Police agencies report stolen vehicles to NEVDIS via jurisdiction interfaces.</span></li>
+            <li><span>State registries report statutory and repairable write-offs as they are recorded.</span></li>
+            <li><span>NEVDIS consolidates records into the national stolen and WOVR dataset.</span></li>
+            <li><span>Authorised users and other jurisdictions can query the national record in real time.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All 8 states &amp; territories</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Stolen + write-off records</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time — police and registries push updates</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>

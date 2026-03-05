@@ -1,0 +1,85 @@
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/tca">TCA</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Vehicle Enrolment Data (EMS)</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--gold">TCA · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">Vehicle Enrolment Data (EMS)</h1>
+      <p class="au-page-hero__sub">Core registration and identity data for heavy vehicles enrolled in the National Telematics Framework — linking vehicles, telematics devices, jurisdictions, and operators.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="ems-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="ems-attributes" aria-selected="false">Attributes</button>
+        <button class="au-tab " data-tab-target="ems-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="ems-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>The Enrolment Management System (EMS) holds the core identity and registration data for every heavy vehicle enrolled in TCA's National Telematics Framework (NTF). It links the vehicle to its telematics device, operator, jurisdictional registration, and service provider — forming the authoritative registry underpinning all TCA compliance and analytics services.</p>
+          <h3>What it contains</h3>
+          <p>Vehicle identity (VIN, registration plate, class), telematics device details (device ID, service provider), operator and accreditation information, enrolment status, and jurisdictional links.</p>
+          <h3>Example uses</h3>
+          <p>Vehicle identity verification for compliance, linking telematics data to specific vehicles, operator accreditation checking, and jurisdictional oversight of enrolled vehicles.</p>
+        </div>
+        <div id="ems-attributes" class="au-tab-content  au-prose" hidden>
+          <h3>Enrolment Record</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Vehicle VIN</td><td><span class="au-type-badge">String</span></td><td>Vehicle Identification Number of the enrolled vehicle</td></tr>
+            <tr><td>Registration Plate</td><td><span class="au-type-badge">String</span></td><td>Current registration plate</td></tr>
+            <tr><td>Vehicle Class</td><td><span class="au-type-badge">String</span></td><td>Heavy vehicle class (e.g. B-Double, Road Train)</td></tr>
+            <tr><td>Telematics Device ID</td><td><span class="au-type-badge">String</span></td><td>Unique identifier of the fitted GNSS telematics unit</td></tr>
+            <tr><td>Service Provider</td><td><span class="au-type-badge">String</span></td><td>Accredited telematics service provider</td></tr>
+            <tr><td>Operator Name</td><td><span class="au-type-badge">String</span></td><td>Registered operator of the vehicle</td></tr>
+            <tr><td>Enrolment Status</td><td><span class="au-type-badge">String</span></td><td>Active, Suspended, or Cancelled</td></tr>
+            <tr><td>Jurisdiction</td><td><span class="au-type-badge">String</span></td><td>Jurisdiction in which the vehicle is registered</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="ems-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Governed by the National Telematics Framework and relevant state-based legislation</li>
+            <li>Access restricted to authorised jurisdictions, TCA, and accredited service providers</li>
+            <li>Used solely for compliance, safety, and authorised analytics purposes</li>
+          </ul>
+          <h3>Access process</h3>
+          <ol class="au-steps">
+            <li><span>Operator applies to enrol their heavy vehicle(s) via their jurisdiction's NTF enrolment process.</span></li>
+            <li><span>Telematics service provider fits and activates an approved device.</span></li>
+            <li><span>TCA records the enrolment in EMS, linking vehicle, device, operator, and jurisdiction.</span></li>
+            <li><span>Enrolment data is accessible to authorised parties via TCA's data systems.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>TCA · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NTF-enrolled heavy vehicles</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All Australian jurisdictions</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time — updated on enrolment change events</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 support@tca.gov.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>

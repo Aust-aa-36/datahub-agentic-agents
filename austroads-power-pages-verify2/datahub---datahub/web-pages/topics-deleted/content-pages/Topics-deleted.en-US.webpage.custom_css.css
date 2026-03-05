@@ -1,0 +1,22 @@
+.category-list-title-active {
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .category-list-item {
+    padding-left: 2rem;
+  }
+
+  #cat-searchIcon {
+    margin-left: 1em;
+  }
+
+  #cat-search-input-home {
+    padding-left: 55px;
+  }
+}

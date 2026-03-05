@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety Recalls — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="recall.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Safety Recalls</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Product</span>
+      </div>
+      <h1 class="au-page-hero__title">Safety Recalls</h1>
+      <p class="au-page-hero__sub">Real-time lookup matching manufacturer safety recall notices against registered VINs — protecting consumers and enabling compliance checking across the vehicle fleet.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="recall-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="recall-how" aria-selected="false">How It Works</button>
+        <button class="au-tab " data-tab-target="recall-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="recall-overview" class="au-tab-content active au-prose">
+          <h3>What it does</h3>
+          <p>The Safety Recalls product matches manufacturer-issued safety recall notices against vehicle VINs held in NEVDIS. Users can query by VIN to determine whether a specific vehicle is subject to an outstanding safety recall, enabling action before the vehicle is driven, sold, or serviced.</p>
+          <h3>Who uses it</h3>
+          <p>Consumers verifying a pre-purchase vehicle, car dealers conducting pre-sale safety checks, fleet managers reviewing vehicles for outstanding recalls, insurers assessing liability exposure, and regulators monitoring recall compliance rates.</p>
+          <h3>Use cases</h3>
+          <p>Pre-purchase safety verification, dealer pre-delivery inspection, fleet recall management, ACCC recall compliance checking, and roadside enforcement of recall obligations.</p>
+        </div>
+        <div id="recall-how" class="au-tab-content  au-prose" hidden>
+          <h3>Inputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Input</th><th>Type</th><th>Description</th></tr></thead><tbody>
+            <tr><td>VIN</td><td><span class="au-type-badge">String</span></td><td>17-character Vehicle Identification Number to check</td></tr>
+          </tbody></table></div>
+          <h3>Outputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Output</th><th>Type</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Recall Status</td><td><span class="au-type-badge">Boolean</span></td><td>Whether the VIN is subject to an active recall</td></tr>
+            <tr><td>Recall Reference</td><td><span class="au-type-badge">String</span></td><td>ACCC recall reference number if applicable</td></tr>
+            <tr><td>Recall Description</td><td><span class="au-type-badge">String</span></td><td>Summary of the safety issue and required remedy</td></tr>
+            <tr><td>Manufacturer Contact</td><td><span class="au-type-badge">String</span></td><td>Contact details for recall action</td></tr>
+          </tbody></table></div>
+          <h3>Process</h3>
+          <ol class="au-steps">
+            <li><span>Manufacturer lodges a recall notice with ACCC and NEVDIS, including a list of affected VINs.</span></li>
+            <li><span>NEVDIS stores the recall notice and associates it with affected VINs in the national database.</span></li>
+            <li><span>User or system queries NEVDIS with a VIN to check recall status.</span></li>
+            <li><span>NEVDIS returns current recall status — matched against active recall records in real time.</span></li>
+          </ol>
+        </div>
+        <div id="recall-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Recall data sourced from ACCC and manufacturer notifications</li>
+            <li>A 'no recall found' result does not mean the vehicle is free from defects</li>
+            <li>Data provided 'as is' without guarantee of completeness</li>
+            <li>Recall status may change — check regularly for vehicles under active management</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Product</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Data source</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>ACCC recall notices</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Manufacturer-supplied VIN lists</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>API query by VIN</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time response</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time — recalls added as ACCC publishes</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="recall.js"></script>
+</body>
+</html>

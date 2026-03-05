@@ -1,0 +1,222 @@
+[
+  {
+    "au_title": "Vehicles & Registrations Data",
+    "au_domain": "NEVDIS",
+    "au_product_name": "vehicles-reg",
+    "au_summary": "Comprehensive registration records across all Australian jurisdictions including status, operator, vehicle class, and expiry.",
+    "au_detail": "NEVDIS holds real-time registration data from all 8 Australian states and territories. Records include VIN/chassis number, make, model, body type, vehicle type, year of manufacture, engine capacity, motive power, tare weight, colour, jurisdiction, registration ID, plate number, registration status, and registration dates. Data is updated in real-time from state and territory authority feeds. Used for ownership verification, fraud detection, VIN validation, compliance checking, registration renewal, insurance assessment, and fleet management.",
+    "au_access_info": "Contact nevdis@austroads.com.au. Requires jurisdictional eligibility, demonstrated legitimate use case, and a formal data sharing agreement. Access is not available to individuals — organisations must apply.",
+    "au_keywords": "registration, vehicle, plate, status, operator, jurisdiction, expiry, fleet, compliance",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "National VIN Database",
+    "au_domain": "NEVDIS",
+    "au_product_name": "natvin",
+    "au_summary": "The authoritative repository of 17-character VINs for all vehicles manufactured from 1989 onwards, compliant with ISO 3780 and ADR 61/2.",
+    "au_detail": "Central repository of 17-character Vehicle Identification Numbers (VINs) compliant with ADR 61/2 and ISO 3780. The VIN consists of three sections: World Manufacturer Identifier (WMI, 3 chars), Vehicle Descriptor Section (VDS, 6 chars), and Vehicle Identifier Section (VIS, 8 chars) including a check digit. Covers all vehicles manufactured from 1989 onwards, both local and imported. Manufacturers submit VINs pre-registration, NEVDIS validates them, passes to ROVER, and state/territory registration authorities access the data. WMI Application costs $350 ex GST, VIN Submitter Accreditation costs $350 ex GST.",
+    "au_access_info": "Contact nevdis@austroads.com.au for VIN submission or access enquiries.",
+    "au_keywords": "VIN, vehicle identification number, chassis, manufacturer, ADR, ISO 3780, WMI, ROVER",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Driver Licences",
+    "au_domain": "NEVDIS",
+    "au_product_name": "driver",
+    "au_summary": "Authoritative driver licence records from all Australian jurisdictions including status, class, conditions, and demerit points.",
+    "au_detail": "NEVDIS holds driver licence records from all 8 Australian states and territories. Data includes licence number, given name, surname, date of birth, address, gender, jurisdiction, licence class, status, expiry date, demerit points, and conditions. Used for licence verification, fraud prevention, cross-jurisdictional compliance, electoral roll updating (AEC integration), and roadside checking. All records are covered by the Privacy Act 1988 and access is restricted to authorised organisations only.",
+    "au_access_info": "Contact nevdis@austroads.com.au. Requires jurisdictional eligibility and formal data sharing agreement. Privacy Act 1988 applies.",
+    "au_keywords": "driver, licence, license, demerit, conditions, identity, verification, cross-border",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Stolen & Write-off Restrictions (SWOVS)",
+    "au_domain": "NEVDIS",
+    "au_product_name": "stolen",
+    "au_summary": "National records of stolen vehicles and written-off vehicle restrictions from police and state registries.",
+    "au_detail": "NEVDIS maintains national records of stolen vehicles and Written-Off Vehicle Register (WOVR) entries. Data includes VIN/chassis, plate number, report date, reporting jurisdiction, status (STOLEN/RECOVERED), write-off type (SWO — Statutory Write-Off, RWO — Repairable Write-Off), write-off date, and re-registration restrictions. Used for pre-purchase checks, dealer compliance, insurance assessment, fraud detection, roadside enforcement, and consumer protection. Updated in real-time from police and state registry feeds across all 8 jurisdictions.",
+    "au_access_info": "Contact nevdis@austroads.com.au. Access available to authorised organisations including police, insurers, dealers, and consumer protection bodies.",
+    "au_keywords": "stolen, write-off, WOVR, SWOVS, repairable, statutory, fraud, consumer protection",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Vehicles Gold Data",
+    "au_domain": "NEVDIS",
+    "au_product_name": "gold",
+    "au_summary": "Manufacturer-supplied vehicle specifications from FCAI/VFACTS — the single source of truth for vehicle identification and ADR compliance matching.",
+    "au_detail": "Premium enriched vehicle dataset combining registration data with manufacturer specifications sourced from the Federal Chamber of Automotive Industries (FCAI) via VFACTS (now operated by S&P Global). Includes make, model, series/variant, body type, engine code, engine capacity (cc), fuel type, transmission, ADR compliance month, and GVM (kg). Used for registration validation against manufacturer records, specification lookups, ADR compliance checking, VIN cross-referencing, fleet analytics, and regulatory reporting.",
+    "au_access_info": "Contact nevdis@austroads.com.au for access enquiries.",
+    "au_keywords": "gold, FCAI, VFACTS, manufacturer, specifications, make, model, engine, GVM, ADR",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Plate-to-VIN (P2V)",
+    "au_domain": "NEVDIS",
+    "au_product_name": "p2v",
+    "au_summary": "Secure API service converting an Australian registration plate and state into a VIN or chassis number for authorised commercial brokers.",
+    "au_detail": "Plate-to-VIN (P2V) is a secure REST API service that converts a registration plate number and state/territory into a VIN (17-character for vehicles 1989+) or chassis number (pre-1989 vehicles). Input: plate number, state/territory, enquiry message. Output: VIN or chassis number. Delivered as a real-time JSON/XML API response. Used for fleet vehicle identification, insurance verification, vehicle identity confirmation, and plate-to-VIN cross-referencing. Currently restricted to 5 authorised brokers: VEHICLEID, EVOLVE, BLUEFLAG, INFOAGENT, and CARSALES.",
+    "au_access_info": "Currently restricted to 5 approved brokers. New broker applications are NOT currently being accepted due to resource constraints. Contact nevdis@austroads.com.au for enquiries.",
+    "au_keywords": "P2V, plate to VIN, plate, API, broker, VEHICLEID, EVOLVE, BLUEFLAG, INFOAGENT, CARSALES",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Safety Recalls",
+    "au_domain": "NEVDIS",
+    "au_product_name": "recall",
+    "au_summary": "Real-time lookup matching ACCC manufacturer safety recall notices against registered VINs for consumer protection and compliance.",
+    "au_detail": "Real-time lookup service matching ACCC-registered manufacturer safety recall notices against VINs in NEVDIS. Input: VIN (17-character). Output: recall status (boolean), recall reference (ACCC number), recall description, manufacturer contact. Data source: ACCC recall notices combined with manufacturer-supplied VIN lists. Recalls are added in real-time as the ACCC publishes them. Used for pre-purchase safety verification, dealer pre-delivery inspection, fleet recall management, ACCC compliance checking, and roadside enforcement.",
+    "au_access_info": "Contact nevdis@austroads.com.au for API access.",
+    "au_keywords": "recall, safety, ACCC, manufacturer, VIN, consumer protection, pre-purchase",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "AEC Data Provisioning",
+    "au_domain": "NEVDIS",
+    "au_product_name": "aec",
+    "au_summary": "Daily scheduled extract of driver licence holder changes supplied exclusively to the Australian Electoral Commission for electoral roll accuracy.",
+    "au_detail": "Daily scheduled extract of driver licence holder record changes supplied exclusively to the Australian Electoral Commission (AEC). Data elements include name, address, DOB, and citizenship status (where available). Process: NEVDIS identifies daily changes, generates a scheduled extract, transmits securely to the AEC, and the AEC updates the electoral roll. Supports automatic electoral roll updates including address changes, new enrolments, cancellations, and deaths. Governed by formal data sharing agreement, Privacy Act 1988, and Commonwealth Electoral Act.",
+    "au_access_info": "AEC only — access is under a formal data sharing agreement. Not available to other organisations.",
+    "au_keywords": "AEC, electoral, commission, roll, daily, extract, enrolment, address",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "BITRE Motor Vehicle Census",
+    "au_domain": "NEVDIS",
+    "au_product_name": "bitre",
+    "au_summary": "Aggregated, de-identified vehicle registration data supplied annually to BITRE for Australia's official Motor Vehicle Census publication.",
+    "au_detail": "Annual aggregated extract of vehicle registration data supplied to the Bureau of Infrastructure and Transport Research Economics (BITRE). Process: annual snapshot of registered vehicles is taken, aggregated and de-identified, then BITRE produces the official Motor Vehicle Census publication. Used for fleet composition analysis, emissions estimation, infrastructure planning, and government/research/industry fleet analysis. Delivery: annual aggregated extract at a census point-in-time snapshot.",
+    "au_access_info": "BITRE only — supplied under formal arrangement. The published census data is publicly available from BITRE.",
+    "au_keywords": "BITRE, census, annual, aggregated, fleet, emissions, infrastructure, statistics",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Enabling RAV",
+    "au_domain": "NEVDIS",
+    "au_product_name": "rav",
+    "au_summary": "Validates VINs against the Register of Approved Vehicles and shares approval data with state/territory registries for ADR-compliant vehicle registration.",
+    "au_detail": "NEVDIS data supporting the Register of Approved Vehicles (RAV) programme. Validates VINs against RAV and shares approval data with state/territory registration authorities. Used for vehicle registration compliance, approval validation, and ensuring ADR compliance for vehicles supplied in Australia. Consumers include state/territory registration authorities, vehicle importers, and DITRDCA. Provides real-time VIN validation against the register.",
+    "au_access_info": "Contact nevdis@austroads.com.au for integration enquiries.",
+    "au_keywords": "RAV, register, approved, vehicles, ADR, compliance, importers, DITRDCA",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Vehicle Enrolment Data (EMS)",
+    "au_domain": "TCA",
+    "au_product_name": "ems",
+    "au_summary": "Core registration and identity data for heavy vehicles enrolled in the National Telematics Framework, linking vehicles, devices, operators, and jurisdictions.",
+    "au_detail": "Data from TCA's Enrolment Management System (EMS) covering heavy vehicles enrolled in the National Telematics Framework (NTF). Key data includes vehicle VIN, registration plate, vehicle class, telematics device ID, service provider, operator name, enrolment status (Active/Suspended/Cancelled), and jurisdiction. Used for vehicle identity verification for compliance, linking telematics data to vehicles, operator accreditation checking, and jurisdictional oversight. Updated in real-time on enrolment change events. Governed by National Telematics Framework and jurisdiction legislation.",
+    "au_access_info": "Submit access request via urm.tca.gov.au (TAP User Enrolment portal). Approval takes approximately 2 business days. Contact support@tca.gov.au for enquiries.",
+    "au_keywords": "EMS, enrolment, NTF, telematics, heavy vehicle, operator, device, service provider",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Spatiotemporal Data",
+    "au_domain": "TCA",
+    "au_product_name": "spatiotemporal",
+    "au_summary": "GNSS telemetry capturing vehicle movement, speed, and positional accuracy at trip level — the raw data underpinning all TCA products.",
+    "au_detail": "GNSS telemetry data from NTF-enrolled heavy vehicles capturing position, speed, heading, and accuracy at regular intervals. Key data: timestamp (UTC), latitude (WGS84), longitude (WGS84), speed (km/h), heading (degrees), HDOP (accuracy), trip ID, device ID. Used for route compliance checking (IAC/NHVR permits), speed monitoring, trip reconstruction, road usage analysis, freight network analytics, and infrastructure planning. Coordinate system: WGS84 (decimal degrees). Continuous real-time telemetry stream. Privacy obligations apply.",
+    "au_access_info": "Submit access request via urm.tca.gov.au. Governed by TAP Terms and Conditions. Contact support@tca.gov.au for enquiries.",
+    "au_keywords": "GNSS, GPS, telemetry, position, speed, heading, trip, movement, real-time, telematics",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Spatial Data Services (IAC / B2B)",
+    "au_domain": "TCA",
+    "au_product_name": "spatial",
+    "au_summary": "Standardised spatial datasets from Geoscape layers defining road network access rules and constraints for IAC and B2B systems.",
+    "au_detail": "Standardised spatial datasets derived from Geoscape PSMA road network layers combined with jurisdiction access rules and bridge data. Defines IAC road network (approved routes with vehicle class conditions), B2B spatial layer (bridge constraints, load limits, height restrictions), jurisdiction boundaries, and road segment access rules (time-of-day, vehicle class restrictions). Used for route compliance checking, operator route planning, telematics system integration, and road network analysis. Delivered via spatial API or GIS datasets on request. Geoscape licensing terms apply — redistribution requires TCA authorisation.",
+    "au_access_info": "Submit access request via urm.tca.gov.au. Geoscape licensing terms apply. Contact support@tca.gov.au for enquiries.",
+    "au_keywords": "spatial, IAC, B2B, Geoscape, road network, bridge, route, access rules, GIS",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Road Analytics Services",
+    "au_domain": "TCA",
+    "au_product_name": "road-analytics",
+    "au_summary": "Aggregated analysis of heavy vehicle road usage across states, delivered via ArcGIS dashboards or bulk data extracts.",
+    "au_detail": "Aggregated analysis of heavy vehicle road usage by corridor, state, and time period. Outputs include corridor usage counts (vehicle passes per segment/period), average speeds by time of day, and state-level summaries. Delivered via ArcGIS Enterprise interactive dashboards or bulk datasets on request. Updated monthly with aggregated data. Used by road authorities, infrastructure planners, state/territory transport agencies, freight policy developers, and research organisations. All data is aggregated and anonymised.",
+    "au_access_info": "Submit access request via urm.tca.gov.au (TAP User Enrolment). Approval takes approximately 2 business days. Governed by TAP Terms and Conditions. Contact support@tca.gov.au.",
+    "au_keywords": "road analytics, corridor, usage, ArcGIS, dashboard, infrastructure, planning, aggregated",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Smart OBM Data Services",
+    "au_domain": "TCA",
+    "au_product_name": "smart-obm",
+    "au_summary": "Statistical analysis of Smart On-Board Mass data for NTF-enrolled vehicles — throughput and mass insights for infrastructure safety and compliance.",
+    "au_detail": "Statistical analysis of Smart On-Board Mass (OBM) data from NTF-enrolled heavy vehicles. Outputs include load profiles, mass statistics by corridor, axle-level distribution, and pavement impact analysis. Smart OBM devices measure mass, which is combined with spatiotemporal position data, then aggregated by corridor and vehicle class. Delivered via ArcGIS Enterprise dashboards and statistical reports. Updated periodically as data volumes permit. Used by road authorities (pavement impact), heavy vehicle regulators, infrastructure planners, and researchers. Not for enforcement use. All data is aggregated and anonymised.",
+    "au_access_info": "Submit access request via urm.tca.gov.au. Governed by TAP Terms and Conditions. Contact support@tca.gov.au.",
+    "au_keywords": "OBM, on-board mass, weight, axle, pavement, load, mass compliance, Smart OBM",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "High Productivity Freight Routes (HPFR)",
+    "au_domain": "TCA",
+    "au_product_name": "hpfr",
+    "au_summary": "Telematics-derived insights into approved high-productivity freight vehicle routes — B-double and road train analysis supporting route management.",
+    "au_detail": "Telematics-derived insights into use of approved high-productivity freight vehicle routes. Covers B-doubles, road trains, and PBS vehicles. Outputs include annual usage counts, productivity scores, route metrics, and state-by-state breakdowns. Delivered via ArcGIS dashboard (annual) or bulk annual datasets on request. Updated annually with the previous year's aggregated data. Used for route prioritisation for upgrades, annual freight network reporting, new route approval evidence, and route productivity/utilisation assessment. All data is aggregated and anonymised, relative to monitored vehicles only.",
+    "au_access_info": "Submit access request via urm.tca.gov.au (TAP User Enrolment). Approval takes approximately 2 business days. Governed by TAP Terms and Conditions. Contact support@tca.gov.au.",
+    "au_keywords": "HPFR, freight, routes, B-double, road train, PBS, productivity, annual",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "New Zealand — Historical Study",
+    "au_domain": "TCA",
+    "au_product_name": "nz",
+    "au_summary": "Aggregated insights into historical heavy vehicle movements across the NZ road network from a collaborative NRC/NZTA/Austroads study.",
+    "au_detail": "A completed historical heavy vehicle movement study across the New Zealand road network, conducted in collaboration with NRC, NZTA, and Austroads. Covers approximately 120 Restricted Access Vehicles (RAV) with 30-second polling records, using NZTA AMDS road-segment geometry. Outputs include road usage heatmap, segment detail pop-ups, monthly usage charts, and regional/TA overlays. Covers Auckland, Waikato, and Bay of Plenty corridors. Delivered via ArcGIS Enterprise dashboard or bulk data on request. IMPORTANT: This is a static historical study only — it is NOT a live or ongoing operational service.",
+    "au_access_info": "Submit request via urm.tca.gov.au. Governed by TAP Terms and Conditions. Contact support@tca.gov.au.",
+    "au_keywords": "New Zealand, NZ, NRC, NZTA, historical, RAV, heavy vehicle, study",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "About Austroads",
+    "au_domain": "General",
+    "au_product_name": "about-austroads",
+    "au_summary": "Austroads is Australia's peak body for road transport and traffic management.",
+    "au_detail": "Austroads is the peak organisation of Australasian road transport and traffic agencies. The Data Info Hub provides authorised users with information about data products and services available through two national programmes: NEVDIS (National Exchange of Vehicle and Driver Information System) for vehicle, registration, and driver licence data, and TCA (Transport Certification Australia) for heavy vehicle telematics and road usage data. The hub helps users understand what data is available, how to access it, and who to contact.",
+    "au_access_info": "Visit the Data Info Hub at the site home page to explore NEVDIS and TCA data products.",
+    "au_keywords": "Austroads, about, overview, hub, data, programmes",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "About NEVDIS",
+    "au_domain": "General",
+    "au_product_name": "about-nevdis",
+    "au_summary": "NEVDIS is the National Exchange of Vehicle and Driver Information System — Australia's authoritative source for vehicle registration and driver licence data.",
+    "au_detail": "NEVDIS (National Exchange of Vehicle and Driver Information System) is the authoritative national system for vehicle, registration, and driver licence data across all 8 Australian states and territories. It provides real-time data feeds to authorised organisations. NEVDIS offers 10 data products covering vehicle registrations, VINs, driver licences, stolen vehicle records, manufacturer specifications, plate-to-VIN lookups, safety recalls, electoral data provisioning, census data, and RAV validation.",
+    "au_access_info": "Contact nevdis@austroads.com.au for access requests. Requires jurisdictional eligibility, demonstrated legitimate use case, and formal data sharing agreement.",
+    "au_keywords": "NEVDIS, what is, overview, vehicle, driver, national",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "About TCA",
+    "au_domain": "General",
+    "au_product_name": "about-tca",
+    "au_summary": "TCA (Transport Certification Australia) operates the National Telematics Framework for heavy vehicle data and road usage analytics.",
+    "au_detail": "TCA (Transport Certification Australia) operates data products and services built on the National Telematics Framework (NTF). TCA covers heavy vehicle location, speed, weight, and road access data across all Australian jurisdictions. TCA offers 7 data products covering vehicle enrolment, spatiotemporal telemetry, spatial road network data, road usage analytics, on-board mass monitoring, freight route analysis, and a New Zealand historical study.",
+    "au_access_info": "Submit access request via urm.tca.gov.au (TAP User Enrolment portal). Contact support@tca.gov.au for enquiries.",
+    "au_keywords": "TCA, what is, overview, telematics, heavy vehicle, NTF, transport",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "Access & Contacts",
+    "au_domain": "General",
+    "au_product_name": "access-contacts",
+    "au_summary": "How to get access to NEVDIS and TCA data products, including contact details and requirements.",
+    "au_detail": "NEVDIS access: Contact nevdis@austroads.com.au. Requirements include jurisdictional eligibility, a demonstrated legitimate use case, and a formal data sharing agreement. Access is not available to individuals — organisations must apply. TCA access: Submit request via urm.tca.gov.au (TAP User Enrolment portal). Requires eligibility assessment, formal agreement, and onboarding to the National Telematics Framework. Approval takes approximately 2 business days. P2V (Plate-to-VIN) access: Currently restricted to 5 approved brokers (VEHICLEID, EVOLVE, BLUEFLAG, INFOAGENT, CARSALES). No new broker applications are being accepted at this time.",
+    "au_access_info": "NEVDIS: nevdis@austroads.com.au | TCA: urm.tca.gov.au / support@tca.gov.au",
+    "au_keywords": "access, contact, how to, apply, requirements, eligibility, agreement",
+    "au_status": "Active"
+  },
+  {
+    "au_title": "How the Data Hub Works",
+    "au_domain": "General",
+    "au_product_name": "how-it-works",
+    "au_summary": "The Data Info Hub is a central catalogue for exploring and understanding Austroads data products across NEVDIS and TCA.",
+    "au_detail": "The Austroads Data Info Hub is a central catalogue where authorised internal users can explore and understand all data products available through Austroads. It covers two programmes: NEVDIS (10 data products for vehicle/driver data) and TCA (7 data products for heavy vehicle telematics). Each product page describes what the data contains, how it is delivered, how often it is updated, who uses it, and how to request access. The AI assistant can help you navigate products, compare options, and find the right contact for access requests.",
+    "au_access_info": "Browse the NEVDIS and TCA sections on the hub, or ask the AI assistant for help finding the right product.",
+    "au_keywords": "hub, catalogue, how, navigate, explore, products, help",
+    "au_status": "Active"
+  }
+]

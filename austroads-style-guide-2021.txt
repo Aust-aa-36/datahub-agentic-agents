@@ -1,0 +1,252 @@
+Austroads Publications Style Guide
+Austroads Style Guide page 1
+
+Austroads logo · Full colour on light background
+
+· Greyscale · Full colour on dark background
+
+Austroads logo spacing
+· It is important that clear space is mainatined around the logo to ensure legibility. As a guide other page or design elements should be placed no closer than the hieght of the `A' in the wordmark.
+
+Austroads Style Guide page 2
+
+Austroads corporate colour palette
+
+Austroads
+C0 M70 Y100 K0 R243 G112 B33 # f36f21 Pantone166
+
+Austroads web
+C14 M83 Y100 K4 R204 G76 B0 # cc4c00 Pantone718
+
+Austroads strategic plan focus graphics
+
+Pitch
+C60 M60 Y60 K60 R60 G53 B51 # 3c3533 Pantone Black 5U
+
+Austroads Style Guide page 3
+
+Austroads fonts
+
+· Arial is used for text in publications, correspondence and presentations.
+
+Arial
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890-=[];',./~@#$%^&*()_+{}|:"<>?
+
+· Arial Bold is used for headings in publications, correspondence and presentations.
+
+Arial Bold
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890-=[];',./~@#$%^&*()_+{}|:"<>?
+
+· Roboto Slab is used for the website.
+
+Roboto Slab
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890-=[];',./~@#$%^&*()_+{}|:"<>?
+
+· Verdana Italic is used in the logo wordmark.
+
+Verdana
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+
+Austroads Style Guide page 4
+
+Austroads stationery designs: letterhead
+Austroads Ltd Suite 2, Level 9, 287 Elizabeth Street SYDNEY NSW 2000 AUSTRALIA Tel: +61 2 8265 3300 Fax: +61 2 8265 3399 austroads@austroads.com.au www.austroads.com.au ACN: 136 812 390 | ABN: 16 245 787 323
+Ms Anne Anyone 23 Sample Street Sample Town ACT 1234
+21 October 2013
+Dear Ms Anyone
+Que resci acerrovidunt eum rem non consequam quam fugiatem soluptat Fero doluptatur accae volorem illuptassum ut parumquam, autem ut eatemporerum simil ipsume re perferatem volores eceperum adita ditiam, quundel enducias es et excea nonsenimpos quam aut quos dolenet explautem. Aspidus archicit lignia conserum expedit, coreribus ad quibusam que labo. Am, sundi sinvelent qui dolupta temporum harcipiet omnimo et latiore coratus, illoreptae. Nam es susdant moluptium qui iliam, si ullenis quod quos pe seque cuptincid unti quia dolupta volese odis ea et dolor asped eaquo voluptatquam rate optur? Aximagnatem quia quid quo conseque qui quis sitatquam qui ius alit ab ilitate quaepera voluptae net aut ipsape int volorru ndipsae simusa apidell endendebis quat et volor adi sapient re nonsequiscia vit ex eum dolenderunt ex endis nihillam, unturerione pedic tem. Et ea cor magnam quae pelest es et reperupient. Se non reium unto velignissim earum alique volor molupti core, quis santota tintotatque sunt. Is et, eos doles doluptatia cusam fugiant iorerferum rem eost ped qui quiaspe dignis essitiori quation senihictorae occulpa dolum, quo excerem porporis modis quas non reped exerchil ium asperi doloribus et ent pre ea vendebiti corumquam eos sin repe doluptatusci utate comnis magnihil iduciaerfera doluptae con nes maiorro magnis dendios solessin pa voluptate doluptatiam am qui nobit doluptas atemporro que peraepellor autem dolupicitio et volupic tes autem denditibus as eles pedisti santo doloriostiis ducienest, sunt ommos non re non et a vellati doloratem recesti nobissunt ut officae nienisqui sa qui qui aliquia aspero cum et magnam, conest, te volut quiaepra solum qui volupid ebitis untotat quidi dolupient peribus acestec ernatqu aeperferovid maio es et omnihit modiorrore, si nest, officabore corum is sunti ario. Ebitatate dit mo es ma vitate conecup icitae recaborum facculpa parumqui rernati ad et quoditae rem exerferum ullatet landaerorro dolo debis sus cum fuga. Et aces et eatur adi as quo consecerum exercipsam, opta consequid qui tet, eni sitem qui quae sum vent autatii sintin et, seque cuscima gnimaio nsequi doluptis velest, quo voloris ea doluptatum exerumq uaeribeaquae cone sum quam quo omnisqu ibusant ipsam, quam aut ariosse pelit duntium qui dolupta tionseq uatium voles acia dolut molores debite quod elicid mo mo dolorpora net latat harum il im re, tet alitatio omnit quis etum nos nonsed maio officitem id exerionsequo. Genemod itatur? Turiasped min rehenim agniaspera plitatibus aliatur?
+Yours sincerely
+Name Position
+Austroads Style Guide page 5
+
+Austroads stationery designs: email signature
+___________________
+Name Position Austroads Level 9, 287 Elizabeth Street, Sydney NSW 2000 P +61 2 8265 33xx | M xxxx xxx xxx xxx@austroads.com.au austroads.com.au
+Sign up for RoadWatch news, publications and webinar alerts If you are not the intended recipient; any use, disclosure or copying of this e-mail is unauthorised.
+Austroads stationery designs: business cards
+Jo Hill Program Coordinator Assets C/- VicRoads 60 Denmark Street Kew, Victoria 3101, Australia Tel: +61 3 9093 1460 Mob: +61 409 177 517 jo.hill@roads.vic.gov.au www.austroads.com.au
+
+Austroads stationery designs: compliments slips
+
+Austroads Ltd Suite 2, Level 9, 287 Elizabeth Street SYDNEY NSW 2000 AUSTRALIA Tel: +61 2 8265 3300 Fax: +61 2 8265 3399
+austroads@austroads.com.au www.austroads.com.au
+
+Austroads Style Guide page 6
+
+Austroads publications colour palette
+
+Asset Management
+C100 M60 Y40 K40 R0 G66 B89
+
+Bridge Technology
+C70 M30 Y20 K20 R66 G125 B151
+
+Road Tunnels
+C30 M100 Y80 K10 R167 G35 B38
+
+Pavement Technology
+C30 M30 Y40 K40 R122 G114 B102
+
+Project Delivery
+C40 M80 Y40 K30 R124 G61 B87
+
+Road Design
+C80 M40 Y100 K30 R53 G97 B48
+
+Road Safety
+C50 M20 Y100 K15 R125 G148 B52
+
+R+L
+C60 M20 Y100 K40 R76 G110 B40
+
+Traffic Management
+C9 M37 Y100 K0 R232 G166 B2
+
+Freight
+C90 M40 Y50 K10 R1 G117 B123
+
+Environment + Sustainability
+C65 M64 Y41 K21 R93 G85 B104
+
+Future Vehicles + Tech
+C69 M59 Y44 K22 R85 G90 B104
+
+Austroads Style Guide page 7
+
+Austroads publication covers
+
+Technical Report AP-T247-13
+
+Guide to Bridge Technology Part 7 Maintenance and Management
+
+Guide to Project Delivery Part 1 Overview
+
+Design and Performance of Foamed Bitumen Stabilised Pavements Progress Report One
+
+Research Report AP-R123-13
+
+Guide to Road Design Part 4C Interchanges
+
+Research Report AP-R123-13
+
+Tunnel Rehabilitation An International Review
+Technical Report AP-T247-13
+
+Research Report AP-R123-13
+
+A National and International Review of Alcohol Interlocks
+
+ITS Safety Improvements for Bicycle Riders and Pedestrians Progress Report One
+
+Design and Performance of Foamed Bitumen Stabilised Pavements Progress Report One
+
+Austroads Style Guide page 8
+
+Austroads publication covers: technical and research reports [single image]
+
+40mm
+
+15mm 5mm 5mm
+
+52mm
+
+Technical Report AP-T247-13
+
+187mm
+
+3pt Pitch III
+
+Design and Performance of Foamed
+
+Bitumen Stabilised Pavements
+
+Progress Report One
+
+90mm
+
+9mm Pitch 5mm
+
+Austroads Style Guide page 9
+
+Austroads publication covers: technical and research reports [multiple images]
+
+40mm
+
+15mm 5mm 5mm
+
+52mm
+
+Research Report AP-R123-13
+
+123mm 3pt Pitch III
+
+70mm 3pt Pitch III
+
+Design and Performance of Foamed
+
+Bitumen Stabilised Pavements
+
+Progress Report One
+
+90mm
+
+9mm Pitch 5mm
+
+Austroads Style Guide page 10
+
+Austroads publication covers: technical and research reports [no image]
+
+40mm
+
+15mm 5mm 5mm
+
+52mm
+
+Technical Report AP-T247-13
+
+white 30% opacity 187mm
+
+ITS Safety Improvements for Bicycle Riders and Pedestrians
+Progress Report One
+
+3pt Pitch III 90mm
+
+9mm Pitch 5mm
+
+Austroads Style Guide page 11
+
+Austroads publication covers: guide front cover
+15mm
+Guide to Project Delivery Part 1 Overview
+
+50 mm
+
+15mm 86 mm 9mm Pitch
+
+144 mm
+
+193 mm white 70% opacity
+9mm Pitch Austroads Style Guide page 12
+
+Austroads publication covers: guide back cover
+15mm
+130 mm Guide to Project Delivery consists of four parts. Project delivery in a general sense may be described as the process by which the aim or goal of a project is realised or achieved. Guide to Project Delivery Part 1: Overview explains the context and four stages of project delivery. It also provides guidance on the principles to be considered in developing a project brief, in establishing good project governance, in selecting a project delivery strategy and defining a project delivery plan.
+Guide to Project Delivery Part 1
+
+30 mm
+
+15mm 86 mm 9mm Pitch
+
+white 10% opacity 193 mm
+
+Austroads is the association of Australasian road and transport agencies.
+www.austroads.com.au
+
+9mm Pitch
+
+Austroads Style Guide page 13
+
+Austroads newsletter
+Austroads Style Guide page 14
+
+

@@ -1,0 +1,96 @@
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>National VIN Database</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">National VIN Database</h1>
+      <p class="au-page-hero__sub">The central national repository of Vehicle Identification Numbers — maintaining ADR-compliant 17-character VINs for all vehicles manufactured from 1989 onwards.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="natvin-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="natvin-attributes" aria-selected="false">Attributes</button>
+        <button class="au-tab " data-tab-target="natvin-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="natvin-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>The National VIN Database is the authoritative central repository of Vehicle Identification Numbers held within NEVDIS. It stores the 17-character VIN for every vehicle manufactured from 1989 onwards. Manufacturers and their agents submit VINs to NEVDIS before vehicles are registered, enabling cross-referencing across all Australian jurisdictions.</p>
+          <h3>What it contains</h3>
+          <p>Each VIN is a 17-character code compliant with ISO 3780. The first three characters form the World Manufacturer Identifier (WMI), issued by SAE under ISO 3780, identifying the country of manufacture and the specific manufacturer. NEVDIS issues and maintains WMIs for vehicles registered in Australia.</p>
+          <p>Example VIN: <strong>1HGBH41JXMN109186</strong> — where <code>1HG</code> is the WMI (Honda, USA), <code>BH41J</code> is the Vehicle Descriptor Section, and <code>XMN109186</code> is the Vehicle Identifier Section.</p>
+          <h3>Data quality</h3>
+          <p>Uniqueness checks are applied to all submitted VINs. NEVDIS conducts compliance audits against ADR requirements. VINs submitted by batch file or manual entry (up to 5 per day) are validated before being accepted into the database.</p>
+        </div>
+        <div id="natvin-attributes" class="au-tab-content  au-prose" hidden>
+          <h3>VIN Structure</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Field</th><th>Type</th><th>Length</th><th>Description</th></tr></thead><tbody>
+            <tr><td>VIN</td><td><span class="au-type-badge">String</span></td><td>17 chars</td><td>Full Vehicle Identification Number — globally unique identifier</td></tr>
+            <tr><td>World Manufacturer Identifier (WMI)</td><td><span class="au-type-badge">String</span></td><td>3 chars</td><td>First 3 characters — identifies country and manufacturer (ISO 3780)</td></tr>
+            <tr><td>Vehicle Descriptor Section (VDS)</td><td><span class="au-type-badge">String</span></td><td>6 chars</td><td>Characters 4–9 — manufacturer-specific vehicle attributes</td></tr>
+            <tr><td>Vehicle Identifier Section (VIS)</td><td><span class="au-type-badge">String</span></td><td>8 chars</td><td>Characters 10–17 — unique production sequence for this vehicle</td></tr>
+            <tr><td>Check Digit (Position 9)</td><td><span class="au-type-badge">String</span></td><td>1 char</td><td>Calculated check digit for VIN validation</td></tr>
+          </tbody></table></div>
+          <h3>Accreditation &amp; Fees</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Item</th><th>Type</th><th>Fee (ex GST)</th><th>Description</th></tr></thead><tbody>
+            <tr><td>WMI Application</td><td><span class="au-type-badge">One-off</span></td><td>$350</td><td>Application to register a World Manufacturer Identifier with NEVDIS</td></tr>
+            <tr><td>VIN Submitter Accreditation</td><td><span class="au-type-badge">One-off</span></td><td>$350</td><td>Accreditation to submit VINs to the National VIN Database</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="natvin-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Information sourced from manufacturers, agents, and state/territory road agencies</li>
+            <li>Data provided 'as is' without guarantee of accuracy or completeness</li>
+            <li>Coverage limited to vehicles manufactured 1989 and later</li>
+            <li>Use limited to verification purposes — not proof of legal ownership</li>
+          </ul>
+          <h3>How data flows</h3>
+          <ol class="au-steps">
+            <li><span>Manufacturer authorises a VIN submitter (agent or themselves) to submit VINs on their behalf.</span></li>
+            <li><span>VIN submitter applies for accreditation with NEVDIS, including WMI allocation if needed.</span></li>
+            <li><span>Accredited submitter uploads VINs to NEVDIS via batch file or manual entry (up to 5/day).</span></li>
+            <li><span>NEVDIS validates VINs and passes to ROVER (the national registration of vehicles system).</span></li>
+            <li><span>State and territory registration authorities access VINs from ROVER to support vehicle registration.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All vehicles manufactured 1989+</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Local and imported vehicles</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All Australian jurisdictions</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Standard</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>ISO 3780 (WMI)</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>ADR compliant — 17 characters</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Continuous — manufacturers submit prior to registration</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>

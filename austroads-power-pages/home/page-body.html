@@ -1,0 +1,130 @@
+<main id="main-content">
+
+  <!-- User data for JS — Liquid renders firstname here, JS reads it -->
+  <span id="au-user-data"
+        data-first-name="{{ user.firstname | default: '' }}"
+        data-full-name="{{ user.fullname | default: '' }}"
+        data-email="{{ user.emailaddress1 | default: '' }}"
+        style="display:none" aria-hidden="true"></span>
+
+  <section class="au-home-hero" aria-labelledby="hero-title">
+    <div class="au-home-hero__inner">
+      <div class="au-home-hero__eyebrow">
+        <span aria-hidden="true"></span>
+        Internal POC · Authorised Users Only
+      </div>
+      <h1 class="au-home-hero__title anim-slide-up" id="hero-title">
+        Austroads<br><em>Data Info Hub</em>
+      </h1>
+      <p class="au-home-hero__sub anim-slide-up d1">
+        Discover NEVDIS and TCA data, explore analytics reports, and ask the built-in AI agent anything about our data products.
+      </p>
+      <div class="au-hero-agent anim-slide-up d2" id="au-hero-agent" role="button" tabindex="0"
+           aria-label="Open AI Assistant" onclick="window.auAgent&&window.auAgent.open()">
+        <div class="au-hero-agent__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="au-hero-agent__input">Ask about NEVDIS, TCA, data access&#x2026;</div>
+        <div class="au-hero-agent__btn" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="au-stats anim-slide-up d3" role="list">
+        <div class="au-stat" role="listitem">
+          <div class="au-stat__num" data-count-to="8" data-count-suffix="">8</div>
+          <div class="au-stat__label">Jurisdictions covered by NEVDIS</div>
+          <div class="au-stat__bar" aria-hidden="true"></div>
+        </div>
+        <div class="au-stat" role="listitem">
+          <div class="au-stat__num" data-count-to="13" data-count-suffix="">13</div>
+          <div class="au-stat__label">NEVDIS data elements &amp; products</div>
+          <div class="au-stat__bar" aria-hidden="true"></div>
+        </div>
+        <div class="au-stat" role="listitem">
+          <div class="au-stat__num" data-count-to="10" data-count-suffix="">10</div>
+          <div class="au-stat__label">TCA data services &amp; products</div>
+          <div class="au-stat__bar" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEVDIS Highlights ── -->
+  <section class="au-section nevdis-section" aria-labelledby="nevdis-section-title">
+    <div class="au-section-hd">
+      <div>
+        <h2 class="au-section-hd__title" id="nevdis-section-title">NEVDIS</h2>
+        <p class="au-section-hd__sub">The National Exchange of Vehicle and Driver Information System — authoritative vehicle, registration, and driver licence data across all Australian jurisdictions.</p>
+      </div>
+      <a href="/nevdis" class="au-see-all">Explore NEVDIS →</a>
+    </div>
+    <div class="au-grid-service">
+      <a href="/detail-vehicles-reg" class="au-service-card anim-slide-up d1" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">🔗</div>
+        <div>
+          <div class="au-service-card__title">Vehicles &amp; Registrations Data</div>
+          <div class="au-service-card__desc">Comprehensive registration records including status, operator, jurisdiction, and expiry across all Australian states and territories.</div>
+        </div>
+      </a>
+      <a href="/detail-driver" class="au-service-card anim-slide-up d2" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">🪪</div>
+        <div>
+          <div class="au-service-card__title">Driver Licences</div>
+          <div class="au-service-card__desc">Authoritative driver licence records from all jurisdictions — status, conditions, demerit points, and holder details.</div>
+        </div>
+      </a>
+      <a href="/detail-recall" class="au-service-card anim-slide-up d3" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">⚠️</div>
+        <div>
+          <div class="au-service-card__title">Safety Recalls</div>
+          <div class="au-service-card__desc">Real-time lookup matching manufacturer recall notices against registered VINs for consumer protection and compliance.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── TCA Highlights ── -->
+  <section class="au-section au-section--tight tca-section" aria-labelledby="tca-section-title">
+    <div class="au-section-hd">
+      <div>
+        <h2 class="au-section-hd__title" id="tca-section-title">TCA</h2>
+        <p class="au-section-hd__sub">Transport Certification Australia — heavy vehicle location, speed, weight, and road access data built on the National Telematics Framework.</p>
+      </div>
+      <a href="/tca" class="au-see-all">Explore TCA →</a>
+    </div>
+    <div class="au-grid-service">
+      <a href="/detail-spatiotemporal" class="au-service-card anim-slide-up d1" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">📡</div>
+        <div>
+          <div class="au-service-card__title">Spatiotemporal Data</div>
+          <div class="au-service-card__desc">GNSS telemetry capturing heavy vehicle movement, speed, and position across the national road network.</div>
+        </div>
+      </a>
+      <a href="/detail-road-analytics" class="au-service-card anim-slide-up d2" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">📈</div>
+        <div>
+          <div class="au-service-card__title">Road Analytics Services</div>
+          <div class="au-service-card__desc">Aggregated analysis of heavy vehicle road usage by corridor, state, and time period.</div>
+        </div>
+      </a>
+      <a href="/detail-spatial" class="au-service-card anim-slide-up d3" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">🗺️</div>
+        <div>
+          <div class="au-service-card__title">Spatial Data Services</div>
+          <div class="au-service-card__desc">Standardised IAC and B2B spatial datasets defining access rules and constraints for heavy vehicles.</div>
+        </div>
+      </a>
+      <a href="/detail-hpfr" class="au-service-card anim-slide-up d4" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">🛣️</div>
+        <div>
+          <div class="au-service-card__title">High Productivity Freight Routes</div>
+          <div class="au-service-card__desc">Telematics-derived insights into approved high-productivity freight vehicle routes.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+</main>

@@ -1,0 +1,107 @@
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/tca">TCA</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>New Zealand</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--gold">TCA · Data Product</span>
+      </div>
+      <h1 class="au-page-hero__title">New Zealand</h1>
+      <p class="au-page-hero__sub">Aggregated insights into historical heavy-vehicle movements across the New Zealand road network — supporting freight planning and road management through telematics-derived spatial analysis.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="nz-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="nz-how" aria-selected="false">How It Works</button>
+        <button class="au-tab " data-tab-target="nz-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="nz-overview" class="au-tab-content active au-prose">
+          <h3>What it does</h3>
+          <p>This service provides aggregated insights into the usage of New Zealand public roads by monitored heavy vehicles, from a collaborative study led by the National Road Carriers Association (NRC), in partnership with Waka Kotahi NZ Transport Agency (NZTA) and Austroads. The dashboard visualises historical telematics data from approximately 120 Restricted Access Vehicles (RAVs) to demonstrate how vehicle-generated data can support road management, freight planning, and network-level insight.</p>
+          <p>Road usage records are joined to an early version of the NZTA Asset Management Data Standard (AMDS) road network, enabling users to view spatial patterns, intensity of use, and segment-specific summaries.</p>
+          <h3>Who uses it</h3>
+          <p>Road managers, freight planners, partner organisations (NRC, NZTA, Austroads), and authorised research bodies. This is a historical study dataset — not a live operational service.</p>
+          <h3>Use cases</h3>
+          <ul>
+            <li>Visualising the most frequently used freight routes within regions such as Auckland, Waikato, and Bay of Plenty</li>
+            <li>Identifying heavy-vehicle travel corridors that support freight and logistics operations</li>
+            <li>Assessing route importance or potential access needs for RAV vehicles</li>
+            <li>Using monthly variations in travel to understand seasonal or operational patterns</li>
+          </ul>
+        </div>
+        <div id="nz-how" class="au-tab-content  au-prose" hidden>
+          <h3>Inputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Input</th><th>Description</th></tr></thead><tbody>
+            <tr><td>30-second polling records</td><td>Latitude, longitude, and timestamp from ~120 RAVs</td></tr>
+            <tr><td>NZTA AMDS road-segment geometry</td><td>Early version of the NZ Asset Management Data Standard road network</td></tr>
+            <tr><td>Year and Month selection</td><td>Dashboard temporal filters</td></tr>
+          </tbody></table></div>
+          <h3>Outputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Output</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Road usage heatmap</td><td>Coloured line segments showing frequency of heavy vehicle use per segment</td></tr>
+            <tr><td>Segment detail pop-ups</td><td>Monthly usage values and segment metadata on hover/click</td></tr>
+            <tr><td>Monthly usage charts</td><td>Time series via the 'Monthly Charts' tab</td></tr>
+            <tr><td>Regional/TA overlays</td><td>Regional and Territorial Authority boundary overlays</td></tr>
+          </tbody></table></div>
+          <h3>Access process</h3>
+          <ol class="au-steps">
+            <li><span>Request access via TCA or the project's governance group (NRC/NZTA/Austroads).</span></li>
+            <li><span>Eligibility check — road manager, planner, or partner organisation.</span></li>
+            <li><span>Access provisioned in the ArcGIS Enterprise portal.</span></li>
+          </ol>
+        </div>
+        <div id="nz-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>All data aggregated and anonymised — cannot be used to identify vehicles or operators</li>
+            <li>Dataset covers ~120 RAV vehicles — a sample, not the full freight task</li>
+            <li>Dataset is not updated — reflects a historical study period only</li>
+            <li>Intended use: planning, analysis, freight insight, and network understanding — not enforcement</li>
+            <li>Governed by <a href="https://tca.gov.au/service-offerings/telematics-analytics-platform/tap-application-form/terms-and-conditions/" target="_blank">TAP Terms and Conditions</a></li>
+          </ul>
+          <h3>Feedback &amp; support</h3>
+          <p>Submit feedback via email to TCA Support. Resources: <a href="https://tca.gov.au/publication/accessing-the-telematics-analytics-platform/" target="_blank">TAP User Guides</a>. Regular training and orientation available on request.</p>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>TCA · Data Product</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Consumers</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NZ road managers &amp; planners</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NRC / NZTA / Austroads partners</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Research organisations</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>ArcGIS Enterprise dashboard</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Bulk data on request</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Static — historical study only</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Dataset scope</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>~120 RAV heavy vehicles</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>New Zealand road network</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 support@tca.gov.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
