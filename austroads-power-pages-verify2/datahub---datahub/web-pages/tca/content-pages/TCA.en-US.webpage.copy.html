@@ -1,3 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCA — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="/webfiles/tca.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"    class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis"  class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/"            class="au-nav__link active" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
 <main id="main-content">
 
   <!-- Hero -->
@@ -16,6 +52,7 @@
     </div>
   </div>
 
+
   <section class="au-section tca-section" aria-labelledby="tca-elements-title">
 
     <!-- Data Elements -->
@@ -25,55 +62,50 @@
         <span class="au-badge au-badge--navy">Foundation</span>
       </div>
       <p class="au-category-desc">The core telematics and spatial data components captured within TCA's National Telematics Framework — raw inputs that underpin all analytical products.</p>
-      <div class="au-grid-service">
-        <a href="/detail-ems" class="au-service-card anim-slide-up d1" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">📋</div>
-          <div>
-            <div class="au-service-card__title">Vehicle Enrolment Data (EMS)</div>
-            <div class="au-service-card__desc">Core registration and identity data for heavy vehicles enrolled in the NTF — linking vehicles, telematics devices, jurisdictions, and operators.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Heavy Vehicle</span><span class="au-tag">EMS</span><span class="au-tag">Enrolment</span>
-            </div>
+      <div class="au-grid-catalog">
+        <a href="/detail-ems" class="au-card anim-slide-up d1" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">📋</div>
+          <div class="au-card__title">Vehicle Enrolment Data (EMS)</div>
+          <div class="au-card__desc">Core registration and identity data for heavy vehicles enrolled in the NTF — linking vehicles, telematics devices, jurisdictions, and operators.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Heavy Vehicle</span><span class="au-tag">EMS</span><span class="au-tag">Enrolment</span>
           </div>
         </a>
-        <a href="/detail-spatiotemporal" class="au-service-card anim-slide-up d2" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">📡</div>
-          <div>
-            <div class="au-service-card__title">Spatiotemporal Data (Position &amp; Speed)</div>
-            <div class="au-service-card__desc">GNSS telemetry capturing vehicle movement, speed, and positional accuracy at the trip level for operational and compliance analysis.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">GNSS</span><span class="au-tag">Telematics</span><span class="au-tag">Speed</span>
-            </div>
+        <a href="/detail-spatiotemporal" class="au-card anim-slide-up d2" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">📡</div>
+          <div class="au-card__title">Spatiotemporal Data (Position &amp; Speed)</div>
+          <div class="au-card__desc">GNSS telemetry capturing vehicle movement, speed, and positional accuracy at the trip level for operational and compliance analysis.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">GNSS</span><span class="au-tag">Telematics</span><span class="au-tag">Speed</span>
           </div>
         </a>
-        <div class="au-service-card au-service-card--coming-soon anim-slide-up d3" data-searchable aria-label="Heavy Vehicle Mass Information — Coming soon">
-          <div class="au-service-card__icon" aria-hidden="true">⚖️</div>
-          <div>
-            <div class="au-service-card__title">Heavy Vehicle Mass Information <span class="au-coming-soon">Coming soon</span></div>
-            <div class="au-service-card__desc">Vehicle weight data from sensors or declared values — the raw mass readings that underpin infrastructure safety and compliance analysis.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Mass</span><span class="au-tag">Safety</span><span class="au-tag">Infrastructure</span>
-            </div>
+        <div class="au-card anim-slide-up d3 au-card--soon" data-searchable aria-label="Heavy Vehicle Mass Information — Coming soon">
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">⚖️</div>
+          <div class="au-card__title">Heavy Vehicle Mass Information <span class="au-coming-soon">Coming soon</span></div>
+          <div class="au-card__desc">Vehicle weight data from sensors or declared values — the raw mass readings that underpin infrastructure safety and compliance analysis.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Mass</span><span class="au-tag">Safety</span><span class="au-tag">Infrastructure</span>
           </div>
         </div>
-        <div class="au-service-card au-service-card--coming-soon anim-slide-up d4" data-searchable aria-label="Road Network Access & Aggregated Data — Coming soon">
-          <div class="au-service-card__icon" aria-hidden="true">🛣️</div>
-          <div>
-            <div class="au-service-card__title">Road Network Access &amp; Aggregated Data <span class="au-coming-soon">Coming soon</span></div>
-            <div class="au-service-card__desc">Telematics-matched road-segment records providing counts, speeds, and mass metrics at the network level.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Road Network</span><span class="au-tag">Aggregated</span>
-            </div>
+        <div class="au-card anim-slide-up d4 au-card--soon" data-searchable aria-label="Road Network Access & Aggregated Data — Coming soon">
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">🛣️</div>
+          <div class="au-card__title">Road Network Access &amp; Aggregated Data <span class="au-coming-soon">Coming soon</span></div>
+          <div class="au-card__desc">Telematics-matched road-segment records providing counts, speeds, and mass metrics at the network level.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Road Network</span><span class="au-tag">Aggregated</span>
           </div>
         </div>
-        <a href="/detail-spatial" class="au-service-card anim-slide-up d5" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">🗺️</div>
-          <div>
-            <div class="au-service-card__title">Spatial Data Services (IAC / B2B)</div>
-            <div class="au-service-card__desc">Standardised spatial datasets derived from Geoscape layers — defining jurisdictional access rules and constraints for IAC and B2B systems.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">IAC</span><span class="au-tag">B2B</span><span class="au-tag">Geoscape</span>
-            </div>
+        <a href="/detail-spatial" class="au-card anim-slide-up d5" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">🗺️</div>
+          <div class="au-card__title">Spatial Data Services (IAC / B2B)</div>
+          <div class="au-card__desc">Standardised spatial datasets derived from Geoscape layers — defining jurisdictional access rules and constraints for IAC and B2B systems.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">IAC</span><span class="au-tag">B2B</span><span class="au-tag">Geoscape</span>
           </div>
         </a>
       </div>
@@ -88,80 +120,93 @@
         <span class="au-badge au-badge--gold">Applied</span>
       </div>
       <p class="au-category-desc">Analytical services and insights derived from TCA's telematics data — combining multiple data elements to answer specific planning, compliance, or safety questions.</p>
-      <div class="au-grid-service">
-        <a href="/detail-road-analytics" class="au-service-card anim-slide-up d1" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">📈</div>
-          <div>
-            <div class="au-service-card__title">Road Analytics Services</div>
-            <div class="au-service-card__desc">Aggregated analysis of heavy vehicle road usage across different states — insight into how monitored vehicles use road corridors over time.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Heavy Vehicle</span><span class="au-tag">Telematics</span><span class="au-tag">Road Usage</span>
-            </div>
+      <div class="au-grid-catalog">
+        <a href="/detail-road-analytics" class="au-card anim-slide-up d1" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">📈</div>
+          <div class="au-card__title">Road Analytics Services</div>
+          <div class="au-card__desc">Aggregated analysis of heavy vehicle road usage across different states — insight into how monitored vehicles use road corridors over time.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Heavy Vehicle</span><span class="au-tag">Telematics</span><span class="au-tag">Road Usage</span>
           </div>
         </a>
-        <a href="/detail-smart-obm" class="au-service-card anim-slide-up d2" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">⚖️</div>
-          <div>
-            <div class="au-service-card__title">Smart OBM Data Services</div>
-            <div class="au-service-card__desc">Statistical analysis of Smart On-Board Mass data for NTF-enrolled vehicles — throughput and mass insights across road corridors.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">OBM</span><span class="au-tag">NTF</span><span class="au-tag">Mass Data</span>
-            </div>
+        <a href="/detail-smart-obm" class="au-card anim-slide-up d2" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">⚖️</div>
+          <div class="au-card__title">Smart OBM Data Services</div>
+          <div class="au-card__desc">Statistical analysis of Smart On-Board Mass data for NTF-enrolled vehicles — throughput and mass insights across road corridors.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">OBM</span><span class="au-tag">NTF</span><span class="au-tag">Mass Data</span>
           </div>
         </a>
-        <a href="/detail-hpfr" class="au-service-card anim-slide-up d3" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">🛣️</div>
-          <div>
-            <div class="au-service-card__title">High Productivity Freight Routes</div>
-            <div class="au-service-card__desc">Telematics-derived insights into the use of approved high-productivity freight vehicle routes — supporting route management and access decisions.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Freight</span><span class="au-tag">Routes</span><span class="au-tag">Compliance</span>
-            </div>
+        <a href="/detail-hpfr" class="au-card anim-slide-up d3" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">🛣️</div>
+          <div class="au-card__title">High Productivity Freight Routes</div>
+          <div class="au-card__desc">Telematics-derived insights into the use of approved high-productivity freight vehicle routes — supporting route management and access decisions.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Freight</span><span class="au-tag">Routes</span><span class="au-tag">Compliance</span>
           </div>
         </a>
-        <a href="/detail-nz" class="au-service-card anim-slide-up d4" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">🇳🇿</div>
-          <div>
-            <div class="au-service-card__title">New Zealand</div>
-            <div class="au-service-card__desc">Aggregated historical heavy vehicle movement insights across the New Zealand network — supporting freight planning and road management decisions.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">New Zealand</span><span class="au-tag">Heavy Vehicle</span><span class="au-tag">Freight</span>
-            </div>
+        <a href="/detail-nz" class="au-card anim-slide-up d4" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">🇳🇿</div>
+          <div class="au-card__title">New Zealand</div>
+          <div class="au-card__desc">Aggregated historical heavy vehicle movement insights across the New Zealand network — supporting freight planning and road management decisions.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">New Zealand</span><span class="au-tag">Heavy Vehicle</span><span class="au-tag">Freight</span>
           </div>
         </a>
-        <div class="au-service-card au-service-card--coming-soon anim-slide-up d5" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">🤝</div>
-          <div>
-            <div class="au-service-card__title">Industry-Led Data-Sharing Service <span class="au-coming-soon">Coming soon</span></div>
-            <div class="au-service-card__desc">A collaborative product enabling industry to share telematics insights with government partners.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Industry</span><span class="au-tag">Data Sharing</span>
-            </div>
+        <div class="au-card anim-slide-up d5 au-card--soon" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">🤝</div>
+          <div class="au-card__title">Industry-Led Data-Sharing Service <span class="au-coming-soon">Coming soon</span></div>
+          <div class="au-card__desc">A collaborative product enabling industry to share telematics insights with government partners.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Industry</span><span class="au-tag">Data Sharing</span>
           </div>
         </div>
-        <div class="au-service-card au-service-card--coming-soon anim-slide-up d6" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">🌡️</div>
-          <div>
-            <div class="au-service-card__title">Weighted Mean Annual Pavement Temperature <span class="au-coming-soon">Coming soon</span></div>
-            <div class="au-service-card__desc">Mapped WMAPT values combining climate and traffic data to support pavement structural design and lifecycle cost analysis.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">WMAPT</span><span class="au-tag">Pavement</span><span class="au-tag">Engineering</span>
-            </div>
+        <div class="au-card anim-slide-up d6 au-card--soon" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">🌡️</div>
+          <div class="au-card__title">Weighted Mean Annual Pavement Temperature <span class="au-coming-soon">Coming soon</span></div>
+          <div class="au-card__desc">Mapped WMAPT values combining climate and traffic data to support pavement structural design and lifecycle cost analysis.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">WMAPT</span><span class="au-tag">Pavement</span><span class="au-tag">Engineering</span>
           </div>
         </div>
-        <div class="au-service-card au-service-card--coming-soon anim-slide-up" data-searchable>
-          <div class="au-service-card__icon" aria-hidden="true">⭐</div>
-          <div>
-            <div class="au-service-card__title">AusRAP <span class="au-coming-soon">Coming soon</span></div>
-            <div class="au-service-card__desc">Star-rating assessments combining road attribute and crash data to identify Australia's highest-risk roads.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Road Safety</span><span class="au-tag">Star Rating</span>
-            </div>
+        <div class="au-card anim-slide-up au-card--soon" data-searchable>
+          <div class="au-card__bar" aria-hidden="true"></div>
+          <div class="au-card__icon" aria-hidden="true">⭐</div>
+          <div class="au-card__title">AusRAP <span class="au-coming-soon">Coming soon</span></div>
+          <div class="au-card__desc">Star-rating assessments combining road attribute and crash data to identify Australia's highest-risk roads.</div>
+          <div class="au-card__tags">
+            <span class="au-tag">Road Safety</span><span class="au-tag">Star Rating</span>
           </div>
         </div>
       </div>
     </div>
 
   </section>
-
 </main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/">TCA</a>
+      <a href="https://www.tca.gov.au" target="_blank" rel="noopener">TCA.gov.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="/webfiles/tca.js"></script>
+</body>
+</html>

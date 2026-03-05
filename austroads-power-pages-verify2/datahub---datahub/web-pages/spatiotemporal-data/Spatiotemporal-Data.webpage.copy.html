@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spatiotemporal Data — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="spatiotemporal.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/tca">TCA</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Spatiotemporal Data</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--gold">TCA · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">Spatiotemporal Data (Position &amp; Speed)</h1>
+      <p class="au-page-hero__sub">GNSS telemetry capturing vehicle movement, speed, and positional accuracy at the trip level — the raw telematics data underpinning all TCA compliance and analytics products.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="st-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="st-attributes" aria-selected="false">Attributes</button>
+        <button class="au-tab " data-tab-target="st-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="st-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>Spatiotemporal data is the core GNSS telemetry feed from heavy vehicles enrolled in TCA's National Telematics Framework. Each record represents a vehicle position at a point in time — capturing latitude, longitude, speed, heading, and satellite accuracy. Records are used for trip reconstruction, route compliance analysis, and as the foundation for all TCA road analytics products.</p>
+          <h3>What it contains</h3>
+          <p>Timestamped GNSS position records (latitude/longitude), vehicle speed, heading, HDOP (horizontal dilution of precision), trip identifiers, and device-level metadata. Data is recorded continuously while the vehicle is in operation.</p>
+          <h3>Example uses</h3>
+          <p>Route compliance checking for IAC and NHVR permits, speed monitoring, trip reconstruction, road usage analysis, freight network analytics, and infrastructure planning.</p>
+        </div>
+        <div id="st-attributes" class="au-tab-content  au-prose" hidden>
+          <h3>Positional Record</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Example</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Timestamp</td><td><span class="au-type-badge">DateTime</span></td><td>2024-03-15T09:23:41Z</td><td>UTC timestamp of the position record</td></tr>
+            <tr><td>Latitude</td><td><span class="au-type-badge">Float</span></td><td>-33.865143</td><td>WGS84 latitude in decimal degrees</td></tr>
+            <tr><td>Longitude</td><td><span class="au-type-badge">Float</span></td><td>151.209900</td><td>WGS84 longitude in decimal degrees</td></tr>
+            <tr><td>Speed (km/h)</td><td><span class="au-type-badge">Number</span></td><td>87.5</td><td>Vehicle speed at time of record</td></tr>
+            <tr><td>Heading (degrees)</td><td><span class="au-type-badge">Number</span></td><td>245</td><td>Direction of travel in degrees from true north</td></tr>
+            <tr><td>HDOP</td><td><span class="au-type-badge">Float</span></td><td>1.2</td><td>Horizontal dilution of precision — GNSS accuracy indicator</td></tr>
+            <tr><td>Trip ID</td><td><span class="au-type-badge">String</span></td><td>T-20240315-0042</td><td>Identifier linking records within a single trip</td></tr>
+            <tr><td>Device ID</td><td><span class="au-type-badge">String</span></td><td>DEV-0087421</td><td>Telematics device identifier (links to EMS)</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="st-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Governed by the National Telematics Framework and relevant jurisdiction legislation</li>
+            <li>Raw positional data accessible only to authorised compliance entities (TCA, jurisdictions)</li>
+            <li>Aggregated/anonymised derivatives available for analytics and planning purposes</li>
+            <li>Privacy obligations apply — data cannot be used to identify vehicle operators without authorisation</li>
+          </ul>
+          <h3>Access process</h3>
+          <ol class="au-steps">
+            <li><span>Submit access request through TCA's authorised partner process.</span></li>
+            <li><span>Eligibility and privacy compliance checks completed.</span></li>
+            <li><span>Data sharing agreement executed.</span></li>
+            <li><span>Secure API or extract access provisioned by TCA.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>TCA · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NTF-enrolled heavy vehicles</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>National road network</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Continuous — real-time telemetry stream</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coordinate system</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>WGS84 (decimal degrees)</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 support@tca.gov.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="spatiotemporal.js"></script>
+</body>
+</html>

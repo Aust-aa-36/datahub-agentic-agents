@@ -1,3 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEVDIS — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="/webfiles/nevdis.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/"            class="au-nav__link active" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
 <main id="main-content">
 
   <!-- Hero -->
@@ -16,6 +52,7 @@
     </div>
   </div>
 
+
   <!-- Data Elements -->
   <section class="au-section nevdis-section" aria-labelledby="elements-title">
     <div class="au-category-group">
@@ -30,9 +67,6 @@
           <div>
             <div class="au-service-card__title">Vehicles &amp; Registrations Data</div>
             <div class="au-service-card__desc">Registration status, expiry, jurisdiction, and registered operator details for all vehicles across Australia.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Registration</span><span class="au-tag">Vehicles</span><span class="au-tag">Jurisdictions</span>
-            </div>
           </div>
         </a>
         <a href="/detail-natvin" class="au-service-card anim-slide-up d2" data-searchable>
@@ -40,9 +74,6 @@
           <div>
             <div class="au-service-card__title">National VIN Database</div>
             <div class="au-service-card__desc">Central repository of ADR-compliant 17-character VINs with WMI issuance for vehicle identification.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">VIN</span><span class="au-tag">ADR</span><span class="au-tag">WMI</span>
-            </div>
           </div>
         </a>
         <a href="/detail-driver" class="au-service-card anim-slide-up d3" data-searchable>
@@ -50,9 +81,6 @@
           <div>
             <div class="au-service-card__title">Driver Licences</div>
             <div class="au-service-card__desc">Authoritative driver licence records — status, conditions, restrictions, infringements, and demerit points from all jurisdictions.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Licence</span><span class="au-tag">Demerit Points</span><span class="au-tag">Conditions</span>
-            </div>
           </div>
         </a>
         <a href="/detail-stolen" class="au-service-card anim-slide-up d4" data-searchable>
@@ -60,9 +88,6 @@
           <div>
             <div class="au-service-card__title">Stolen &amp; Write-off Restrictions</div>
             <div class="au-service-card__desc">National records of stolen vehicles and written-off vehicle restrictions (WOVR) sourced from police and state registries.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Stolen</span><span class="au-tag">WOVR</span><span class="au-tag">Police</span>
-            </div>
           </div>
         </a>
         <a href="/detail-gold" class="au-service-card anim-slide-up d5" data-searchable>
@@ -70,9 +95,6 @@
           <div>
             <div class="au-service-card__title">Vehicles Gold Data</div>
             <div class="au-service-card__desc">Manufacturer-supplied vehicle specifications from FCAI/VFACTS — the single source of truth for vehicle identification.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">FCAI</span><span class="au-tag">VFACTS</span><span class="au-tag">Specifications</span>
-            </div>
           </div>
         </a>
       </div>
@@ -93,9 +115,6 @@
           <div>
             <div class="au-service-card__title">Plate-to-VIN (P2V)</div>
             <div class="au-service-card__desc">Converts a registration plate and state into a VIN or chassis number — used by authorised commercial brokers.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">P2V</span><span class="au-tag">Plate</span><span class="au-tag">VIN Lookup</span>
-            </div>
           </div>
         </a>
         <a href="/detail-recall" class="au-service-card anim-slide-up d2" data-searchable>
@@ -103,9 +122,6 @@
           <div>
             <div class="au-service-card__title">Safety Recalls</div>
             <div class="au-service-card__desc">Real-time lookup matching manufacturer safety recall notices against registered VINs.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Recall</span><span class="au-tag">Safety</span><span class="au-tag">Manufacturer</span>
-            </div>
           </div>
         </a>
         <a href="/detail-aec" class="au-service-card anim-slide-up d3" data-searchable>
@@ -113,9 +129,6 @@
           <div>
             <div class="au-service-card__title">AEC Data Provisioning</div>
             <div class="au-service-card__desc">Daily scheduled extract of licence holder changes supplied to the Australian Electoral Commission.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">AEC</span><span class="au-tag">Electoral</span><span class="au-tag">Licence Data</span>
-            </div>
           </div>
         </a>
         <a href="/detail-bitre" class="au-service-card anim-slide-up d4" data-searchable>
@@ -123,9 +136,6 @@
           <div>
             <div class="au-service-card__title">BITRE Motor Vehicle Census</div>
             <div class="au-service-card__desc">Aggregated vehicle data supplied to BITRE for producing Australia's official national Motor Vehicle Census.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">BITRE</span><span class="au-tag">Census</span><span class="au-tag">Statistics</span>
-            </div>
           </div>
         </a>
         <a href="/detail-rav" class="au-service-card anim-slide-up d5" data-searchable>
@@ -133,39 +143,27 @@
           <div>
             <div class="au-service-card__title">Enabling RAV</div>
             <div class="au-service-card__desc">Validates VINs against the Register of Approved Vehicles and shares approval data with state and territory registries.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">RAV</span><span class="au-tag">Approval</span><span class="au-tag">Compliance</span>
-            </div>
           </div>
         </a>
         <div class="au-service-card au-service-card--coming-soon anim-slide-up d6" data-searchable aria-label="Interstate Operators — Coming soon">
           <div class="au-service-card__icon" aria-hidden="true">🚛</div>
           <div>
-            <div class="au-service-card__title">Interstate Operators <span class="au-coming-soon">Coming soon</span></div>
+            <div class="au-service-card__title">Interstate Operators <span class="coming-soon-chip">Coming soon</span></div>
             <div class="au-service-card__desc">Heavy vehicle operator accreditation and compliance data for interstate freight movement.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">Heavy Vehicle</span><span class="au-tag">Operators</span>
-            </div>
           </div>
         </div>
         <div class="au-service-card au-service-card--coming-soon anim-slide-up" data-searchable aria-label="NHVR — Coming soon">
           <div class="au-service-card__icon" aria-hidden="true">🛣️</div>
           <div>
-            <div class="au-service-card__title">NHVR <span class="au-coming-soon">Coming soon</span></div>
+            <div class="au-service-card__title">NHVR <span class="coming-soon-chip">Coming soon</span></div>
             <div class="au-service-card__desc">National Heavy Vehicle Regulator integration supplying compliance and permit data for regulated heavy vehicles.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">NHVR</span><span class="au-tag">Permits</span>
-            </div>
           </div>
         </div>
         <div class="au-service-card au-service-card--coming-soon anim-slide-up" data-searchable aria-label="PPSR — Coming soon">
           <div class="au-service-card__icon" aria-hidden="true">💰</div>
           <div>
-            <div class="au-service-card__title">PPSR <span class="au-coming-soon">Coming soon</span></div>
+            <div class="au-service-card__title">PPSR <span class="coming-soon-chip">Coming soon</span></div>
             <div class="au-service-card__desc">Personal Property Securities Register integration enabling encumbrance and security interest checks against vehicle records.</div>
-            <div class="au-service-card__tags">
-              <span class="au-tag">PPSR</span><span class="au-tag">Encumbrance</span>
-            </div>
           </div>
         </div>
       </div>
@@ -173,3 +171,24 @@
   </section>
 
 </main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="/webfiles/nevdis.js"></script>
+</body>
+</html>

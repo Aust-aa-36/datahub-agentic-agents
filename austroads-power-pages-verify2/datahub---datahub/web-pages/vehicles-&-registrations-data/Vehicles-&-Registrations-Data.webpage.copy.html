@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicles & Registrations Data — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="vehicles-reg.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Vehicles & Registrations Data</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">Vehicles &amp; Registrations Data</h1>
+      <p class="au-page-hero__sub">Comprehensive vehicle and registration records from all Australian states and territories — the foundational dataset for identity verification, compliance checking, and fleet management.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="vreg-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="vreg-attributes" aria-selected="false">Attributes</button>
+        <button class="au-tab " data-tab-target="vreg-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="vreg-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>NEVDIS is a secure national system that brings together vehicle registration records from all Australian states and territories. It stores essential information about vehicles, their registrations, transfer history, and applicable conditions — enabling real-time, secure data sharing between road transport authorities, law enforcement, and authorised entities.</p>
+          <h3>What it contains</h3>
+          <p>The dataset broadly covers four groups: <strong>Vehicle Details</strong> (make, model, body type, engine, key specifications), <strong>Heavy Vehicle Details</strong> (GVM, GCM, axle configuration), <strong>High-Performance Vehicle Details</strong> (power output, power-to-weight ratio), and <strong>Registration Details</strong> (plate, validity period, conditions, operator details, and transfer history).</p>
+          <h3>Data quality</h3>
+          <p>Records are supplied directly by state and territory road authorities. Quality is maintained through manual audits, automated privacy compliance checks, cross-verification with government registries, and automated validation against NEVDIS and manufacturer data. Updates are applied in real time as jurisdictions report changes.</p>
+          <h3>Example uses</h3>
+          <p>Ownership and identity verification, fraud detection, VIN validation, compliance checking and reporting, registration renewal reminders, insurance risk assessment, fleet management, and operational analytics.</p>
+        </div>
+        <div id="vreg-attributes" class="au-tab-content  au-prose" hidden>
+          <h3>Vehicle Details</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Example</th><th>Description</th></tr></thead><tbody>
+            <tr><td>VIN / Chassis Number</td><td><span class="au-type-badge">String</span></td><td>6T1BD3FK90X141096</td><td>VIN (or chassis number for pre-1989 vehicles)</td></tr>
+            <tr><td>Make</td><td><span class="au-type-badge">String</span></td><td>KENWORTH</td><td>Brand or make of the vehicle</td></tr>
+            <tr><td>Model</td><td><span class="au-type-badge">String</span></td><td>K100E SERIES</td><td>Model name of the vehicle</td></tr>
+            <tr><td>Body Type</td><td><span class="au-type-badge">String</span></td><td>FREIGHTLINER</td><td>Body style e.g. Sedan, UTE, SUV, Truck</td></tr>
+            <tr><td>Vehicle Type</td><td><span class="au-type-badge">String</span></td><td>RIGID TRUCK (&gt;3500KG)</td><td>Type classification of the vehicle</td></tr>
+            <tr><td>Year of Manufacture</td><td><span class="au-type-badge">Number</span></td><td>2018</td><td>Year the vehicle was manufactured</td></tr>
+            <tr><td>Engine Capacity</td><td><span class="au-type-badge">Number</span></td><td>12 L</td><td>Volume of the engine cylinders</td></tr>
+            <tr><td>Motive Power</td><td><span class="au-type-badge">String</span></td><td>DIESEL</td><td>Petrol, Diesel, or Electric</td></tr>
+            <tr><td>Tare Weight</td><td><span class="au-type-badge">Number</span></td><td>6400 kg</td><td>Unladen weight, excluding passengers and cargo</td></tr>
+            <tr><td>Colour</td><td><span class="au-type-badge">String</span></td><td>BLUE</td><td>Colour of the vehicle</td></tr>
+          </tbody></table></div>
+          <h3>Registration Details</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Example</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Jurisdiction</td><td><span class="au-type-badge">String</span></td><td>QUEENSLAND</td><td>State or territory where the vehicle is registered</td></tr>
+            <tr><td>Registration ID</td><td><span class="au-type-badge">String</span></td><td>416040010</td><td>Unique identifier assigned by the jurisdiction</td></tr>
+            <tr><td>Plate Number</td><td><span class="au-type-badge">String</span></td><td>XQ23BV</td><td>Number plate assigned by the registration authority</td></tr>
+            <tr><td>Status</td><td><span class="au-type-badge">String</span></td><td>REGISTERED</td><td>Current registration status</td></tr>
+            <tr><td>Registration Start</td><td><span class="au-type-badge">Date</span></td><td>13-JAN-2022</td><td>Effective start date of registration</td></tr>
+            <tr><td>Registration Expiry</td><td><span class="au-type-badge">Date</span></td><td>13-JAN-2023</td><td>Effective end date of registration</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="vreg-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Information sourced from state/territory road agencies and police</li>
+            <li>Data provided 'as is' without guarantee of accuracy or completeness</li>
+            <li>No liability for errors, omissions, or reliance on NEVDIS data</li>
+            <li>Use limited to verification purposes — not proof of legal ownership</li>
+            <li>Coverage may be incomplete; absence of data does not imply clearance</li>
+          </ul>
+          <h3>How data flows</h3>
+          <ol class="au-steps">
+            <li><span>When a jurisdiction issues a new registration, it shares the details with NEVDIS.</span></li>
+            <li><span>When registration details or status changes, the jurisdiction shares updates with NEVDIS.</span></li>
+            <li><span>When a vehicle transfers between jurisdictions, the new registration details are shared with NEVDIS.</span></li>
+            <li><span>Other jurisdictions refer to NEVDIS to access current vehicle registration details.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All 8 states &amp; territories</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Current + historical registrations</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time — jurisdictions push changes as they occur</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis-support@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="vehicles-reg.js"></script>
+</body>
+</html>

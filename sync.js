@@ -28,7 +28,7 @@ const MAPPING = {
 };
 
 function syncSharedCss() {
-  console.log('Syncing shared CSS...');
+  console.log('--- Syncing Shared CSS ---');
   const cssPath = path.join(SOURCE_DIR, 'shared', 'austroads.css');
   const templatePath = path.join(TARGET_BASE_DIR, 'web-templates', 'austroads-layout', 'Austroads-Layout.webtemplate.source.html');
 
@@ -44,7 +44,6 @@ function syncSharedCss() {
   const cssContent = fs.readFileSync(cssPath, 'utf8');
   let templateContent = fs.readFileSync(templatePath, 'utf8');
 
-  // Replace content between <style> and </style> (first occurrence)
   const styleStart = templateContent.indexOf('<style>');
   const styleEnd = templateContent.indexOf('</style>', styleStart);
 
@@ -53,51 +52,57 @@ function syncSharedCss() {
                        '\n' + cssContent + '\n' + 
                        templateContent.substring(styleEnd);
     fs.writeFileSync(templatePath, newContent);
-    console.log('Successfully injected shared CSS into web template.');
+    console.log('SUCCESS: Injected austroads.css into web template.');
   } else {
-    console.error('Could not find <style> block in web template.');
+    console.error('ERROR: Could not find <style> block in web template.');
   }
 }
 
 function syncPages() {
-  console.log('Syncing pages...');
+  console.log('--- Syncing Pages ---');
   for (const [srcFolder, targetFolder] of Object.entries(MAPPING)) {
     const srcPath = path.join(SOURCE_DIR, srcFolder);
     const targetPath = path.join(TARGET_BASE_DIR, 'web-pages', targetFolder);
 
     if (!fs.existsSync(srcPath)) {
-      console.warn(`Source folder not found: ${srcPath}`);
+      console.warn(`SKIP: Source folder not found: ${srcPath}`);
       continue;
     }
     if (!fs.existsSync(targetPath)) {
-      console.warn(`Target folder not found: ${targetPath}`);
+      console.warn(`SKIP: Target folder not found: ${targetPath}`);
       continue;
     }
 
-    // Find the base filename in target folder (e.g., "Home" in "home" folder)
     const targetFiles = fs.readdirSync(targetPath);
-    const ymlFile = targetFiles.find(f => f.endsWith('.webpage.yml'));
+    // Find the .webpage.yml file case-insensitively
+    const ymlFile = targetFiles.find(f => f.toLowerCase().endsWith('.webpage.yml'));
+    
     if (!ymlFile) {
-      console.warn(`No .webpage.yml found in ${targetPath}`);
+      console.warn(`SKIP: No .webpage.yml found in ${targetPath}`);
       continue;
     }
-    const baseName = ymlFile.replace('.webpage.yml', '');
+    
+    // Split by dots and take the first part as baseName (e.g., "Home.webpage.yml" -> "Home")
+    const baseName = ymlFile.split('.')[0];
+    
+    console.log(`Processing: ${srcFolder} -> ${targetFolder} (BaseName: ${baseName})`);
 
-    // Source files
     const srcFiles = fs.readdirSync(srcPath);
     
-    // Sync HTML (could be index.html or page-body.html)
+    // Sync HTML
     const htmlFile = srcFiles.find(f => f.endsWith('.html'));
     if (htmlFile) {
       const content = fs.readFileSync(path.join(srcPath, htmlFile), 'utf8');
       const targetHtml1 = path.join(targetPath, `${baseName}.webpage.copy.html`);
       const targetHtml2 = path.join(targetPath, 'content-pages', `${baseName}.en-US.webpage.copy.html`);
       
+      console.log(`  Writing HTML to: ${targetHtml1}`);
       fs.writeFileSync(targetHtml1, content);
+      
       if (fs.existsSync(path.dirname(targetHtml2))) {
+        console.log(`  Writing HTML to: ${targetHtml2}`);
         fs.writeFileSync(targetHtml2, content);
       }
-      console.log(`  Synced HTML for ${targetFolder}`);
     }
 
     // Sync CSS
@@ -107,11 +112,13 @@ function syncPages() {
       const targetCss1 = path.join(targetPath, `${baseName}.webpage.custom_css.css`);
       const targetCss2 = path.join(targetPath, 'content-pages', `${baseName}.en-US.webpage.custom_css.css`);
       
+      console.log(`  Writing CSS to: ${targetCss1}`);
       fs.writeFileSync(targetCss1, content);
+      
       if (fs.existsSync(path.dirname(targetCss2))) {
+        console.log(`  Writing CSS to: ${targetCss2}`);
         fs.writeFileSync(targetCss2, content);
       }
-      console.log(`  Synced CSS for ${targetFolder}`);
     }
 
     // Sync JS
@@ -121,15 +128,17 @@ function syncPages() {
       const targetJs1 = path.join(targetPath, `${baseName}.webpage.custom_javascript.js`);
       const targetJs2 = path.join(targetPath, 'content-pages', `${baseName}.en-US.webpage.custom_javascript.js`);
       
+      console.log(`  Writing JS to: ${targetJs1}`);
       fs.writeFileSync(targetJs1, content);
+      
       if (fs.existsSync(path.dirname(targetJs2))) {
+        console.log(`  Writing JS to: ${targetJs2}`);
         fs.writeFileSync(targetJs2, content);
       }
-      console.log(`  Synced JS for ${targetFolder}`);
     }
   }
 }
 
 syncSharedCss();
 syncPages();
-console.log('Sync complete!');
+console.log('\n--- Sync Complete ---');

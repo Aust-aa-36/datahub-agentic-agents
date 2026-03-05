@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enabling RAV — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="rav.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Enabling RAV</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Product</span>
+      </div>
+      <h1 class="au-page-hero__title">Enabling RAV</h1>
+      <p class="au-page-hero__sub">Validates VINs against the Register of Approved Vehicles and shares approval data with state and territory registries — enabling ADR-compliant vehicles to be registered in Australia.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button class="au-tab active" data-tab-target="rav-overview" aria-selected="true">Overview</button>
+        <button class="au-tab " data-tab-target="rav-how" aria-selected="false">How It Works</button>
+        <button class="au-tab " data-tab-target="rav-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="rav-overview" class="au-tab-content active au-prose">
+          <h3>What it does</h3>
+          <p>The Register of Approved Vehicles (RAV) is the official list of motor vehicles approved for supply in Australia under the Motor Vehicle Standards Act 2018. NEVDIS validates VINs against the RAV and shares approval status with state and territory registration authorities, enabling vehicles to be registered only if they meet Australian Design Rules (ADR) compliance requirements.</p>
+          <h3>Who uses it</h3>
+          <p>State and territory vehicle registration authorities, vehicle importers and compliance plate authorities, and the Department of Infrastructure, Transport, Regional Development, Communications and the Arts (DITRDCA) which administers the RAV.</p>
+        </div>
+        <div id="rav-how" class="au-tab-content  au-prose" hidden>
+          <h3>Process</h3>
+          <ol class="au-steps">
+            <li><span>DITRDCA approves a vehicle model for supply in Australia and records it on the RAV.</span></li>
+            <li><span>NEVDIS receives RAV approval data and associates it with relevant VINs.</span></li>
+            <li><span>When a jurisdiction attempts to register a vehicle, NEVDIS checks the VIN against the RAV.</span></li>
+            <li><span>Registration proceeds only if the VIN is associated with a RAV-approved vehicle.</span></li>
+          </ol>
+        </div>
+        <div id="rav-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>RAV data sourced from DITRDCA — the authoritative source for vehicle approvals</li>
+            <li>Jurisdictions access RAV validation via NEVDIS integration only</li>
+            <li>Individual VIN validation is provided in real time during registration processing</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Product</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Consumers</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>State &amp; territory registration authorities</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Vehicle importers</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>DITRDCA</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time VIN validation via NEVDIS</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time — RAV approvals updated as DITRDCA publishes</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="rav.js"></script>
+</body>
+</html>
