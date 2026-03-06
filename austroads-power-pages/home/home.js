@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  var AGENT_ENDPOINT = 'https://8bbd70f60473e9689748b73f7eed2f.c4.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/53bac4d2842d44f1a284437479dfc99d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XG5HvZMP6LxawnVjc3PcSqD8VlnPXz1F7-xoGDXh5qs';
+  var AGENT_ENDPOINT = (window.AU_AGENT_CONFIG && window.AU_AGENT_CONFIG.endpoint) || 'https://8bbd70f60473e9689748b73f7eed2f.c4.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/53bac4d2842d44f1a284437479dfc99d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XG5HvZMP6LxawnVjc3PcSqD8VlnPXz1F7-xoGDXh5qs';
   var SESSION_ID = 'datahub-' + Date.now();
   var panelReady = false;
   var chatHistory = []; /* Track last 8 messages (4 exchanges) for router context */
@@ -130,10 +130,10 @@
               '<div class="au-msg-bubble" id="au-agent-welcome-text">' + welcomeText + '</div>' +
             '</div>' +
             '<div class="au-agent-suggestions" id="au-agent-suggestions" aria-label="Suggested questions">' +
-              '<button class="au-suggestion-chip" type="button">What is NEVDIS?</button>' +
-              '<button class="au-suggestion-chip" type="button">How do I access TCA data?</button>' +
-              '<button class="au-suggestion-chip" type="button">What is Plate-to-VIN?</button>' +
-              '<button class="au-suggestion-chip" type="button">What TCA services are available?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is NEVDIS?">What is NEVDIS?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: How do I access TCA data?">How do I access TCA data?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is Plate-to-VIN?">What is Plate-to-VIN?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: What TCA services are available?">What TCA services are available?</button>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -215,10 +215,10 @@
     sug.id = 'au-agent-suggestions';
     sug.setAttribute('aria-label', 'Suggested questions');
     sug.innerHTML =
-      '<button class="au-suggestion-chip" type="button">What is NEVDIS?</button>' +
-      '<button class="au-suggestion-chip" type="button">How do I access TCA data?</button>' +
-      '<button class="au-suggestion-chip" type="button">What is Plate-to-VIN?</button>' +
-      '<button class="au-suggestion-chip" type="button">What TCA services are available?</button>';
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is NEVDIS?">What is NEVDIS?</button>' +
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: How do I access TCA data?">How do I access TCA data?</button>' +
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is Plate-to-VIN?">What is Plate-to-VIN?</button>' +
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: What TCA services are available?">What TCA services are available?</button>';
     chatInner.appendChild(sug);
 
     var chat = document.getElementById('au-agent-chat');
@@ -443,7 +443,7 @@
         var a = document.createElement('a');
         a.href = '/detail-' + found[i];
         a.className = 'au-msg-citation-link';
-        a.textContent = PRODUCT_DISPLAY[found[i]] || found[i];
+        a.innerHTML = (PRODUCT_DISPLAY[found[i]] || found[i]) + ' <span style="font-size:10px; margin-left:4px">\u2192</span>';
         a.setAttribute('target', '_blank');
         a.setAttribute('rel', 'noopener');
         links.appendChild(a);

@@ -9,3 +9,5 @@ This registry tracks the status and progress of all workstreams, organized using
 | **Active** | `004-data-hub-standardization` | [Data Hub Platform Standardization](./tracks/004-data-hub-standardization/plan.md) | Standardizing project and task creation using platform-aligned workflows. |
 | **Proposed** | `005-portal-enhancements` | [Portal UI/UX Refinement](./tracks/005-portal-enhancements/plan.md) | Planned tasks for mobile responsiveness and performance tuning. |
 | **Proposed** | `003-data-enrichment` | [Knowledge Article Expansion](./tracks/003-data-enrichment/plan.md) | Integrating field definitions and update frequencies. |
+| **Active** | `006-parallel-poc-power-pages` | [Parallel POC Power Pages Site](./tracks/006-parallel-poc-power-pages/plan.md) | Replicating Dataverse tables and deploying Genkit to a new site. |
+| **Completed** | `007-website-polish` | [Website UI/UX Polish](./tracks/007-website-polish/plan.md) | Mobile responsiveness, accessibility, and loading performance tuning. |
