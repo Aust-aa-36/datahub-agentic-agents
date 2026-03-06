@@ -6,7 +6,7 @@ This document provides a feature-rich, step-by-step guide for each task in the v
 
 ## Phase 1: Environment & Identity Setup
 
-### Task 1.1: GCP Service Account Setup
+### Task 1.1: GCP Service Account Setup [DONE]
 **Goal:** Create a secure identity for the Genkit backend to call the Gemini 1.5 Pro model.
 
 **Steps:**
@@ -88,7 +88,7 @@ This document provides a feature-rich, step-by-step guide for each task in the v
 
 ## Phase 3: Genkit Backend Implementation
 
-### Task 3.1: Dataverse Authentication Logic
+### Task 3.1: Dataverse Authentication Logic [DONE]
 **Goal:** Implement the OAuth2 client to fetch the Azure AD token for Dataverse.
 
 **Code Snippet (`src/auth.ts`):**
@@ -115,7 +115,7 @@ export async function getDataverseToken() {
 
 ---
 
-### Task 3.2: Implement Secure Retrieval Tool
+### Task 3.2: Implement Secure Retrieval Tool [DONE]
 **Goal:** Write the OData query that joins Knowledge, Fields, and Entitlements.
 
 **Code Snippet (Logic for `getKnowledgeTool`):**

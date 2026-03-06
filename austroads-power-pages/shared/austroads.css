@@ -577,10 +577,10 @@ button { cursor: pointer; font-family: inherit; }
 .au-home-hero__eyebrow span { width: 6px; height: 6px; background: var(--au-gold); border-radius: 50%; }
 .au-home-hero__title {
   font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(34px, 7vw, 72px);
   font-weight: 700; color: #fff;
-  line-height: 1.02; margin-bottom: 18px;
-  letter-spacing: 0.01em;
+  line-height: 1.05; margin-bottom: 22px;
+  letter-spacing: -0.01em;
 }
 .au-home-hero__title em { color: var(--au-gold); font-style: normal; }
 .au-home-hero__sub {
@@ -735,8 +735,7 @@ button { cursor: pointer; font-family: inherit; }
   .au-section { padding: 36px 20px; }
   .au-page-hero { padding: 36px 20px 32px; }
   .au-detail-body { padding: 24px 20px 48px; }
-  .au-grid-catalog { grid-template-columns: 1fr; }
-  .au-home-hero__title { font-size: 36px; }
+  .au-grid-catalog, .au-grid-service { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .au-stats { grid-template-columns: 1fr; }

@@ -273,7 +273,7 @@
 }
 .au-msg-domain--tca {
   background: rgba(39,137,175,0.12);
-  color: #2789AF;
+  color: #126785;
 }
 .au-msg-domain--general {
   background: rgba(60,53,51,0.10);
@@ -522,7 +522,18 @@ h6.au-md-h { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em;
 }
 
 @media (max-width: 768px) {
-  #au-agent-panel { width: 100vw; }
+  #au-agent-panel {
+    width: 100vw;
+    box-shadow: none; /* Shadow unnecessary at full width */
+  }
+  .au-agent-chat-inner {
+    padding: 16px 16px 12px;
+  }
   .au-agent-msg--bot .au-msg-bubble,
-  .au-agent-msg--user .au-msg-bubble { max-width: 88%; }
+  .au-agent-msg--user .au-msg-bubble {
+    max-width: 92%; /* Increased for better line length on small screens */
+  }
+  .au-agent-input-wrap {
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+  }
 }
