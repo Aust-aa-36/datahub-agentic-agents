@@ -150,7 +150,27 @@ export const datahubOrchestratorFlow = ai.defineFlow(
       messages: [{ role: 'user', content: [{ text: `History: ${JSON.stringify(input.history)}` }] }],
     });
 
-    const routing = JSON.parse(routerResponse.text || '{}');
+    const RoutingSchema = z.object({
+      domain: z.enum(['NEVDIS', 'TCA', 'GENERAL']).catch('GENERAL'),
+      intent: z.string().optional(),
+      product: z.string().optional()
+    });
+
+    let routing: z.infer<typeof RoutingSchema> = { domain: 'GENERAL', intent: '' };
+    try {
+      // Remove any markdown code blocks that the LLM might wrap the JSON in
+      const cleanJson = (routerResponse.text || '{}').replace(/```json\n?|\n?```/g, '');
+      const parsed = JSON.parse(cleanJson);
+      const result = RoutingSchema.safeParse(parsed);
+      if (result.success) {
+        routing = result.data;
+      } else {
+        console.warn('[ROUTING] Invalid routing schema returned by LLM:', result.error);
+      }
+    } catch (e) {
+      console.error('[ROUTING] Failed to parse JSON from LLM:', e);
+    }
+
     const systemPrompt = routing.domain === 'NEVDIS' ? NEVDIS_SYSTEM : (routing.domain === 'TCA' ? TCA_SYSTEM : GENERAL_SYSTEM);
 
     // 2. GROUNDED RESPONSE GENERATION

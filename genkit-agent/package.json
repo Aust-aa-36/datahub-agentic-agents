@@ -25,6 +25,7 @@
     "z": "^1.0.9"
   },
   "devDependencies": {
+    "typescript": "^5.9.3",
     "@types/cors": "^2.8.19"
   }
 }
