@@ -146,7 +146,14 @@ async function main() {
   console.log('\n--- Sync Complete ---');
 }
 
-main().catch(err => {
-  console.error('Fatal error during sync:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fatal error during sync:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  syncSharedCss,
+  syncPages
+};
