@@ -71,8 +71,12 @@
     const input = document.getElementById('au-search-input');
     if (!input) return;
 
-    input.addEventListener('input', function () {
-      const q = this.value.toLowerCase().trim();
+    // Cache static DOM elements to avoid re-querying on every input
+    const noResult = document.getElementById('au-search-empty');
+
+    // Debounce the search input to avoid layout thrashing on fast typing
+    const handleInput = debounce(function (e) {
+      const q = e.target.value.toLowerCase().trim();
       const cards = document.querySelectorAll('[data-searchable]');
       let visibleCount = 0;
 
@@ -83,9 +87,10 @@
         if (match) visibleCount++;
       });
 
-      const noResult = document.getElementById('au-search-empty');
       if (noResult) noResult.style.display = visibleCount === 0 ? 'block' : 'none';
-    });
+    }, 250); // 250ms debounce
+
+    input.addEventListener('input', handleInput);
 
     // Clear on escape
     input.addEventListener('keydown', function (e) {
