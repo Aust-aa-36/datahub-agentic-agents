@@ -1,17 +1,30 @@
 import { genkit, z } from 'genkit';
-import { googleAI } from '@genkit-ai/google-genai';
+import { vertexAI } from '@genkit-ai/vertexai';
 import axios from 'axios';
 import { getDataverseToken } from './auth';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
 /**
  * GENKIT CONFIGURATION
+ * Now using Vertex AI (Google Cloud) for enterprise security.
  */
 export const ai = genkit({
-  plugins: [googleAI()],
+  plugins: [
+    vertexAI({
+      projectId: process.env.GCP_PROJECT,
+      location: process.env.GCP_LOCATION || 'us-central1',
+    }),
+  ],
 });
+
+/**
+ * CORS Configuration for Power Pages Sites
+ * Allows multiple origins (Production + POC sites) via ALLOWED_ORIGINS env var.
+ */
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || '').split(',').map(o => o.trim()).filter(o => o !== '');
 
 /**
  * PROMPT TEMPLATES (Extracted from GitHub repo)
@@ -130,7 +143,7 @@ export const datahubOrchestratorFlow = ai.defineFlow(
   async (input) => {
     // 1. ROUTING & INTENT CLASSIFICATION
     const routerResponse = await ai.generate({
-      model: googleAI.model('gemini-1.5-pro'),
+      model: vertexAI.model('gemini-1.5-pro'),
       system: ROUTER_PROMPT,
       prompt: input.message,
       // Pass history as text block to match v2 logic
@@ -162,7 +175,7 @@ export const datahubOrchestratorFlow = ai.defineFlow(
 
     // 2. GROUNDED RESPONSE GENERATION
     const response = await ai.generate({
-      model: googleAI.model('gemini-1.5-pro'),
+      model: vertexAI.model('gemini-1.5-pro'),
       system: systemPrompt,
       prompt: input.message,
       tools: [getKnowledgeTool],
@@ -180,3 +193,25 @@ export const datahubOrchestratorFlow = ai.defineFlow(
     };
   }
 );
+
+/**
+ * SERVER SETUP
+ * Starts the Genkit flow server with CORS enabled.
+ */
+ai.startFlowServer({
+  flows: [datahubOrchestratorFlow],
+  cors: {
+    origin: (origin, callback) => {
+      // Allow if origin is in ALLOWED_ORIGINS list or if no origin (e.g. server-to-server)
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  },
+  port: parseInt(process.env.PORT || '3400'),
+});
+

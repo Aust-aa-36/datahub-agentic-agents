@@ -26,10 +26,6 @@ $(document).ready(function () {
     '#mainContent > div > div > div > div > div > div > div > div > div.view-toolbar.grid-actions.clearfix > div > div.searchContainer > input'
   ).removeClass('query form-control');
 
-  // $(
-  //   '#mainContent > div > div > div > div > div > div > div > div > div.view-toolbar.grid-actions.clearfix > div > div.input-group.pull-left > a:nth-child(1)'
-  // ).attr('class', 'create-button');
-
   //Create btns
   $('#mainContent > div > div > div > div > div > div > div > div > div.view-toolbar.grid-actions.clearfix > div > div.input-group.float-start > a').attr('href', '/article-details');
   $(
