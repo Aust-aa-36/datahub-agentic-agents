@@ -40,5 +40,4 @@ jobs:
           # 2. Upload using the Full Environment URL to bypass discovery logic
           $POWERPLATFORMTOOLS_PACPATH pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
             --environment "https://datahub-austroads.crm6.dynamics.com" \
-            --modelVersion 2 \
-            --forceUploadAll
+            --modelVersion 2
