@@ -1,0 +1,21 @@
+name: Diagnose Power Pages
+on:
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: microsoft/powerplatform-actions/actions-install@v1
+      - name: List Websites
+        shell: bash
+        run: |
+          $POWERPLATFORMTOOLS_PACPATH auth create --name "Diag" \
+            --environment "https://datahub-austroads.crm6.dynamics.com" \
+            --applicationId "${{ secrets.CLIENT_ID }}" \
+            --clientSecret "${{ secrets.CLIENT_SECRET }}" \
+            --tenant "${{ secrets.TENANT_ID }}" \
+            --accept-cleartext-caching
+          
+          echo "--- POWER PAGES LIST ---"
+          $POWERPLATFORMTOOLS_PACPATH pages list --environment "8bbd70f6-0473-e968-9748-b73f7eed2fc4"
