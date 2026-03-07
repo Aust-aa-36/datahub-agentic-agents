@@ -74,16 +74,25 @@
     // Cache static DOM elements to avoid re-querying on every input
     const noResult = document.getElementById('au-search-empty');
 
+    // ⚡ Bolt: Performance Optimization
+    // Moved querySelectorAll outside the event handler to prevent expensive DOM queries on every keystroke.
+    // Cached the lowercased text content upfront to avoid redundant string allocations and toLowerCase() calls during search.
+    // This turns the expensive per-item DOM-read/string-transform into a simple object property lookup.
+    const cards = Array.from(document.querySelectorAll('[data-searchable]')).map(function(card) {
+      return {
+        element: card,
+        searchText: (card.textContent || '').toLowerCase()
+      };
+    });
+
     // Debounce the search input to avoid layout thrashing on fast typing
     const handleInput = debounce(function (e) {
       const q = e.target.value.toLowerCase().trim();
-      const cards = document.querySelectorAll('[data-searchable]');
       let visibleCount = 0;
 
-      cards.forEach(function (card) {
-        const text = (card.textContent || '').toLowerCase();
-        const match = !q || text.includes(q);
-        card.style.display = match ? '' : 'none';
+      cards.forEach(function (item) {
+        const match = !q || item.searchText.includes(q);
+        item.element.style.display = match ? '' : 'none';
         if (match) visibleCount++;
       });
 
