@@ -4,6 +4,7 @@ This registry tracks the status and progress of all workstreams, organized using
 
 | Status | ID | Title | Summary |
 | :--- | :--- | :--- | :--- |
+| **Active** | `008-automated-deployment` | [Automated Deployment](./tracks/008-automated-deployment/plan.md) | Setting up Power Platform GitHub Actions for CI/CD. |
 | **Completed** | `001-initial-poc` | [Initial Site Build](https://github.com/Aust-aa-36/datahub-agentic-agents/commit/1dfd771) | 20-page portal, shared design system, and multi-agent router. |
 | **Completed** | `002-ai-cicd` | [AI CI/CD Integration](./tracks/002-ai-cicd/plan.md) | Standardizing project management with Conductor, Jules, and Gemini. |
 | **Active** | `004-data-hub-standardization` | [Data Hub Platform Standardization](./tracks/004-data-hub-standardization/plan.md) | Standardizing project and task creation using platform-aligned workflows. |

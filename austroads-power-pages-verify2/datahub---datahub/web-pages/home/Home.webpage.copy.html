@@ -1,53 +1,554 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Austroads Data Info Hub</title>
-  <link rel="icon" href="../shared/favicon.ico">
-  <link rel="stylesheet" href="/webfiles/austroads.css">
-  <link rel="stylesheet" href="/webfiles/home.css">
-</head>
-<body>
+<style>
+/* ── Home page specific styles ── */
 
-<!-- ── Header ── -->
-<header class="au-header" role="banner">
-  <div class="au-header__inner">
-    <a href="/" class="au-logo" aria-label="Austroads Data Info Hub home">
-      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
-      <div class="au-logo__divider" aria-hidden="true"></div>
-      <div class="au-logo__text">
-        <div class="au-logo__name">Data Info Hub</div>
-        <div class="au-logo__sub">NEVDIS · TCA</div>
-      </div>
-    </a>
+/* Hero buttons — white outlines on dark bg */
+.home-btn {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.28);
+  color: #fff;
+}
+.home-btn:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
 
-    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
-      </svg>
-    </button>
+/* ── Hero AI search bar ── */
+.au-hero-agent {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 60px;
+  padding: 10px 12px 10px 14px;
+  max-width: 520px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.au-hero-agent:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(243,111,33,0.4);
+  box-shadow: 0 4px 24px rgba(243,111,33,0.15);
+  transform: translateY(-1px);
+}
+.au-hero-agent:focus-visible {
+  outline: 2px solid var(--au-gold);
+  outline-offset: 2px;
+}
+.au-hero-agent__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--au-gold) 0%, var(--au-blue) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(243,111,33,0.3);
+}
+.au-hero-agent__input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  padding: 4px 0;
+  user-select: none;
+}
+.au-hero-agent__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--au-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  transition: background 0.2s, transform 0.2s;
+}
+.au-hero-agent:hover .au-hero-agent__btn {
+  background: var(--au-blue);
+  transform: scale(1.08);
+}
+@media (max-width: 768px) {
+  .au-hero-agent { max-width: 100%; }
+}
 
-    <nav class="au-nav" id="au-main-nav" role="navigation" aria-label="Main navigation">
-      <a href="/"         class="au-nav__link active" data-page="index.html">Home</a>
-      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
-      <a href="/tca"   class="au-nav__link" data-page="tca">TCA</a>
-      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b"
-         target="_blank" rel="noopener" class="au-nav__link">
-        Analytics Reports
-        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-left:2px"><path d="M1 11L11 1M11 1H5M11 1V7"/></svg>
-      </a>
-      <button type="button" class="au-nav__cta secondary" id="au-agent-open" aria-label="Open AI Assistant"
-              data-bs-toggle="offcanvas" data-bs-target="#au-agent-panel" aria-controls="au-agent-panel">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        AI Assistant
-      </button>
-    </nav>
-  </div>
-</header>
+/* ── AI Assistant button — purple/indigo ── */
+.au-btn--ai {
+  background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+  color: #fff;
+  border: none;
+}
+.au-btn--ai:hover {
+  background: linear-gradient(135deg, #6D28D9 0%, #4338CA 100%);
+  box-shadow: 0 4px 16px rgba(79,70,229,0.4);
+  transform: translateY(-1px);
+  color: #fff;
+}
 
-<!-- ── Home Hero ── -->
+/* ═══════════════════════════════════════════════
+   BACKDROP — dims the page when panel is open
+   document.body.appendChild keeps it at root level
+═══════════════════════════════════════════════ */
+#au-agent-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,20,40,0.45);
+  z-index: 1054;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+#au-agent-backdrop.au-open {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════
+   AGENT PANEL — Right-side sliding drawer
+   JS moves this to document.body so position:fixed
+   is not blocked by Power Pages CSS transform ancestor
+═══════════════════════════════════════════════ */
+#au-agent-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 460px;
+  max-width: 100vw;
+  background: #F5F0E8;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
+              visibility 0s linear 0.32s;
+  z-index: 1055;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 32px rgba(60,53,51,0.18);
+}
+#au-agent-panel.au-open {
+  visibility: visible;
+  transform: translateX(0);
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
+              visibility 0s;
+}
+
+/* Panel inner body */
+.au-agent-panel-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Section header bar */
+.au-agent-section__header {
+  background: var(--au-navy-dark);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.au-agent-section__header-meta { flex: 1; }
+.au-agent-section__title {
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 700;
+  color: #fff; letter-spacing: 0.01em;
+}
+.au-agent-section__status {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+}
+.au-agent-status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #4ade80; flex-shrink: 0;
+  animation: status-pulse 2.5s infinite;
+}
+@keyframes status-pulse {
+  0%,100% { box-shadow: 0 0 0 2px rgba(74,222,128,0.25); }
+  50%     { box-shadow: 0 0 0 5px rgba(74,222,128,0.08); }
+}
+.au-agent-section__close {
+  background: rgba(255,255,255,0.1); border: none;
+  color: #fff; width: 30px; height: 30px;
+  border-radius: 7px; display: flex; align-items: center;
+  justify-content: center; transition: background 0.15s;
+  flex-shrink: 0; cursor: pointer;
+}
+.au-agent-section__close:hover { background: rgba(255,255,255,0.2); }
+.au-agent-section__new {
+  background: rgba(255,255,255,0.1); border: none;
+  color: #fff; width: 30px; height: 30px;
+  border-radius: 7px; display: flex; align-items: center;
+  justify-content: center; transition: background 0.15s;
+  flex-shrink: 0; cursor: pointer; margin-right: 4px;
+}
+.au-agent-section__new:hover { background: rgba(255,255,255,0.2); }
+.au-agent-bot-avatar {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--au-blue) 0%, #564A47 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* ── Chat area ── */
+.au-agent-chat {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  padding: 0;
+}
+.au-agent-chat::-webkit-scrollbar { width: 4px; }
+.au-agent-chat::-webkit-scrollbar-track { background: transparent; }
+.au-agent-chat::-webkit-scrollbar-thumb {
+  background: rgba(60,53,51,0.15); border-radius: 10px;
+}
+.au-agent-chat-inner {
+  margin-top: auto;
+  padding: 18px 20px 10px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+/* ── Messages ── */
+.au-agent-msg {
+  display: flex; align-items: flex-end; gap: 8px;
+  animation: msgIn 0.2s ease both;
+}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.au-msg-bot-avatar {
+  width: 26px; height: 26px; flex-shrink: 0;
+  border-radius: 7px; margin-bottom: 2px;
+  background: linear-gradient(135deg, var(--au-blue) 0%, #564A47 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.au-agent-msg--bot .au-msg-bubble {
+  background: #fff;
+  border: 1px solid rgba(60,53,51,0.09);
+  border-radius: 4px 14px 14px 14px;
+  padding: 10px 14px;
+  font-size: 14px; color: var(--text-mid);
+  line-height: 1.65; max-width: 80%;
+  box-shadow: 0 1px 4px rgba(60,53,51,0.07);
+}
+.au-agent-msg--user { flex-direction: row-reverse; }
+.au-msg-user-avatar {
+  width: 26px; height: 26px; flex-shrink: 0;
+  border-radius: 7px; margin-bottom: 2px;
+  background: var(--au-navy-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 11px;
+  font-weight: 700; color: rgba(255,255,255,0.9);
+}
+.au-agent-msg--user .au-msg-bubble {
+  background: var(--au-navy);
+  color: rgba(255,255,255,0.92);
+  border-radius: 14px 4px 14px 14px;
+  padding: 10px 14px; font-size: 14px;
+  line-height: 1.65; max-width: 80%;
+  box-shadow: 0 2px 6px rgba(60,53,51,0.18);
+}
+
+/* ── Domain badge on bot messages ── */
+.au-msg-domain-badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px; border-radius: 10px;
+  margin-right: 6px; margin-bottom: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.au-msg-domain--nevdis {
+  background: rgba(204,76,0,0.12);
+  color: #CC4C00;
+}
+.au-msg-domain--tca {
+  background: rgba(39,137,175,0.12);
+  color: #126785;
+}
+.au-msg-domain--general {
+  background: rgba(60,53,51,0.10);
+  color: #3C3533;
+}
+
+/* ── Message action bar (feedback + copy) ── */
+.au-msg-bubble-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+.au-msg-actions {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0 0 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.au-agent-msg--bot:hover .au-msg-actions {
+  opacity: 1;
+}
+.au-msg-action-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-soft);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  padding: 0;
+}
+.au-msg-action-btn:hover {
+  background: rgba(60,53,51,0.08);
+  color: var(--text-mid);
+}
+.au-msg-action-btn--selected,
+.au-msg-action-btn--selected:hover {
+  background: rgba(204,76,0,0.12);
+  color: var(--au-blue);
+}
+.au-msg-action-btn--copied,
+.au-msg-action-btn--copied:hover {
+  background: rgba(74,222,128,0.12);
+  color: #4ade80;
+}
+
+/* ── Source citations ── */
+.au-msg-citations {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(60,53,51,0.08);
+}
+.au-msg-citations__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.au-msg-citations__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.au-msg-citation-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--au-blue);
+  background: rgba(204,76,0,0.08);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.au-msg-citation-link:hover {
+  background: var(--au-blue);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(204,76,0,0.2);
+}
+
+/* ── Markdown rendering inside bot bubbles ── */
+.au-msg-bubble .au-md-h {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--au-navy-dark);
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+h4.au-md-h { font-size: 14px; }
+h5.au-md-h { font-size: 13px; }
+h6.au-md-h { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; }
+.au-msg-bubble .au-md-p {
+  margin: 0 0 2px;
+  line-height: 1.65;
+}
+.au-msg-bubble .au-md-list {
+  margin: 4px 0 6px 0;
+  padding-left: 18px;
+}
+.au-msg-bubble .au-md-list li {
+  margin-bottom: 3px;
+  line-height: 1.55;
+  font-size: 13.5px;
+}
+.au-msg-bubble .au-md-list li::marker {
+  color: var(--au-blue);
+}
+.au-msg-bubble ol.au-md-list li::marker {
+  font-weight: 600;
+  font-size: 12px;
+}
+.au-msg-bubble .au-md-spacer {
+  height: 6px;
+}
+.au-msg-bubble strong {
+  font-weight: 700;
+  color: var(--au-navy-dark);
+}
+.au-msg-bubble em {
+  font-style: italic;
+}
+.au-msg-bubble code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 12.5px;
+  background: rgba(60,53,51,0.06);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--au-navy);
+}
+
+/* ── Typing indicator ── */
+.au-agent-typing {
+  display: flex; gap: 5px; align-items: center; height: 18px;
+}
+.au-agent-typing span {
+  width: 6px; height: 6px; background: var(--au-blue);
+  border-radius: 50%; animation: typing-bounce 1.2s infinite;
+}
+.au-agent-typing span:nth-child(2) { animation-delay: 0.2s; }
+.au-agent-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%           { transform: translateY(-5px); }
+}
+.au-typing-slow { font-size: 11px; color: var(--text-soft); margin-top: 7px; display: none; }
+.au-typing-slow.show { display: block; }
+
+/* ── Suggestion chips ── */
+.au-agent-suggestions {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  padding: 2px 0 0 34px;
+}
+.au-suggestion-chip {
+  background: #fff;
+  border: 1.5px solid rgba(204,76,0,0.2);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px; font-size: 12px; font-weight: 500;
+  color: var(--au-blue); cursor: pointer;
+  transition: all 0.15s; font-family: var(--font-body);
+}
+.au-suggestion-chip:hover {
+  background: var(--au-blue); color: #fff;
+  border-color: var(--au-blue);
+}
+
+/* ── Input bar ── */
+.au-agent-input-wrap {
+  padding: 12px 20px 14px;
+  background: #fff;
+  border-top: 1px solid rgba(60,53,51,0.09);
+  flex-shrink: 0;
+}
+.au-agent-input-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.au-agent-input {
+  flex: 1; background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px; font-family: var(--font-body);
+  font-size: 14px; color: var(--text); outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.au-agent-input:focus {
+  border-color: var(--au-blue);
+  box-shadow: 0 0 0 3px rgba(204,76,0,0.08);
+  background: #fff;
+}
+.au-agent-input::placeholder { color: var(--text-soft); }
+.au-agent-input:disabled { opacity: 0.6; cursor: not-allowed; }
+.au-agent-send {
+  background: var(--au-navy); color: #fff;
+  border: none; width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.18s; flex-shrink: 0; cursor: pointer;
+}
+.au-agent-send:not(:disabled):hover {
+  background: var(--au-blue);
+  box-shadow: 0 3px 10px rgba(204,76,0,0.35);
+  transform: scale(1.06);
+}
+.au-agent-send:disabled {
+  background: var(--bg-subtle); color: var(--text-soft); cursor: not-allowed;
+}
+.au-agent-input-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  gap: 12px;
+}
+.au-agent-input-hint {
+  font-size: 11px; color: var(--text-soft);
+  display: flex; align-items: center; gap: 4px;
+}
+.au-agent-export-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.au-agent-export-btn:hover {
+  background: rgba(60,53,51,0.04);
+  border-color: var(--text-mid);
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  #au-agent-panel {
+    width: 100vw;
+    box-shadow: none; /* Shadow unnecessary at full width */
+  }
+  .au-agent-chat-inner {
+    padding: 16px 16px 12px;
+  }
+  .au-agent-msg--bot .au-msg-bubble,
+  .au-agent-msg--user .au-msg-bubble {
+    max-width: 92%; /* Increased for better line length on small screens */
+  }
+  .au-agent-input-wrap {
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+  }
+}
+
+</style>
 <main id="main-content">
+
+  <!-- User data for JS — Liquid renders firstname here, JS reads it -->
+  <span id="au-user-data"
+        data-first-name="{{ user.firstname | default: '' }}"
+        data-full-name="{{ user.fullname | default: '' }}"
+        data-email="{{ user.emailaddress1 | default: '' }}"
+        style="display:none" aria-hidden="true"></span>
+
   <section class="au-home-hero" aria-labelledby="hero-title">
     <div class="au-home-hero__inner">
       <div class="au-home-hero__eyebrow">
@@ -60,25 +561,15 @@
       <p class="au-home-hero__sub anim-slide-up d1">
         Discover NEVDIS and TCA data, explore analytics reports, and ask the built-in AI agent anything about our data products.
       </p>
-      <div class="au-home-hero__actions anim-slide-up d2">
-        <a href="/nevdis" class="au-btn au-btn--outline home-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          Browse NEVDIS
-        </a>
-        <a href="/tca" class="au-btn au-btn--outline home-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          Browse TCA
-        </a>
-        <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b"
-           target="_blank" rel="noopener" class="au-btn au-btn--accent">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          View Analytics Reports
-        </a>
-        <button type="button" class="au-btn au-btn--accent" id="au-agent-open-hero"
-                data-bs-toggle="offcanvas" data-bs-target="#au-agent-panel" aria-controls="au-agent-panel">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          AI Assistant
-        </button>
+      <div class="au-hero-agent anim-slide-up d2" id="au-hero-agent" role="button" tabindex="0"
+           aria-label="Open AI Assistant" onclick="window.auAgent&&window.auAgent.open()" data-test="sync-verification-v2">
+        <div class="au-hero-agent__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="au-hero-agent__input">Ask about NEVDIS, TCA, data access&#x2026;</div>
+        <div class="au-hero-agent__btn" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
       </div>
 
       <!-- Stats -->
@@ -98,17 +589,12 @@
           <div class="au-stat__label">TCA data services &amp; products</div>
           <div class="au-stat__bar" aria-hidden="true"></div>
         </div>
-        <div class="au-stat" role="listitem">
-          <div class="au-stat__num">AI</div>
-          <div class="au-stat__label">Built-in assistant for data queries</div>
-          <div class="au-stat__bar" aria-hidden="true"></div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ── NEVDIS Highlights ── -->
-  <section class="au-section" aria-labelledby="nevdis-section-title">
+  <section class="au-section nevdis-section" aria-labelledby="nevdis-section-title">
     <div class="au-section-hd">
       <div>
         <h2 class="au-section-hd__title" id="nevdis-section-title">NEVDIS</h2>
@@ -116,42 +602,33 @@
       </div>
       <a href="/nevdis" class="au-see-all">Explore NEVDIS →</a>
     </div>
-    <div class="au-grid-catalog">
-      <a href="/detail-vehicles-reg" class="au-card anim-slide-up d1" data-searchable aria-label="Vehicles and Registrations Data">
-        <div class="au-card__bar" aria-hidden="true"></div>
-        <div class="au-card__icon" aria-hidden="true">🔗</div>
-        <div class="au-card__title">Vehicles &amp; Registrations Data</div>
-        <div class="au-card__desc">Comprehensive registration records including status, operator, jurisdiction, and expiry across all Australian states and territories.</div>
-        <div class="au-card__tags">
-          <span class="au-tag">Data Element</span>
-          <span class="au-tag">Registration</span>
+    <div class="au-grid-service">
+      <a href="/detail-vehicles-reg" class="au-service-card anim-slide-up d1" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">🔗</div>
+        <div>
+          <div class="au-service-card__title">Vehicles &amp; Registrations Data</div>
+          <div class="au-service-card__desc">Comprehensive registration records including status, operator, jurisdiction, and expiry across all Australian states and territories.</div>
         </div>
       </a>
-      <a href="/detail-driver" class="au-card anim-slide-up d2" data-searchable aria-label="Driver Licences">
-        <div class="au-card__bar" aria-hidden="true"></div>
-        <div class="au-card__icon" aria-hidden="true">🪪</div>
-        <div class="au-card__title">Driver Licences</div>
-        <div class="au-card__desc">Authoritative driver licence records from all jurisdictions — status, conditions, demerit points, and holder details.</div>
-        <div class="au-card__tags">
-          <span class="au-tag">Data Element</span>
-          <span class="au-tag">Identity</span>
+      <a href="/detail-driver" class="au-service-card anim-slide-up d2" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">🪪</div>
+        <div>
+          <div class="au-service-card__title">Driver Licences</div>
+          <div class="au-service-card__desc">Authoritative driver licence records from all jurisdictions — status, conditions, demerit points, and holder details.</div>
         </div>
       </a>
-      <a href="/detail-recall" class="au-card anim-slide-up d3" data-searchable aria-label="Safety Recalls">
-        <div class="au-card__bar" aria-hidden="true"></div>
-        <div class="au-card__icon" aria-hidden="true">⚠️</div>
-        <div class="au-card__title">Safety Recalls</div>
-        <div class="au-card__desc">Real-time lookup matching manufacturer recall notices against registered VINs for consumer protection and compliance.</div>
-        <div class="au-card__tags">
-          <span class="au-tag">Data Product</span>
-          <span class="au-tag">Safety</span>
+      <a href="/detail-recall" class="au-service-card anim-slide-up d3" data-searchable>
+        <div class="au-service-card__icon" aria-hidden="true">⚠️</div>
+        <div>
+          <div class="au-service-card__title">Safety Recalls</div>
+          <div class="au-service-card__desc">Real-time lookup matching manufacturer recall notices against registered VINs for consumer protection and compliance.</div>
         </div>
       </a>
     </div>
   </section>
 
   <!-- ── TCA Highlights ── -->
-  <section class="au-section au-section--tight" aria-labelledby="tca-section-title">
+  <section class="au-section au-section--tight tca-section" aria-labelledby="tca-section-title">
     <div class="au-section-hd">
       <div>
         <h2 class="au-section-hd__title" id="tca-section-title">TCA</h2>
@@ -191,132 +668,666 @@
     </div>
   </section>
 
-  <!-- ── AI Agent Banner ── -->
-  <div class="au-agent-banner" role="complementary" aria-label="AI Assistant">
-    <div class="au-agent-banner__inner">
-      <div class="au-agent-banner__icon" aria-hidden="true">🤖</div>
-      <div class="au-agent-banner__text">
-        <div class="au-agent-banner__title">Built-in AI Assistant</div>
-        <div class="au-agent-banner__sub">Ask the Data Info Hub agent anything about NEVDIS and TCA data — access, attributes, use cases, and more.</div>
-      </div>
-      <button type="button" class="au-btn au-btn--accent" id="au-agent-open-banner"
-              data-bs-toggle="offcanvas" data-bs-target="#au-agent-panel" aria-controls="au-agent-panel">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Open AI Assistant
-      </button>
-    </div>
-  </div>
+
 </main>
 
-<!-- ── AI Agent Panel (Bootstrap 5 Offcanvas) ── -->
-<div class="offcanvas offcanvas-end" id="au-agent-panel" tabindex="-1"
-     data-user="{{ user.firstname | default: '' }}"
-     aria-labelledby="au-agent-panel-label">
-  <div class="offcanvas-body">
+<script>
+/**
+ * Home page JS — Agent chat wired to Power Automate
+ * Austroads Data Info Hub
+ * Panel built entirely in JS — no HTML dependency for the drawer.
+ * document.body.appendChild escapes Power Pages CSS transform ancestor.
+ *
+ * Iteration 16: User context, feedback, copy, new conversation,
+ *               source citations, conversation export.
+ */
+(function () {
+  'use strict';
 
-    <!-- Header -->
-    <div class="au-agent-drawer__header">
-      <div class="au-agent-header-row">
-        <div class="au-agent-bot-avatar" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/>
-            <circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/>
-            <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-        </div>
-        <div class="au-agent-drawer__meta">
-          <div class="au-agent-drawer__title" id="au-agent-panel-label">Data Hub Assistant</div>
-          <div class="au-agent-drawer__status">
-            <span class="au-agent-status-dot" aria-hidden="true"></span>
-            Online · NEVDIS &amp; TCA
-          </div>
-        </div>
-        <button class="au-agent-drawer__close" id="au-agent-close"
-                data-bs-dismiss="offcanvas" aria-label="Close AI Assistant">
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/>
-          </svg>
-        </button>
-      </div>
-      <div class="au-agent-header-sub" id="au-agent-header-sub">
-        Ask me about data products, access requirements, or delivery details.
-      </div>
-    </div>
-    <div class="au-agent-gold-bar" aria-hidden="true"></div>
+  var AGENT_ENDPOINT = (window.AU_AGENT_CONFIG && window.AU_AGENT_CONFIG.endpoint) || 'https://8bbd70f60473e9689748b73f7eed2f.c4.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/53bac4d2842d44f1a284437479dfc99d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XG5HvZMP6LxawnVjc3PcSqD8VlnPXz1F7-xoGDXh5qs';
+  var SESSION_ID = 'datahub-' + Date.now();
+  var panelReady = false;
+  var chatHistory = []; /* Track last 8 messages (4 exchanges) for router context */
 
-    <!-- Chat + Input -->
-    <div class="au-agent-drawer__body">
-      <div class="au-agent-chat" id="au-agent-chat" aria-live="polite" aria-label="Chat messages">
-        <div class="au-agent-chat-inner" id="au-agent-chat-inner">
+  console.log('[auAgent] script loaded, session:', SESSION_ID);
 
-          <!-- Initial welcome message (restructured by JS with user name) -->
-          <div class="au-agent-msg au-agent-msg--bot" id="au-agent-welcome">
-            <div class="au-msg-bot-avatar" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                <path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/>
-                <circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/>
-                <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/>
-              </svg>
-            </div>
-            <div class="au-msg-bubble" id="au-agent-welcome-text">
-              Hi! I'm the Data Hub Assistant. I can help with NEVDIS and TCA data products, access requirements, and delivery details. What would you like to know?
-            </div>
-          </div>
+  /* ── SVG Icons ── */
+  var BOT_SVG_LG   = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/></svg>';
+  var BOT_SVG_SM   = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/></svg>';
+  var CLOSE_SVG    = '<svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg>';
+  var SEND_SVG     = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+  var HINT_SVG     = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>';
+  var THUMBUP_SVG  = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>';
+  var THUMBDN_SVG  = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>';
+  var COPY_SVG     = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+  var CHECK_SVG    = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  var REFRESH_SVG  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>';
+  var DOWNLOAD_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
 
-          <!-- Suggested questions -->
-          <div class="au-agent-suggestions" id="au-agent-suggestions" aria-label="Suggested questions">
-            <button class="au-suggestion-chip" type="button" aria-label="Ask: What is NEVDIS?">What is NEVDIS?</button>
-            <button class="au-suggestion-chip" type="button" aria-label="Ask: How do I access TCA data?">How do I access TCA data?</button>
-            <button class="au-suggestion-chip" type="button" aria-label="Ask: What is Plate-to-VIN?">What is Plate-to-VIN?</button>
-            <button class="au-suggestion-chip" type="button" aria-label="Ask: What TCA services are available?">What TCA services are available?</button>
-          </div>
+  /* ── Product name → URL slug mapping for source citations ── */
+  var PRODUCT_MAP = {
+    'vehicles & registrations': 'vehicles-reg', 'vehicle registration': 'vehicles-reg', 'registration data': 'vehicles-reg',
+    'national vin': 'natvin', 'vin database': 'natvin',
+    'driver licence': 'driver', 'driver license': 'driver',
+    'stolen': 'stolen', 'write-off': 'stolen', 'swovs': 'stolen',
+    'gold data': 'gold', 'vehicles gold': 'gold',
+    'plate-to-vin': 'p2v', 'p2v': 'p2v',
+    'safety recall': 'recall',
+    'aec data': 'aec', 'aec': 'aec',
+    'bitre': 'bitre', 'motor vehicle census': 'bitre',
+    'enabling rav': 'rav',
+    'vehicle enrolment': 'ems', 'ems': 'ems',
+    'spatiotemporal': 'spatiotemporal', 'gnss telemetry': 'spatiotemporal',
+    'spatial data': 'spatial', 'iac': 'spatial',
+    'road analytics': 'road-analytics',
+    'smart obm': 'smart-obm', 'on-board mass': 'smart-obm',
+    'hpfr': 'hpfr', 'high productivity freight': 'hpfr', 'freight routes': 'hpfr',
+    'new zealand': 'nz'
+  };
 
-        </div>
-      </div>
+  var PRODUCT_DISPLAY = {
+    'vehicles-reg': 'Vehicles & Registrations', 'natvin': 'National VIN Database',
+    'driver': 'Driver Licences', 'stolen': 'Stolen & Write-off (SWOVS)',
+    'gold': 'Vehicles Gold Data', 'p2v': 'Plate-to-VIN (P2V)',
+    'recall': 'Safety Recalls', 'aec': 'AEC Data Provisioning',
+    'bitre': 'BITRE Motor Vehicle Census', 'rav': 'Enabling RAV',
+    'ems': 'Vehicle Enrolment (EMS)', 'spatiotemporal': 'Spatiotemporal Data',
+    'spatial': 'Spatial Data Services', 'road-analytics': 'Road Analytics Services',
+    'smart-obm': 'Smart OBM Data Services', 'hpfr': 'High Productivity Freight Routes',
+    'nz': 'New Zealand Historical Study'
+  };
 
-      <!-- Input -->
-      <div class="au-agent-input-wrap">
-        <form class="au-agent-input-row" id="au-agent-form" aria-label="Send message">
-          <input type="text" id="au-agent-input" class="au-agent-input"
-                 placeholder="Ask about NEVDIS, TCA, data access…"
-                 autocomplete="off" aria-label="Your message" maxlength="500">
-          <button type="submit" id="au-agent-send-btn" class="au-agent-send" aria-label="Send" disabled>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-            </svg>
-          </button>
-        </form>
-        <div class="au-agent-input-hint" aria-hidden="true">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Powered by AI Builder
-        </div>
-      </div>
-    </div>
+  /* ── Global API — inline onclick calls this ── */
+  window.auAgent = {
+    open:   function () { openPanel(); },
+    close:  function () { closePanel(); },
+    toggle: function () {
+      var p = document.getElementById('au-agent-panel');
+      if (p && p.classList.contains('au-open')) { closePanel(); } else { openPanel(); }
+    }
+  };
 
-  </div>
-</div>
+  /* ════════════════════════════════════════════════════
+     buildPanel — creates the drawer DOM from scratch
+     and appends it to document.body.
+     Called once on first open.
+  ════════════════════════════════════════════════════ */
+  function buildPanel() {
+    if (panelReady) return;
+    panelReady = true;
 
-<!-- ── Footer ── -->
-<footer class="au-footer" role="contentinfo">
-  <div class="au-footer__inner">
-    <div>
-      <div class="au-footer__brand">Austroads Data Info Hub</div>
-      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
-    </div>
-    <nav class="au-footer__links" aria-label="Footer navigation">
-      <a href="/">Home</a>
-      <a href="/nevdis">NEVDIS</a>
-      <a href="/tca">TCA</a>
-      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
-      <a href="https://tca.gov.au" target="_blank" rel="noopener">TCA.gov.au</a>
-    </nav>
-    <div class="au-footer__copy">
-      © 2025 Austroads. Internal use only. Data sourced from NEVDIS and Transport Certification Australia.
-    </div>
-  </div>
-</footer>
+    /* Read user data from hidden element set by Liquid */
+    var nameEl    = document.getElementById('au-user-data');
+    var rawFirst  = nameEl ? (nameEl.getAttribute('data-first-name') || '') : '';
+    var rawFull   = nameEl ? (nameEl.getAttribute('data-full-name') || '') : '';
+    var rawEmail  = nameEl ? (nameEl.getAttribute('data-email') || '') : '';
+    var firstName = (rawFirst.indexOf('{{') === -1) ? rawFirst.trim() : '';
+    var fullName  = (rawFull.indexOf('{{') === -1) ? rawFull.trim() : '';
+    var userEmail = (rawEmail.indexOf('{{') === -1) ? rawEmail.trim() : '';
+    var initials  = firstName ? firstName.charAt(0).toUpperCase() : '';
 
-<script src="/webfiles/austroads.js"></script>
-<script src="/webfiles/home.js"></script>
-</body>
-</html>
+    var welcomeText = firstName
+      ? 'Hi ' + firstName + '! I\u2019m the Data Hub Assistant. I can help with NEVDIS and TCA data products, access requirements, and delivery details. What would you like to know?'
+      : 'Hi! I\u2019m the Data Hub Assistant. I can help with NEVDIS and TCA data products, access requirements, and delivery details. What would you like to know?';
+
+    /* Backdrop */
+    var bd = document.createElement('div');
+    bd.id = 'au-agent-backdrop';
+    bd.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bd);
+
+    /* Panel */
+    var panel = document.createElement('div');
+    panel.id = 'au-agent-panel';
+    panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('aria-label', 'AI Assistant Chat');
+    panel.innerHTML =
+      '<div class="au-agent-panel-body">' +
+        '<div class="au-agent-section__header">' +
+          '<div class="au-agent-bot-avatar" aria-hidden="true">' + BOT_SVG_LG + '</div>' +
+          '<div class="au-agent-section__header-meta">' +
+            '<div class="au-agent-section__title">Data Hub Assistant</div>' +
+            '<div class="au-agent-section__status">' +
+              '<span class="au-agent-status-dot" aria-hidden="true"></span>' +
+              'Online \u00b7 NEVDIS &amp; TCA' +
+            '</div>' +
+          '</div>' +
+          '<button class="au-agent-section__new" id="au-agent-new" aria-label="New conversation" title="New conversation">' + REFRESH_SVG + '</button>' +
+          '<button class="au-agent-section__close" id="au-agent-close" aria-label="Close AI Assistant">' + CLOSE_SVG + '</button>' +
+        '</div>' +
+        '<div class="au-agent-chat" id="au-agent-chat" aria-live="polite" aria-label="Chat messages">' +
+          '<div class="au-agent-chat-inner" id="au-agent-chat-inner">' +
+            '<div class="au-agent-msg au-agent-msg--bot">' +
+              '<div class="au-msg-bot-avatar" aria-hidden="true">' + BOT_SVG_SM + '</div>' +
+              '<div class="au-msg-bubble" id="au-agent-welcome-text">' + welcomeText + '</div>' +
+            '</div>' +
+            '<div class="au-agent-suggestions" id="au-agent-suggestions" aria-label="Suggested questions">' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is NEVDIS?">What is NEVDIS?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: How do I access TCA data?">How do I access TCA data?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is Plate-to-VIN?">What is Plate-to-VIN?</button>' +
+              '<button class="au-suggestion-chip" type="button" aria-label="Ask: What TCA services are available?">What TCA services are available?</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="au-agent-input-wrap">' +
+          '<form class="au-agent-input-row" id="au-agent-form" aria-label="Send message">' +
+            '<input type="text" id="au-agent-input" class="au-agent-input" placeholder="Ask about NEVDIS, TCA, data access\u2026" autocomplete="off" aria-label="Your message" maxlength="500">' +
+            '<button type="submit" id="au-agent-send-btn" class="au-agent-send" aria-label="Send" disabled>' + SEND_SVG + '</button>' +
+          '</form>' +
+          '<div class="au-agent-input-footer">' +
+            '<div class="au-agent-input-hint" aria-hidden="true">' + HINT_SVG + ' Powered by AI Builder</div>' +
+            '<button class="au-agent-export-btn" id="au-agent-export" type="button" aria-label="Export conversation" title="Export conversation">' + DOWNLOAD_SVG + ' Export</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(panel);
+
+    /* Wire up chat interactions */
+    wireChat(panel, {
+      initials: initials,
+      firstName: firstName,
+      fullName: fullName,
+      email: userEmail
+    });
+  }
+
+  /* ── Open / Close ── */
+  function openPanel() {
+    buildPanel();
+    var panel = document.getElementById('au-agent-panel');
+    var bd    = document.getElementById('au-agent-backdrop');
+    if (!panel) { console.error('[auAgent] panel not found after build'); return; }
+    panel.classList.add('au-open');
+    panel.setAttribute('aria-hidden', 'false');
+    if (bd) bd.classList.add('au-open');
+    setTimeout(function () {
+      var inp = document.getElementById('au-agent-input');
+      if (inp) inp.focus();
+    }, 350);
+  }
+
+  function closePanel() {
+    var panel = document.getElementById('au-agent-panel');
+    var bd    = document.getElementById('au-agent-backdrop');
+    if (!panel) return;
+    panel.classList.remove('au-open');
+    panel.setAttribute('aria-hidden', 'true');
+    if (bd) bd.classList.remove('au-open');
+  }
+
+  /* ── Reset conversation ── */
+  function resetConversation() {
+    SESSION_ID = 'datahub-' + Date.now();
+    console.log('[auAgent] New conversation, session:', SESSION_ID);
+    chatHistory = [];
+
+    var chatInner = document.getElementById('au-agent-chat-inner');
+    if (!chatInner) return;
+
+    while (chatInner.firstChild) chatInner.removeChild(chatInner.firstChild);
+
+    /* Read name again (in case it wasn't available on first build) */
+    var nameEl = document.getElementById('au-user-data');
+    var rawFirst = nameEl ? (nameEl.getAttribute('data-first-name') || '') : '';
+    var firstName = (rawFirst.indexOf('{{') === -1) ? rawFirst.trim() : '';
+
+    var welcomeText = firstName
+      ? 'Hi ' + firstName + '! I\u2019m the Data Hub Assistant. I can help with NEVDIS and TCA data products, access requirements, and delivery details. What would you like to know?'
+      : 'Hi! I\u2019m the Data Hub Assistant. I can help with NEVDIS and TCA data products, access requirements, and delivery details. What would you like to know?';
+
+    var welcomeMsg = document.createElement('div');
+    welcomeMsg.className = 'au-agent-msg au-agent-msg--bot';
+    welcomeMsg.innerHTML =
+      '<div class="au-msg-bot-avatar" aria-hidden="true">' + BOT_SVG_SM + '</div>' +
+      '<div class="au-msg-bubble">' + welcomeText + '</div>';
+    chatInner.appendChild(welcomeMsg);
+
+    var sug = document.createElement('div');
+    sug.className = 'au-agent-suggestions';
+    sug.id = 'au-agent-suggestions';
+    sug.setAttribute('aria-label', 'Suggested questions');
+    sug.innerHTML =
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is NEVDIS?">What is NEVDIS?</button>' +
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: How do I access TCA data?">How do I access TCA data?</button>' +
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: What is Plate-to-VIN?">What is Plate-to-VIN?</button>' +
+      '<button class="au-suggestion-chip" type="button" aria-label="Ask: What TCA services are available?">What TCA services are available?</button>';
+    chatInner.appendChild(sug);
+
+    var chat = document.getElementById('au-agent-chat');
+    if (chat) chat.scrollTop = 0;
+
+    var input = document.getElementById('au-agent-input');
+    var sendBtn = document.getElementById('au-agent-send-btn');
+    if (input)   { input.disabled = false; input.value = ''; input.focus(); }
+    if (sendBtn) sendBtn.disabled = true;
+  }
+
+  /* ── Export conversation ── */
+  function exportConversation() {
+    if (!chatHistory || chatHistory.length === 0) {
+      console.warn('[auAgent] No conversation to export');
+      return;
+    }
+    var lines = [];
+    lines.push('Austroads Data Info Hub \u2014 Conversation Export');
+    lines.push('\u2550'.repeat(50));
+    lines.push('Session: ' + SESSION_ID);
+    lines.push('Exported: ' + new Date().toLocaleString());
+    lines.push('');
+    for (var i = 0; i < chatHistory.length; i++) {
+      var entry = chatHistory[i];
+      lines.push((entry.role === 'user' ? 'You' : 'Assistant') + ':');
+      lines.push(entry.text);
+      lines.push('');
+    }
+    lines.push('\u2500'.repeat(50));
+    lines.push('End of conversation');
+
+    var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'datahub-chat-' + new Date().toISOString().split('T')[0] + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    console.log('[auAgent] Conversation exported');
+  }
+
+  /* ── Document-level click delegation ── */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (t.closest('#au-agent-open-hero') ||
+        t.closest('#au-agent-open-banner') ||
+        t.closest('#au-agent-open')) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var p = document.getElementById('au-agent-panel');
+      if (p && p.classList.contains('au-open')) { closePanel(); } else { openPanel(); }
+    } else if (t.closest('#au-agent-new')) {
+      e.stopImmediatePropagation();
+      resetConversation();
+    } else if (t.closest('#au-agent-export')) {
+      e.stopImmediatePropagation();
+      exportConversation();
+    } else if (t.closest('#au-agent-close')) {
+      e.stopImmediatePropagation();
+      closePanel();
+    } else if (t.closest('#au-agent-backdrop')) {
+      e.stopImmediatePropagation();
+      closePanel();
+    }
+  });
+
+  /* Escape key */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var p = document.getElementById('au-agent-panel');
+      if (p && p.classList.contains('au-open')) closePanel();
+    }
+  });
+
+  /* ════════════════════════════════════════════════════
+     wireChat — binds chat events to the built panel
+  ════════════════════════════════════════════════════ */
+  function wireChat(panel, userData) {
+    var initials      = userData.initials || '?';
+    var userFirstName = userData.firstName || '';
+    var userFullName  = userData.fullName || '';
+    var userEmail     = userData.email || '';
+
+    var form        = document.getElementById('au-agent-form');
+    var input       = document.getElementById('au-agent-input');
+    var sendBtn     = document.getElementById('au-agent-send-btn');
+    var chatInner   = document.getElementById('au-agent-chat-inner');
+    var chat        = document.getElementById('au-agent-chat');
+    var suggestions = document.getElementById('au-agent-suggestions');
+
+    if (input && sendBtn) {
+      input.addEventListener('input', function () {
+        sendBtn.disabled = !this.value.trim();
+      });
+    }
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitMessage(input ? input.value.trim() : '');
+      });
+    }
+    if (suggestions) {
+      suggestions.querySelectorAll('.au-suggestion-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          submitMessage(this.textContent.trim());
+        });
+      });
+    }
+
+    /* Delegate action-bar clicks (feedback + copy) on chatInner */
+    if (chatInner) {
+      chatInner.addEventListener('click', function (e) {
+        var target = e.target.closest('.au-msg-action-btn');
+        if (!target) {
+          /* Also handle suggestion chip clicks (for reset-created chips) */
+          var chip = e.target.closest('.au-suggestion-chip');
+          if (chip) submitMessage(chip.textContent.trim());
+          return;
+        }
+        var container = target.closest('.au-msg-bubble-container');
+        if (!container) return;
+        var bubble = container.querySelector('.au-msg-bubble');
+        if (!bubble) return;
+        var rawText = bubble.getAttribute('data-raw-text') || '';
+
+        if (target.classList.contains('au-msg-action-btn--thumbup')) {
+          handleFeedback(target, 'thumbup', rawText);
+        } else if (target.classList.contains('au-msg-action-btn--thumbdown')) {
+          handleFeedback(target, 'thumbdown', rawText);
+        } else if (target.classList.contains('au-msg-action-btn--copy')) {
+          handleCopy(target, rawText);
+        }
+      });
+    }
+
+    var BOT_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2a5 5 0 0 1 5 5v2h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1V7a5 5 0 0 1 5-5z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/></svg>';
+
+    /* ── Lightweight markdown → HTML for bot responses ── */
+    function renderMarkdown(raw) {
+      var s = raw
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      s = s.replace(/__(.+?)__/g, '<strong>$1</strong>');
+      s = s.replace(/(?<!\w)\*([^*]+?)\*(?!\w)/g, '<em>$1</em>');
+      s = s.replace(/`([^`]+?)`/g, '<code>$1</code>');
+
+      var lines = s.split('\n');
+      var html = [];
+      var inList = false;
+      var listType = '';
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var trimmed = line.trim();
+
+        if (/^#{1,3}\s+/.test(trimmed)) {
+          if (inList) { html.push('</' + listType + '>'); inList = false; }
+          var level = trimmed.match(/^(#{1,3})/)[1].length;
+          var hText = trimmed.replace(/^#{1,3}\s+/, '');
+          html.push('<h' + (level + 3) + ' class="au-md-h">' + hText + '</h' + (level + 3) + '>');
+          continue;
+        }
+
+        if (/^[-*]\s+/.test(trimmed)) {
+          if (!inList || listType !== 'ul') {
+            if (inList) html.push('</' + listType + '>');
+            html.push('<ul class="au-md-list">');
+            inList = true; listType = 'ul';
+          }
+          html.push('<li>' + trimmed.replace(/^[-*]\s+/, '') + '</li>');
+          continue;
+        }
+
+        if (/^\d+[.)]\s+/.test(trimmed)) {
+          if (!inList || listType !== 'ol') {
+            if (inList) html.push('</' + listType + '>');
+            html.push('<ol class="au-md-list">');
+            inList = true; listType = 'ol';
+          }
+          html.push('<li>' + trimmed.replace(/^\d+[.)]\s+/, '') + '</li>');
+          continue;
+        }
+
+        if (inList) { html.push('</' + listType + '>'); inList = false; }
+
+        if (!trimmed) {
+          html.push('<div class="au-md-spacer"></div>');
+          continue;
+        }
+
+        html.push('<p class="au-md-p">' + trimmed + '</p>');
+      }
+      if (inList) html.push('</' + listType + '>');
+      return html.join('');
+    }
+
+    /* ── Source citations — auto-link mentioned products ── */
+    function addSourceCitations(bubbleEl, rawText) {
+      var found = [];
+      var lower = rawText.toLowerCase();
+      for (var key in PRODUCT_MAP) {
+        if (PRODUCT_MAP.hasOwnProperty(key) && lower.indexOf(key) !== -1) {
+          var slug = PRODUCT_MAP[key];
+          if (found.indexOf(slug) === -1) found.push(slug);
+        }
+      }
+      if (found.length === 0) return;
+
+      var box = document.createElement('div');
+      box.className = 'au-msg-citations';
+      box.innerHTML = '<div class="au-msg-citations__label">Related pages:</div>';
+      var links = document.createElement('div');
+      links.className = 'au-msg-citations__links';
+      for (var i = 0; i < found.length; i++) {
+        var a = document.createElement('a');
+        a.href = '/detail-' + found[i];
+        a.className = 'au-msg-citation-link';
+        a.innerHTML = (PRODUCT_DISPLAY[found[i]] || found[i]) + ' <span style="font-size:10px; margin-left:4px">\u2192</span>';
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener');
+        links.appendChild(a);
+      }
+      box.appendChild(links);
+      bubbleEl.appendChild(box);
+    }
+
+    /* ── Feedback handler ── */
+    function handleFeedback(button, type, rawText) {
+      if (button.classList.contains('au-msg-action-btn--selected')) return;
+      button.classList.add('au-msg-action-btn--selected');
+      /* Deselect sibling feedback button */
+      var bar = button.parentElement;
+      var siblings = bar.querySelectorAll('.au-msg-action-btn--thumbup, .au-msg-action-btn--thumbdown');
+      for (var i = 0; i < siblings.length; i++) {
+        if (siblings[i] !== button) siblings[i].classList.remove('au-msg-action-btn--selected');
+      }
+      console.log('[auAgent] Feedback:', type, '| Preview:', rawText.substring(0, 80));
+      /* TODO: POST feedback to Power Automate endpoint when backend is ready */
+    }
+
+    /* ── Copy handler ── */
+    function handleCopy(button, rawText) {
+      if (!navigator.clipboard) { console.warn('[auAgent] Clipboard API unavailable'); return; }
+      navigator.clipboard.writeText(rawText).then(function () {
+        var original = button.innerHTML;
+        button.innerHTML = CHECK_SVG;
+        button.classList.add('au-msg-action-btn--copied');
+        button.setAttribute('title', 'Copied!');
+        setTimeout(function () {
+          button.innerHTML = original;
+          button.classList.remove('au-msg-action-btn--copied');
+          button.setAttribute('title', 'Copy message');
+        }, 2000);
+      }).catch(function (err) {
+        console.error('[auAgent] Copy failed:', err);
+      });
+    }
+
+    /* ── Add message to chat ── */
+    function addMessage(text, role, domain) {
+      var msg = document.createElement('div');
+      msg.className = 'au-agent-msg au-agent-msg--' + role;
+
+      var av = document.createElement('div');
+      if (role === 'bot') {
+        av.className = 'au-msg-bot-avatar';
+        av.setAttribute('aria-hidden', 'true');
+        av.innerHTML = BOT_SVG;
+      } else {
+        av.className = 'au-msg-user-avatar';
+        av.setAttribute('aria-hidden', 'true');
+        av.textContent = initials || '?';
+      }
+
+      if (role === 'bot') {
+        /* Bot messages: bubble-container wraps bubble + action bar */
+        var container = document.createElement('div');
+        container.className = 'au-msg-bubble-container';
+
+        var bub = document.createElement('div');
+        bub.className = 'au-msg-bubble';
+        bub.setAttribute('data-raw-text', text);
+        bub.innerHTML = renderMarkdown(text);
+
+        /* Domain badge */
+        if (domain) {
+          var badge = document.createElement('span');
+          var dk = domain.toLowerCase();
+          badge.className = 'au-msg-domain-badge au-msg-domain--' + dk;
+          badge.textContent = dk === 'general' ? 'AUSTROADS' : domain;
+          bub.insertBefore(badge, bub.firstChild);
+        }
+
+        /* Source citations */
+        addSourceCitations(bub, text);
+
+        /* Action bar: thumbs up/down + copy */
+        var actions = document.createElement('div');
+        actions.className = 'au-msg-actions';
+        actions.innerHTML =
+          '<button class="au-msg-action-btn au-msg-action-btn--thumbup" aria-label="Helpful" title="Helpful">' + THUMBUP_SVG + '</button>' +
+          '<button class="au-msg-action-btn au-msg-action-btn--thumbdown" aria-label="Not helpful" title="Not helpful">' + THUMBDN_SVG + '</button>' +
+          '<button class="au-msg-action-btn au-msg-action-btn--copy" aria-label="Copy message" title="Copy message">' + COPY_SVG + '</button>';
+
+        container.appendChild(bub);
+        container.appendChild(actions);
+        msg.appendChild(av);
+        msg.appendChild(container);
+      } else {
+        /* User messages: simple bubble */
+        var bub = document.createElement('div');
+        bub.className = 'au-msg-bubble';
+        bub.textContent = text;
+        msg.appendChild(av);
+        msg.appendChild(bub);
+      }
+
+      if (chatInner) chatInner.appendChild(msg);
+      if (chat) chat.scrollTop = chat.scrollHeight;
+    }
+
+    function showTyping() {
+      var msg = document.createElement('div');
+      msg.className = 'au-agent-msg au-agent-msg--bot';
+      msg.id = 'au-typing-indicator';
+      var av = document.createElement('div');
+      av.className = 'au-msg-bot-avatar';
+      av.setAttribute('aria-hidden', 'true');
+      av.innerHTML = BOT_SVG;
+      var bub = document.createElement('div');
+      bub.className = 'au-msg-bubble';
+      bub.innerHTML =
+        '<div class="au-agent-typing"><span></span><span></span><span></span></div>' +
+        '<div class="au-typing-slow" id="au-typing-slow">Still thinking\u2026 responses can take up to 15 seconds</div>';
+      msg.appendChild(av);
+      msg.appendChild(bub);
+      if (chatInner) chatInner.appendChild(msg);
+      if (chat) chat.scrollTop = chat.scrollHeight;
+    }
+
+    function removeTyping() {
+      var el = document.getElementById('au-typing-indicator');
+      if (el) el.remove();
+    }
+
+    function showSlowHint() {
+      var el = document.getElementById('au-typing-slow');
+      if (el) el.classList.add('show');
+    }
+
+    function askAgent(message, isRetry) {
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 45000);
+      return fetch(AGENT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: message,
+          sessionId: SESSION_ID,
+          history: chatHistory.slice(-8),
+          user: {
+            firstName: userFirstName,
+            fullName: userFullName,
+            email: userEmail
+          }
+        }),
+        signal: controller.signal
+      })
+      .then(function (res) {
+        clearTimeout(timer);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.reply) {
+          return { reply: data.reply, domain: data.domain || '', intent: data.intent || '' };
+        }
+        throw new Error('empty_reply');
+      })
+      .catch(function (err) {
+        clearTimeout(timer);
+        if (!isRetry && err.name === 'AbortError') {
+          showSlowHint();
+          return askAgent(message, true);
+        }
+        throw err;
+      });
+    }
+
+    function submitMessage(text) {
+      if (!text || !text.trim()) return;
+      /* Hide any visible suggestion chips */
+      var sug = document.getElementById('au-agent-suggestions');
+      if (sug) sug.style.display = 'none';
+      addMessage(text, 'user');
+      chatHistory.push({ role: 'user', text: text });
+      if (input)   { input.value = ''; input.disabled = true; }
+      if (sendBtn) sendBtn.disabled = true;
+      showTyping();
+      var slowTimer = setTimeout(showSlowHint, 12000);
+      askAgent(text)
+        .then(function (result) {
+          clearTimeout(slowTimer);
+          removeTyping();
+          addMessage(result.reply, 'bot', result.domain);
+          chatHistory.push({ role: 'bot', text: result.reply });
+          if (result.domain) {
+            console.log('[auAgent] domain:', result.domain, '| intent:', result.intent);
+          }
+        })
+        .catch(function (err) {
+          clearTimeout(slowTimer);
+          removeTyping();
+          addMessage(
+            err.name === 'AbortError'
+              ? 'The assistant timed out. Please try again \u2014 responses can take up to 20 seconds.'
+              : 'The assistant is temporarily unavailable. Please try again or contact nevdis@austroads.com.au.',
+            'bot'
+          );
+          console.error('[Agent]', err);
+        })
+        .then(function () {
+          if (input)   { input.disabled = false; input.focus(); }
+          if (sendBtn) sendBtn.disabled = !(input && input.value.trim());
+        });
+    }
+  }
+
+})();
+
+</script>
