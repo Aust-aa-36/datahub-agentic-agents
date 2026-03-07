@@ -30,7 +30,8 @@ jobs:
           # 2. Download specific site to a fresh folder
           mkdir -p austroads-power-pages-new-poc
           $POWERPLATFORMTOOLS_PACPATH pages download --path "austroads-power-pages-new-poc" \
-            --environment "78087147-a836-42a8-ac71-3aba27919171" \
+            --environment "https://datahub-austroads.crm6.dynamics.com" \
+            --webSiteId "78087147-a836-42a8-ac71-3aba27919171" \
             --modelVersion 2
 
       - name: Commit State
