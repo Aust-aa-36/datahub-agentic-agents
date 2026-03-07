@@ -89,12 +89,17 @@ const getKnowledgeTool = ai.defineTool(
 
     console.log(`[RAG] Fetching knowledge for ${input.product || input.domain} for role ${input.userRole}`);
 
+    // Security: Escape single quotes in user inputs to prevent OData Injection vulnerabilities
+    // encodeURIComponent is used to prevent URL Parameter Pollution (e.g., via '&' or '#')
+    const safeProduct = input.product ? encodeURIComponent(input.product.replace(/'/g, "''")) : undefined;
+    const safeUserRole = input.userRole ? encodeURIComponent(input.userRole.replace(/'/g, "''")) : '';
+
     // OData Query with Filter and Expand
     const url = `${process.env.DATAVERSE_URL}/api/data/v9.2/cre52_knowledge_articles` +
                 `?$filter=cre52_domain eq ${domainValue} and cre52_status eq 1` +
-                (input.product ? ` and cre52_product_slug eq '${input.product}'` : '') +
+                (safeProduct ? ` and cre52_product_slug eq '${safeProduct}'` : '') +
                 `&$expand=cre52_product_field_RelatedArticle($select=cre52_field_name,cre52_field_description)` +
-                `&$expand=cre52_entitlement_RelatedArticle($filter=cre52_web_role_name eq '${input.userRole}')`;
+                `&$expand=cre52_entitlement_RelatedArticle($filter=cre52_web_role_name eq '${safeUserRole}')`;
 
     const response = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } });
     
