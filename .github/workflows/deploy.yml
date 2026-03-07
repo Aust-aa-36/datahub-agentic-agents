@@ -29,7 +29,7 @@ jobs:
       - name: Upload to Power Pages
         uses: microsoft/powerplatform-actions/upload-paportal@v1
         with:
-          environment-url: ${{ secrets.ENVIRONMENT_URL || 'https://org5223164a.crm6.dynamics.com/' }}
+          environment: ${{ secrets.ENVIRONMENT_URL || 'https://org5223164a.crm6.dynamics.com/' }}
           app-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
