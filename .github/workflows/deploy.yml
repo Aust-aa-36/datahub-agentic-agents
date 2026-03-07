@@ -29,17 +29,14 @@ jobs:
       - name: Upload to Power Pages
         shell: bash
         run: |
-          # Add pac to PATH
-          export PATH=$PATH:$POWERPLATFORMTOOLS_PACPATH
-
           # 1. Create Auth Profile
-          pac auth create --name "GitHubAction" \
+          $POWERPLATFORMTOOLS_PACPATH/pac auth create --name "GitHubAction" \
             --url "${{ secrets.ENVIRONMENT_URL || 'https://org5223164a.crm6.dynamics.com/' }}" \
             --applicationId "${{ secrets.CLIENT_ID }}" \
             --clientSecret "${{ secrets.CLIENT_SECRET }}" \
             --tenant "${{ secrets.TENANT_ID }}"
 
           # 2. Direct Upload
-          pac pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
+          $POWERPLATFORMTOOLS_PACPATH/pac pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
             --environment "${{ secrets.ENVIRONMENT_URL || 'https://org5223164a.crm6.dynamics.com/' }}" \
             --modelVersion 2
