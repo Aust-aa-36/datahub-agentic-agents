@@ -31,10 +31,11 @@ jobs:
         run: |
           # 1. Create Auth Profile
           $POWERPLATFORMTOOLS_PACPATH auth create --name "GitHubAction" \
-            --url "https://org5223164a.crm6.dynamics.com/" \
+            --environment "https://org5223164a.crm6.dynamics.com/" \
             --applicationId "${{ secrets.CLIENT_ID }}" \
             --clientSecret "${{ secrets.CLIENT_SECRET }}" \
-            --tenant "${{ secrets.TENANT_ID }}"
+            --tenant "${{ secrets.TENANT_ID }}" \
+            --accept-cleartext-caching
 
           # 2. Direct Upload
           $POWERPLATFORMTOOLS_PACPATH pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
