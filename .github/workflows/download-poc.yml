@@ -1,0 +1,42 @@
+name: Download POC State
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write # Allow the action to commit files back to the repo
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+
+      - name: Download POC Website
+        shell: bash
+        run: |
+          # 1. Create Auth Profile
+          $POWERPLATFORMTOOLS_PACPATH auth create --name "Downloader" \
+            --url "https://datahub-austroads.crm6.dynamics.com" \
+            --applicationId "${{ secrets.CLIENT_ID }}" \
+            --clientSecret "${{ secrets.CLIENT_SECRET }}" \
+            --tenant "${{ secrets.TENANT_ID }}" \
+            --accept-cleartext-caching
+
+          # 2. Download specific site to a fresh folder
+          mkdir -p austroads-power-pages-new-poc
+          $POWERPLATFORMTOOLS_PACPATH pages download --path "austroads-power-pages-new-poc" \
+            --environment "78087147-a836-42a8-ac71-3aba27919171" \
+            --modelVersion 2
+
+      - name: Commit State
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add austroads-power-pages-new-poc/
+          git commit -m "Capture baseline POC site state from Dataverse" || echo "No changes to commit"
+          git push origin master
