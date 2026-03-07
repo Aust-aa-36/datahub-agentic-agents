@@ -25,10 +25,11 @@ To work effectively in this repository, ensure you have the following skills act
   - `home/` : AI Chat panel logic (`home.js`) and styles (`home.css`).
   - `shared/` : Shared design system (`austroads.css`).
   - `agent-skill/` : AI Specialist prompts and Dataverse seed data.
-- `austroads-power-pages-verify2/` : **Deployment Folder**. Managed by `pac pages`.
+- `austroads-power-pages-verify2/` : **Deployment Folder (Production)**. Managed by `pac pages`.
+- `austroads-power-pages-poc/` : **Deployment Folder (Parallel POC)**. Targeted for testing and experimentation.
 - `conductor/` : Project orchestration and track plans.
-- `.github/workflows/` : CI/CD pipelines (Power Pages Upload, Jules, Gemini).
-- `sync.js` : Automation for the "Dual-Copy" deployment pattern.
+- `.github/workflows/` : CI/CD pipelines (Production Deploy, Parallel POC Deploy, Jules, Gemini).
+- `sync.js` : Automation for the "Multi-Target" deployment pattern.
 
 ---
 
@@ -38,17 +39,15 @@ To work effectively in this repository, ensure you have the following skills act
 Implement features in `austroads-power-pages/`. Follow the `.gemini/styleguide.md` strictly.
 
 ### Step 2: Synchronization
-Run the sync script to propagate changes to the deployment-ready folder:
+Run the sync script to propagate changes to both deployment folders:
 ```bash
 npm run sync
 ```
-*Note: This script handles the dual-copy requirement and CSS inlining.*
+*Note: This script now handles synchronization to both Production and POC folders simultaneously.*
 
 ### Step 3: CI/CD Upload
-Pushes to `master` trigger the `.github/workflows/deploy.yml` which:
-1. Runs `sync.js`.
-2. Authenticates with Power Platform CLI (`pac`).
-3. Uploads `austroads-power-pages-verify2/datahub---datahub` to the live site.
+- **Production**: Pushes to `master` trigger `.github/workflows/deploy.yml` which uploads to the primary site.
+- **Parallel POC**: Manually trigger `.github/workflows/deploy-poc.yml` via GitHub Actions tab to upload to the POC site.
 
 ---
 
