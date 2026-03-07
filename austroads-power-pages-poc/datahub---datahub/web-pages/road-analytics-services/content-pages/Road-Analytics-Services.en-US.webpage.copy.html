@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road Analytics Services — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="road-analytics.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/tca">TCA</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Road Analytics Services</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--gold">TCA · Data Product</span>
+      </div>
+      <h1 class="au-page-hero__title">Road Analytics Services</h1>
+      <p class="au-page-hero__sub">Aggregated analysis of heavy vehicle road usage across different states — insight into how monitored vehicles use road corridors over time.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button role="tab" class="au-tab active" data-tab-target="ra-overview" aria-selected="true">Overview</button>
+        <button role="tab" class="au-tab " data-tab-target="ra-how" aria-selected="false">How It Works</button>
+        <button role="tab" class="au-tab " data-tab-target="ra-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="ra-overview" class="au-tab-content active au-prose">
+          <h3>What it does</h3>
+          <p>TCA's Road Analytics Services aggregate spatiotemporal telematics data from NTF-enrolled heavy vehicles to produce corridor-level road usage insights. These services reveal how, when, and how frequently monitored vehicles use specific road segments — supporting infrastructure planning, road management, and investment prioritisation.</p>
+          <h3>Who uses it</h3>
+          <p>Road authorities and infrastructure planners, state and territory government transport agencies, freight policy developers, and research organisations. Data is available for all states across the national road network.</p>
+        </div>
+        <div id="ra-how" class="au-tab-content  au-prose" hidden>
+          <h3>How it works</h3>
+          <ol class="au-steps">
+            <li><span>Spatiotemporal records from enrolled heavy vehicles are map-matched to the road network segments.</span></li>
+            <li><span>Matched records are aggregated by road segment, time period, and vehicle class.</span></li>
+            <li><span>Aggregated metrics (vehicle counts, speeds, usage frequencies) are computed per corridor.</span></li>
+            <li><span>Results are published to ArcGIS dashboards and available as bulk dataset extracts.</span></li>
+          </ol>
+          <h3>Available outputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Output</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Corridor usage counts</td><td>Number of vehicle passes per road segment per time period</td></tr>
+            <tr><td>Average speeds</td><td>Mean vehicle speeds per segment by time of day</td></tr>
+            <tr><td>State-level summaries</td><td>Aggregated metrics by state for network-level reporting</td></tr>
+            <tr><td>ArcGIS dashboard</td><td>Interactive map of road usage intensity across Australia</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="ra-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>All data aggregated and anonymised — no individual vehicle identification possible</li>
+            <li>Metrics derived from NTF-enrolled vehicles only — not representative of total freight task</li>
+            <li>Governed by TAP Terms and Conditions</li>
+          </ul>
+          <h3>Access process</h3>
+          <ol class="au-steps">
+            <li><span>Submit access request via <a href="https://urm.tca.gov.au/enrolment" target="_blank">TCA TAP User Enrolment</a>.</span></li>
+            <li><span>Eligibility and privacy checks completed.</span></li>
+            <li><span>Access provisioned to appropriate ArcGIS dashboards. Average approval: 2 business days.</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>TCA · Data Product</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>National road network</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All Australian states</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>ArcGIS Enterprise dashboards</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Bulk datasets on request</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Monthly aggregated data</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 support@tca.gov.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="road-analytics.js"></script>
+</body>
+</html>

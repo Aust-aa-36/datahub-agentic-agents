@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+  .answers-container {
+    margin: 2em;
+  }
+
+  #cat-searchIcon {
+    margin-left: 1em;
+  }
+
+  #cat-search-input-home {
+    padding-left: 55px;
+  }
+}

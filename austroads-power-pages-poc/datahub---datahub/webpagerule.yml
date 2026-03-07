@@ -1,0 +1,186 @@
+- adx_name: Restrict Read on [Admin] Edit Article
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 0224675b-cf13-f111-8407-7ced8da15903
+  adx_webpageid: 73bc7261-cf13-f111-8407-7ced8da15903
+- adx_name: Require Sign-in on Home
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 15b3caf6-1b63-454e-9780-0eaa953fd758
+  adx_webpageid: 0e688b5a-cf13-f111-8406-6045bde54932
+- adx_name: Require Sign-in on TCA
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 15b3caf6-1b63-454e-9780-0eaa953fd759
+  adx_webpageid: cbe0634e-3e59-b6ee-0e15-30b9cbac6d9c
+- adx_name: Require Sign-in on NEVDIS
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 15b3caf6-1b63-454e-9780-0eaa953fd760
+  adx_webpageid: 6453d3ac-5a1e-458a-b1f0-66a7d8ac20bd
+- adx_name: Grant Change to Content
+  adx_right: 1
+  adx_webpageaccesscontrolruleid: 1af03761-cf13-f111-8407-6045bdc2f376
+- adx_name: Restrict Read on [Admin] Topic Details
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 2bf03761-cf13-f111-8407-6045bdc2f376
+  adx_webpageid: a123675b-cf13-f111-8407-7ced8da15903
+- adx_name: Restrict Read on Article Details
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  - d8b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 4af03761-cf13-f111-8407-6045bdc2f376
+  adx_webpageid: 54f52e5b-cf13-f111-8407-6045bdc2f376
+- adx_name: Restrict Read on [Admin] Edit Subtopic
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 63bc7261-cf13-f111-8407-7ced8da15903
+  adx_webpageid: beb98360-cf13-f111-8406-6045bde54932
+- adx_name: Restrict Read on Articles
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  - d8b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 64f52e5b-cf13-f111-8407-6045bdc2f376
+  adx_webpageid: 43f52e5b-cf13-f111-8407-6045bdc2f376
+- adx_name: Restrict Read on [Admin] Edit Topic
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: 7ef03761-cf13-f111-8407-6045bdc2f376
+  adx_webpageid: b2bc7261-cf13-f111-8407-7ced8da15903
+- adx_name: Require Sign-in on detail-vehicles-reg
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000001
+  adx_webpageid: aa000010-0000-0000-0000-000000000001
+- adx_name: Require Sign-in on detail-natvin
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000002
+  adx_webpageid: aa000010-0000-0000-0000-000000000002
+- adx_name: Require Sign-in on detail-driver
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000003
+  adx_webpageid: aa000010-0000-0000-0000-000000000003
+- adx_name: Require Sign-in on detail-stolen
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000004
+  adx_webpageid: aa000010-0000-0000-0000-000000000004
+- adx_name: Require Sign-in on detail-p2v
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000005
+  adx_webpageid: aa000010-0000-0000-0000-000000000005
+- adx_name: Require Sign-in on detail-recall
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000006
+  adx_webpageid: aa000010-0000-0000-0000-000000000006
+- adx_name: Require Sign-in on detail-gold
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000007
+  adx_webpageid: aa000010-0000-0000-0000-000000000007
+- adx_name: Require Sign-in on detail-aec
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000008
+  adx_webpageid: aa000010-0000-0000-0000-000000000008
+- adx_name: Require Sign-in on detail-bitre
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000009
+  adx_webpageid: aa000010-0000-0000-0000-000000000009
+- adx_name: Require Sign-in on detail-ems
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000010
+  adx_webpageid: aa000010-0000-0000-0000-000000000010
+- adx_name: Require Sign-in on detail-hpfr
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000011
+  adx_webpageid: aa000010-0000-0000-0000-000000000011
+- adx_name: Require Sign-in on detail-rav
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000012
+  adx_webpageid: aa000010-0000-0000-0000-000000000012
+- adx_name: Require Sign-in on detail-road-analytics
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000013
+  adx_webpageid: aa000010-0000-0000-0000-000000000013
+- adx_name: Require Sign-in on detail-smart-obm
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000014
+  adx_webpageid: aa000010-0000-0000-0000-000000000014
+- adx_name: Require Sign-in on detail-spatial
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000015
+  adx_webpageid: aa000010-0000-0000-0000-000000000015
+- adx_name: Require Sign-in on detail-spatiotemporal
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000016
+  adx_webpageid: aa000010-0000-0000-0000-000000000016
+- adx_name: Require Sign-in on detail-nz
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - d3b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: aa000030-0000-0000-0000-000000000017
+  adx_webpageid: aa000010-0000-0000-0000-000000000017
+- adx_name: Restrict Read on [Admin] Create Subtopic
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: adbc7261-cf13-f111-8407-7ced8da15903
+  adx_webpageid: fc678b5a-cf13-f111-8406-6045bde54932
+- adx_name: Restrict Read on [Admin] Topics
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  - d8b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: e2b98360-cf13-f111-8406-6045bde54932
+  adx_webpageid: 36f52e5b-cf13-f111-8407-6045bdc2f376
+- adx_name: Grant Change to Administrators
+  adx_right: 1
+  adx_webpageaccesscontrolrule_webrole:
+  - d8b98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: ea23675b-cf13-f111-8407-7ced8da15903
+  adx_webpageid: 0e688b5a-cf13-f111-8406-6045bde54932
+- adx_name: Restrict Read on [Admin] View Article
+  adx_right: 2
+  adx_webpageaccesscontrolrule_webrole:
+  - cab98360-cf13-f111-8406-6045bde54932
+  adx_webpageaccesscontrolruleid: fb23675b-cf13-f111-8407-7ced8da15903
+  adx_webpageid: 4ff03761-cf13-f111-8407-6045bdc2f376

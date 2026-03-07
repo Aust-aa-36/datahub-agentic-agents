@@ -1,0 +1,40 @@
+- adx_adddescription: false
+  adx_attributelogicalname: faq_topic
+  adx_controlstyle: 756150000
+  adx_entityform: 64f03761-cf13-f111-8407-6045bdc2f376
+  adx_entityformforcreate: 64f03761-cf13-f111-8407-6045bdc2f376
+  adx_entityformmetadataid: 48f52e5b-cf13-f111-8407-6045bdc2f376
+  adx_fieldisrequired: false
+  adx_ignoredefaultvalue: false
+  adx_label: >-
+    [
+      {
+        "LCID": 1033,
+        "Value": "Choose a topic or subtopic"
+      }
+    ]
+  adx_name: Create an article faq_topic
+  adx_randomizeoptionsetvalues: false
+  adx_setvalueonsave: false
+  adx_type: 100000000
+  adx_useattributedescriptionproperty: true
+- adx_adddescription: false
+  adx_attributelogicalname: faq_articlebody
+  adx_controlstyle: 756150001
+  adx_entityform: 64f03761-cf13-f111-8407-6045bdc2f376
+  adx_entityformforcreate: 64f03761-cf13-f111-8407-6045bdc2f376
+  adx_entityformmetadataid: 9ebc7261-cf13-f111-8407-7ced8da15903
+  adx_fieldisrequired: false
+  adx_ignoredefaultvalue: false
+  adx_label: >-
+    [
+      {
+        "LCID": 1033,
+        "Value": "Body"
+      }
+    ]
+  adx_name: Create an article faq_articlebody
+  adx_randomizeoptionsetvalues: false
+  adx_setvalueonsave: false
+  adx_type: 100000000
+  adx_useattributedescriptionproperty: true

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plate-to-VIN (P2V) — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="p2v.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Plate-to-VIN (P2V)</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Product</span>
+      </div>
+      <h1 class="au-page-hero__title">Plate-to-VIN (P2V)</h1>
+      <p class="au-page-hero__sub">A secure API service that converts an Australian registration plate and state into a VIN or chassis number — enabling authorised commercial brokers to verify vehicle identity in real time.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button role="tab" class="au-tab active" data-tab-target="p2v-overview" aria-selected="true">Overview</button>
+        <button role="tab" class="au-tab " data-tab-target="p2v-how" aria-selected="false">How It Works</button>
+        <button role="tab" class="au-tab " data-tab-target="p2v-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="p2v-overview" class="au-tab-content active au-prose">
+          <h3>What it does</h3>
+          <p>Plate-to-VIN (P2V) is a secure service that delivers vehicle data from NEVDIS to authorised commercial users (brokers). It converts a number plate and state into a VIN or chassis number, providing the current state of data only — no historical information is returned.</p>
+          <h3>Who uses it</h3>
+          <p>Access is restricted to five currently authorised brokers: <strong>VEHICLEID, EVOLVE, BLUEFLAG, INFOAGENT,</strong> and <strong>CARSALES</strong>. These brokers supply the data to their own downstream customers across fleet management, insurance, and automotive industries.</p>
+          <div class="au-note">⚠️ NEVDIS is not currently processing new broker or P2V customer applications due to resource constraints. Existing resources are focused on supporting jurisdiction functions.</div>
+          <h3>Use cases</h3>
+          <p>Fleet vehicle identification and management, insurance verification prior to quoting, vehicle identity confirmation during purchase, and cross-referencing plate records against VIN-based systems.</p>
+        </div>
+        <div id="p2v-how" class="au-tab-content  au-prose" hidden>
+          <h3>Inputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Input Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Plate Number</td><td><span class="au-type-badge">String</span></td><td>Yes</td><td>The vehicle's registration plate number</td></tr>
+            <tr><td>State / Territory</td><td><span class="au-type-badge">String</span></td><td>Yes</td><td>The jurisdiction in which the plate is registered (e.g. NSW, VIC)</td></tr>
+            <tr><td>Enquiry Message</td><td><span class="au-type-badge">String</span></td><td>Yes</td><td>Broker-generated reference for the enquiry</td></tr>
+          </tbody></table></div>
+          <h3>Outputs</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Output Field</th><th>Type</th><th>Description</th></tr></thead><tbody>
+            <tr><td>VIN</td><td><span class="au-type-badge">String</span></td><td>17-character Vehicle Identification Number (1989+ vehicles)</td></tr>
+            <tr><td>Chassis Number</td><td><span class="au-type-badge">String</span></td><td>Chassis number for pre-1989 vehicles without a VIN</td></tr>
+          </tbody></table></div>
+          <h3>Process</h3>
+          <ol class="au-steps">
+            <li><span>Broker signs a NEVDIS P2V Data Access Agreement with Austroads.</span></li>
+            <li><span>Broker system submits plate number + state via the API (JSON or XML format).</span></li>
+            <li><span>NEVDIS queries the registration database for a matching current record.</span></li>
+            <li><span>VIN or chassis number returned in real time to the broker system.</span></li>
+          </ol>
+        </div>
+        <div id="p2v-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Access restricted to brokers holding a current NEVDIS P2V Data Access Agreement</li>
+            <li>Data provided 'as is' — current state only, no historical records returned</li>
+            <li>No liability for errors, omissions, or reliance on returned data</li>
+            <li>Use restricted to the purposes outlined in the Data Access Agreement</li>
+            <li>Downstream redistribution governed by individual broker agreements</li>
+            <li>NEVDIS is not currently accepting new broker applications</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Product</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Authorised brokers</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>VEHICLEID</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>EVOLVE</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>BLUEFLAG</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>INFOAGENT</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>CARSALES</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Delivery method</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>REST API (JSON or XML)</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time response</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Real-time — current state only</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>New applications</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>⚠️ Currently not accepting new applications</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="p2v.js"></script>
+</body>
+</html>

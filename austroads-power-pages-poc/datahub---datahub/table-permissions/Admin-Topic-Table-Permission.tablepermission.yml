@@ -1,0 +1,12 @@
+adx_append: false
+adx_appendto: false
+adx_create: true
+adx_delete: true
+adx_entitylogicalname: faq_topic
+adx_entityname: Admin Topic Table Permission
+adx_entitypermission_webrole:
+- cab98360-cf13-f111-8406-6045bde54932
+adx_entitypermissionid: dc23675b-cf13-f111-8407-7ced8da15903
+adx_read: true
+adx_scope: 756150000
+adx_write: true

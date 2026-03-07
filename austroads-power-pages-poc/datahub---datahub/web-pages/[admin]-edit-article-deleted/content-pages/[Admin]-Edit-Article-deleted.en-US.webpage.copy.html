@@ -1,0 +1,18 @@
+<script>
+  $(document).ready(function () {
+    var titleTimerId = setInterval(function () {
+      document.title = 'Article Details';
+
+      clearInterval(titleTimerId);
+    }, 100);
+  });
+</script>
+<div class='row sectionBlockLayout text-start' style='display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;'>
+  <div class='container' style='display: flex; flex-wrap: wrap;'>
+    <h1 class='form-title'>{{ snippets.ArticleDetails }}</h1>
+    <div class='col-lg-12 columnBlockLayout' style='flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; padding: 16px; margin: 60px 0px;'>
+      <a href='/admin-articles' value='admin-articles' class='breadcrumb'><img id='img-back-breadcrumb' alt='back breadcrumb' src='/back-breadcrumb.png'> {{ snippets.BackToArticles }}</a>{% entityform name: 'Edit Article' %}
+    </div>
+    <a href='/Admin-Articles' class='cancel' role='link' aria-label='Cancel'>{{ snippets.Cancel }}</a>
+  </div>
+</div>

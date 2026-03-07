@@ -1,0 +1,15 @@
+adx_append: false
+adx_appendto: false
+adx_create: true
+adx_delete: false
+adx_entitylogicalname: feedback
+adx_entityname: Contact Us
+adx_entitypermission_webrole:
+- a0b98360-cf13-f111-8406-6045bde54932
+- cab98360-cf13-f111-8406-6045bde54932
+- d3b98360-cf13-f111-8406-6045bde54932
+- d8b98360-cf13-f111-8406-6045bde54932
+adx_entitypermissionid: b7b98360-cf13-f111-8406-6045bde54932
+adx_read: true
+adx_scope: 756150000
+adx_write: true

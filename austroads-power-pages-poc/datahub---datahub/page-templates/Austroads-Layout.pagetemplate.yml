@@ -1,0 +1,8 @@
+adx_description: Full-page Austroads branded layout with Microsoft Entra ID sign-in/out. Use for all Data Info Hub pages.
+adx_entityname: adx_webpage
+adx_isdefault: false
+adx_name: Austroads Layout
+adx_pagetemplateid: 47c5d3c1-80b6-4eb0-80ed-6fea8ccde45d
+adx_type: 756150001
+adx_usewebsiteheaderandfooter: false
+adx_webtemplateid: 1d68012f-49dd-4acc-a95b-6febf0e8629e

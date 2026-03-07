@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicles Gold Data — Austroads Data Info Hub</title>
+  <link rel="stylesheet" href="/webfiles/austroads.css">
+  <link rel="stylesheet" href="gold.css">
+</head>
+<body>
+
+<header class="au-header" role="banner">
+  <div class="au-header__inner">
+    <a href="/" class="au-logo">
+      <img src="/webfiles/logo.png" alt="Austroads" class="au-logo__img">
+      <div class="au-logo__divider" aria-hidden="true"></div>
+      <div class="au-logo__text">
+        <div class="au-logo__name">Data Info Hub</div>
+        <div class="au-logo__sub">NEVDIS · TCA</div>
+      </div>
+    </a>
+    <button class="au-nav__toggle" id="au-nav-toggle" aria-expanded="false" aria-controls="au-main-nav" aria-label="Toggle navigation">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="17" y2="14"/>
+      </svg>
+    </button>
+    <nav class="au-nav" id="au-main-nav" role="navigation">
+      <a href="/"   class="au-nav__link" data-page="home">Home</a>
+      <a href="/nevdis" class="au-nav__link" data-page="nevdis">NEVDIS</a>
+      <a href="/tca"    class="au-nav__link" data-page="tca">TCA</a>
+      <a href="https://app.powerbi.com/groups/6735d7ce-0aad-4bf5-ac2e-69e2e7568f2d/dashboards/90f601c9-20f3-4476-91c8-99f979638c3b" target="_blank" rel="noopener" class="au-nav__link">Analytics Reports</a>
+      <a href="../home/index.html#agent" class="au-nav__cta secondary">🤖 AI Assistant</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="au-page-hero" data-tab-group="detail-tabs">
+    <div class="au-page-hero__inner">
+      <nav class="au-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="/nevdis">NEVDIS</a>
+        <span class="au-breadcrumb__sep" aria-hidden="true">›</span>
+        <span>Vehicles Gold Data</span>
+      </nav>
+      <div class="au-page-hero__badge">
+        <span class="au-badge au-badge--blue">NEVDIS · Data Element</span>
+      </div>
+      <h1 class="au-page-hero__title">Vehicles Gold Data</h1>
+      <p class="au-page-hero__sub">Manufacturer-supplied vehicle specifications from FCAI/VFACTS — the single source of truth for vehicle identification, enabling accurate registration and compliance matching across jurisdictions.</p>
+      <div class="au-page-hero__tabs" role="tablist" aria-label="Page sections">
+        <button role="tab" class="au-tab active" data-tab-target="gold-overview" aria-selected="true">Overview</button>
+        <button role="tab" class="au-tab " data-tab-target="gold-attributes" aria-selected="false">Attributes</button>
+        <button role="tab" class="au-tab " data-tab-target="gold-access" aria-selected="false">Access &amp; Terms</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-detail-body" data-tab-group="detail-tabs">
+    <div class="au-detail-layout">
+      <div class="au-detail-main">
+        <div id="gold-overview" class="au-tab-content active au-prose">
+          <h3>What it is</h3>
+          <p>Vehicles Gold Data is the authoritative manufacturer-supplied dataset of vehicle specifications held within NEVDIS. It is sourced from the Federal Chamber of Automotive Industries (FCAI) via their VFACTS program, now operated by S&amp;P Global. This data represents the 'gold standard' for vehicle identity and specification matching.</p>
+          <h3>What it contains</h3>
+          <p>Make, model, body type, colour options, engine specifications, ADR compliance data, and high-performance vehicle details (power output, power-to-weight ratio). Each record corresponds to a vehicle variant sold in Australia.</p>
+          <h3>Example uses</h3>
+          <p>Registration validation against manufacturer records, vehicle specification lookups for insurance and fleet management, ADR compliance checking, and cross-referencing with VIN databases.</p>
+        </div>
+        <div id="gold-attributes" class="au-tab-content  au-prose" hidden>
+          <h3>Vehicle Specification Attributes</h3>
+          <div class="au-table-wrap"><table class="au-table"><thead><tr><th>Attribute</th><th>Type</th><th>Example</th><th>Description</th></tr></thead><tbody>
+            <tr><td>Make</td><td><span class="au-type-badge">String</span></td><td>TOYOTA</td><td>Vehicle manufacturer brand</td></tr>
+            <tr><td>Model</td><td><span class="au-type-badge">String</span></td><td>CAMRY</td><td>Vehicle model name</td></tr>
+            <tr><td>Series / Variant</td><td><span class="au-type-badge">String</span></td><td>ATARA S</td><td>Specific series or variant designation</td></tr>
+            <tr><td>Body Type</td><td><span class="au-type-badge">String</span></td><td>SEDAN</td><td>Body style classification</td></tr>
+            <tr><td>Engine Code</td><td><span class="au-type-badge">String</span></td><td>2AR-FE</td><td>Manufacturer engine code</td></tr>
+            <tr><td>Engine Capacity (cc)</td><td><span class="au-type-badge">Number</span></td><td>2494 cc</td><td>Engine displacement in cubic centimetres</td></tr>
+            <tr><td>Fuel Type</td><td><span class="au-type-badge">String</span></td><td>PETROL</td><td>Fuel or power type</td></tr>
+            <tr><td>Transmission</td><td><span class="au-type-badge">String</span></td><td>AUTOMATIC</td><td>Transmission type</td></tr>
+            <tr><td>ADR Compliance Month</td><td><span class="au-type-badge">String</span></td><td>2022-07</td><td>Year/month certified ADR compliant</td></tr>
+            <tr><td>GVM (kg)</td><td><span class="au-type-badge">Number</span></td><td>1855 kg</td><td>Gross Vehicle Mass as specified by manufacturer</td></tr>
+          </tbody></table></div>
+        </div>
+        <div id="gold-access" class="au-tab-content  au-prose" hidden>
+          <h3>Terms of use</h3>
+          <ul>
+            <li>Data sourced from FCAI/VFACTS manufacturer submissions</li>
+            <li>Updated periodically as manufacturers release new models or variants</li>
+            <li>Data provided 'as is' — represents manufacturer specifications at time of supply</li>
+            <li>Not a substitute for registered vehicle records for compliance purposes</li>
+          </ul>
+          <h3>How data flows</h3>
+          <ol class="au-steps">
+            <li><span>Vehicle manufacturers send specification information to FCAI (e.g. make, model, colour, weight).</span></li>
+            <li><span>FCAI (now S&amp;P Global) generates FCAI or HPV files and emails them to NEVDIS as text files.</span></li>
+            <li><span>NEVDIS Data Team loads and validates the file against existing records.</span></li>
+            <li><span>NEVDIS emails the output confirmation file back to FCAI (S&amp;P Global).</span></li>
+          </ol>
+        </div>
+      </div>
+      <aside class="au-detail-sidebar" aria-label="Data details">
+        <div class="au-sidebar-card">
+          <h4>Category</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>NEVDIS · Data Element</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Coverage</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>All vehicles sold in Australia</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Manufacturer-supplied specifications</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Data source</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>FCAI — Federal Chamber of Automotive Industries</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>VFACTS (Vehicle Facts Program)</div>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>S&amp;P Global (current operator)</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Update frequency</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>Periodic — as manufacturers release new models or variants</div>
+        </div>
+        <div class="au-sidebar-card">
+          <h4>Contact</h4>
+          <div class="au-sidebar-item"><span class="au-sidebar-dot" aria-hidden="true"></span>📧 nevdis@austroads.com.au</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="au-footer" role="contentinfo">
+  <div class="au-footer__inner">
+    <div>
+      <div class="au-footer__brand">Austroads Data Info Hub</div>
+      <div class="au-footer__sub">Internal POC · NEVDIS · TCA · For Authorised Users Only</div>
+    </div>
+    <nav class="au-footer__links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/nevdis">NEVDIS</a>
+      <a href="/tca">TCA</a>
+      <a href="https://www.austroads.com.au" target="_blank" rel="noopener">Austroads.com.au</a>
+    </nav>
+    <div class="au-footer__copy">© 2025 Austroads. Internal use only.</div>
+  </div>
+</footer>
+
+<script src="/webfiles/austroads.js"></script>
+<script src="gold.js"></script>
+</body>
+</html>

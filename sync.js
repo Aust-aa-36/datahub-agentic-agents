@@ -3,7 +3,10 @@ const fsSync = require('fs');
 const path = require('path');
 
 const SOURCE_DIR = 'austroads-power-pages';
-const TARGET_BASE_DIR = 'austroads-power-pages-verify2/datahub---datahub';
+const TARGET_DIRS = [
+  'austroads-power-pages-verify2/datahub---datahub',
+  'austroads-power-pages-poc/datahub---datahub'
+];
 
 const MAPPING = {
   'home': 'home',
@@ -28,10 +31,10 @@ const MAPPING = {
   'detail-vehicles-reg': 'vehicles-&-registrations-data'
 };
 
-async function syncSharedCss() {
-  console.log('--- Syncing Shared CSS ---');
+async function syncSharedCss(targetBaseDir) {
+  console.log(`--- Syncing Shared CSS to ${targetBaseDir} ---`);
   const cssPath = path.join(SOURCE_DIR, 'shared', 'austroads.css');
-  const templatePath = path.join(TARGET_BASE_DIR, 'web-templates', 'austroads-layout', 'Austroads-Layout.webtemplate.source.html');
+  const templatePath = path.join(targetBaseDir, 'web-templates', 'austroads-layout', 'Austroads-Layout.webtemplate.source.html');
 
   if (!fsSync.existsSync(cssPath)) {
     console.error(`Source CSS not found: ${cssPath}`);
@@ -59,11 +62,11 @@ async function syncSharedCss() {
   }
 }
 
-async function syncPages() {
-  console.log('--- Syncing Pages ---');
+async function syncPages(targetBaseDir) {
+  console.log(`--- Syncing Pages to ${targetBaseDir} ---`);
   await Promise.all(Object.entries(MAPPING).map(async ([srcFolder, targetFolder]) => {
     const srcPath = path.join(SOURCE_DIR, srcFolder);
-    const targetPath = path.join(TARGET_BASE_DIR, 'web-pages', targetFolder);
+    const targetPath = path.join(targetBaseDir, 'web-pages', targetFolder);
 
     if (!fsSync.existsSync(srcPath)) {
       console.warn(`SKIP: Source folder not found: ${srcPath}`);
@@ -141,9 +144,11 @@ async function syncPages() {
 }
 
 async function main() {
-  await syncSharedCss();
-  await syncPages();
-  console.log('\n--- Sync Complete ---');
+  for (const targetDir of TARGET_DIRS) {
+    await syncSharedCss(targetDir);
+    await syncPages(targetDir);
+  }
+  console.log('\n--- Sync Complete for all targets ---');
 }
 
 if (require.main === module) {

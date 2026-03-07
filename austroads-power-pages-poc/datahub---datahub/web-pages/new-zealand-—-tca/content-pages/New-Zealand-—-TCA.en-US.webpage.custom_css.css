@@ -1,0 +1,5 @@
+/* Detail page styles */
+.au-detail-main { min-width: 0; }
+.au-detail-sidebar { position: sticky; top: 88px; }
+.au-prose h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--au-navy); margin: 28px 0 10px; }
+.au-prose h3:first-child { margin-top: 0; }

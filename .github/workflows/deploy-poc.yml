@@ -1,0 +1,41 @@
+name: Deploy Parallel POC
+
+on:
+  workflow_dispatch: # Manual trigger only for the POC site
+
+jobs:
+  deploy-poc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Sync Source to Deploy Folders
+        run: node sync.js
+
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+
+      - name: Upload to Power Pages (Parallel POC)
+        shell: bash
+        run: |
+          # 1. Create Auth Profile
+          $POWERPLATFORMTOOLS_PACPATH auth create --name "PocDeploy" \
+            --environment "https://datahub-austroads.crm6.dynamics.com" \
+            --applicationId "${{ secrets.CLIENT_ID }}" \
+            --clientSecret "${{ secrets.CLIENT_SECRET }}" \
+            --tenant "${{ secrets.TENANT_ID }}" \
+            --accept-cleartext-caching
+
+          # 2. Upload POC site (Path points to the POC folder with unique ID)
+          $POWERPLATFORMTOOLS_PACPATH pages upload --path "austroads-power-pages-poc/datahub---datahub" \
+            --environment "8bbd70f6-0473-e968-9748-b73f7eed2fc4" \
+            --modelVersion 2
