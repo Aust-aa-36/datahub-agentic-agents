@@ -39,6 +39,6 @@ jobs:
 
           # 2. Upload using the Environment ID to bypass discovery logic
           $POWERPLATFORMTOOLS_PACPATH pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
-            --environment "8bbd70f6-0473-e968-9748-b73f7eed2fc4" \
+            --environment "c7bc7261-cf13-f111-8407-7ced8da15903" \
             --modelVersion 2 \
             --forceUploadAll
