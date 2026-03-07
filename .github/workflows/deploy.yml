@@ -37,8 +37,8 @@ jobs:
             --tenant "${{ secrets.TENANT_ID }}" \
             --accept-cleartext-caching
 
-          # 2. Upload using the specific Website GUID
+          # 2. Upload using the Full Environment URL to bypass discovery logic
           $POWERPLATFORMTOOLS_PACPATH pages upload --path "austroads-power-pages-verify2/datahub---datahub" \
-            --environment "c7bc7261-cf13-f111-8407-7ced8da15903" \
+            --environment "https://datahub-austroads.crm6.dynamics.com" \
             --modelVersion 2 \
             --forceUploadAll
