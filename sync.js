@@ -64,16 +64,17 @@ async function syncAndInline(targetBaseDir) {
   console.log('SUCCESS: Inlined Home CSS and JS.');
 
   // 4. Sync other pages (HTML only)
-  for (const [srcFolder, targetFolder] of Object.entries(MAPPING)) {
-    if (srcFolder === 'home') continue;
+  // Bolt: Optimized sync speed by processing file I/O operations concurrently using Promise.all
+  await Promise.all(Object.entries(MAPPING).map(async ([srcFolder, targetFolder]) => {
+    if (srcFolder === 'home') return;
     const srcPath = path.join(SOURCE_DIR, srcFolder);
     const targetPath = path.join(targetBaseDir, 'web-pages', targetFolder);
     
-    if (!fsSync.existsSync(srcPath) || !fsSync.existsSync(targetPath)) continue;
+    if (!fsSync.existsSync(srcPath) || !fsSync.existsSync(targetPath)) return;
 
     const targetFiles = await fs.readdir(targetPath);
     const ymlFile = targetFiles.find(f => f.toLowerCase().endsWith('.webpage.yml'));
-    if (!ymlFile) continue;
+    if (!ymlFile) return;
     const baseName = ymlFile.split('.')[0];
 
     const srcFiles = await fs.readdir(srcPath);
@@ -86,17 +87,21 @@ async function syncAndInline(targetBaseDir) {
         await fs.writeFile(cpPath, content);
       }
     }
-  }
+  }));
 }
 
 async function main() {
-  for (const targetDir of TARGET_DIRS) {
+  await Promise.all(TARGET_DIRS.map(async (targetDir) => {
     await syncAndInline(targetDir);
-  }
+  }));
   console.log('\n--- Emergency Sync Complete ---');
 }
 
-main().catch(err => {
-  console.error('Fatal error during sync:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fatal error during sync:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = { syncAndInline, main };
