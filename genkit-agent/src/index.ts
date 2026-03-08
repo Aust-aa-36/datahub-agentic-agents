@@ -90,11 +90,13 @@ const getKnowledgeTool = ai.defineTool(
     console.log(`[RAG] Fetching knowledge for ${input.product || input.domain} for role ${input.userRole}`);
 
     // OData Query with Filter and Expand
+    const safeProduct = input.product ? encodeURIComponent(input.product.replace(/'/g, "''")) : '';
+    const safeUserRole = input.userRole ? encodeURIComponent(input.userRole.replace(/'/g, "''")) : '';
     const url = `${process.env.DATAVERSE_URL}/api/data/v9.2/cre52_knowledge_articles` +
                 `?$filter=cre52_domain eq ${domainValue} and cre52_status eq 1` +
-                (input.product ? ` and cre52_product_slug eq '${input.product}'` : '') +
+                (safeProduct ? ` and cre52_product_slug eq '${safeProduct}'` : '') +
                 `&$expand=cre52_product_field_RelatedArticle($select=cre52_field_name,cre52_field_description)` +
-                `&$expand=cre52_entitlement_RelatedArticle($filter=cre52_web_role_name eq '${input.userRole}')`;
+                `&$expand=cre52_entitlement_RelatedArticle($filter=cre52_web_role_name eq '${safeUserRole}')`;
 
     const response = await axios.get(url, { headers: { Authorization: `Bearer ${token}` } });
     
@@ -198,10 +200,10 @@ export const datahubOrchestratorFlow = ai.defineFlow(
  * SERVER SETUP
  * Starts the Genkit flow server with CORS enabled.
  */
-ai.startFlowServer({
+(ai as any).startFlowServer({
   flows: [datahubOrchestratorFlow],
   cors: {
-    origin: (origin, callback) => {
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
       // Allow if origin is in ALLOWED_ORIGINS list or if no origin (e.g. server-to-server)
       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
         callback(null, true);
